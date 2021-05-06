@@ -1,7 +1,11 @@
-*Markdown language is a language similar to HTML that is used for writing .md files. There are many different formats that can be used to alter the look of the font and the text.
-*Images can be imported by using ![<alternative name>](<image URL). If the image is located in the Github repository then the URL link of the image in the Github page can be used as the URL (e.g. https://github.com/Ezs377/Programming-notes/blob/main/Images/Programming%20paradigms.jpg). If the URL is wrong or there is no image the alternative text is used instead.
+Markdown language is a language similar to HTML that is used for writing .md files. There are many different formats that can be used to alter the look of the font and the text.
+
+Images can be imported by using ![<alternative name>](<image URL). If the image is located in the Github repository then the URL link of the image in the Github page can be used as the URL (e.g. https://github.com/Ezs377/Programming-notes/blob/main/Images/Programming%20paradigms.jpg). If the URL is wrong or there is no image the alternative text is used instead.
+
 For **bold** text, use a double asterisk ( **<text>**).
+
 For *italic* text, use a single asterisk ( *<text>* ).
+
 For lists:
 - Use numbers to make a numbered list. Example:
 
@@ -31,6 +35,7 @@ Use triple backticks or indent 4 spaces before a line to write longer code. Exam
     Written with 4-spaces indent
 	if x = 2:
 		print ('cool')
+
 
 You can also specify the programming language code you're writing to make the colors come out as well 
 ```Python
