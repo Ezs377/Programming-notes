@@ -4,9 +4,9 @@ New linees are created by simply adding a blank line in between. Note that there
 
 Images can be imported by using \![\<alternative name>](\<image URL>). If the image is located in the Github repository then the URL link of the image in the Github page can be used as the URL (e.g. https://github.com/Ezs377/Programming-notes/blob/main/Images/Programming%20paradigms.jpg). If the URL is wrong or there is no image the alternative text is used instead.
 
-For **bold** text, use a double asterisk ( \**<text>**).
+For **bold** text, use a double asterisk ( \**\<text>**).
 
-For *italic* text, use a single asterisk ( \*<text>* ).
+For *italic* text, use a single asterisk ( \*\<text>* ).
 
 For lists:
 - Use numbers to make a numbered list. Example:
