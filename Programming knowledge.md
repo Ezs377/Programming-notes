@@ -3,7 +3,7 @@ Programming paradigms:
 A programming paradigm is a method of writing code for a program. Paradigms present ways for programmers to write their code in a certain way that makes it easier to do a certain thing with the code (e.g. Debugging). 
 List of common paradigms:
 
-![List](https://github.com/Ezs377/Programming-notes/blob/Images/Programming%20paradigms.jpg?raw=true)
+![List](https://github.com/Ezs377/Programming-notes/blob/main/Images/Programming%20paradigms.jpg?raw=true)
 
 The programming paradigms can be classified into 2 major groups:
 
