@@ -29,7 +29,12 @@ For lists:
 
 > A right arrow ( > ) is used to write quotes
 
-To write code in the text, use a backtick symbol <!--( ` )--> (it's usually right under the esc key). Codes can only be read if the md file is run on Github. Otherwise it will just show up as normal text.
+Using a backslash ( \\ ) will cancel out the next character afterwards, useful for writing certain characters without accidentally formatting the text. Example:
+
+## Heading not backslashed
+\## Heading backslashed
+
+To write code in the text, use a backtick symbol ( \` )(it's usually right under the esc key). Codes can only be read if the md file is run on Github. Otherwise it will just show up as normal text.
 `This is short code`
 
 Use triple backticks or indent 4 spaces before a line to write longer code. Example:
