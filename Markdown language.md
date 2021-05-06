@@ -2,11 +2,11 @@ Markdown language is a language similar to HTML that is used for writing .md fil
 
 New linees are created by simply adding a blank line in between. Note that there has to be a blank line between paragraphs, otherwise they are combined into one paragraph.
 
-Images can be imported by using ![<alternative name>](<image URL). If the image is located in the Github repository then the URL link of the image in the Github page can be used as the URL (e.g. https://github.com/Ezs377/Programming-notes/blob/main/Images/Programming%20paradigms.jpg). If the URL is wrong or there is no image the alternative text is used instead.
+Images can be imported by using \![<alternative name>](<image URL>). If the image is located in the Github repository then the URL link of the image in the Github page can be used as the URL (e.g. https://github.com/Ezs377/Programming-notes/blob/main/Images/Programming%20paradigms.jpg). If the URL is wrong or there is no image the alternative text is used instead.
 
-For **bold** text, use a double asterisk ( **<text>**).
+For **bold** text, use a double asterisk ( \**<text>**).
 
-For *italic* text, use a single asterisk ( *<text>* ).
+For *italic* text, use a single asterisk ( \*<text>* ).
 
 For lists:
 - Use numbers to make a numbered list. Example:
@@ -15,19 +15,19 @@ For lists:
   2. Two
   3. Three
   
-* Use a single asterisk ( * ) at the start of a line to create bullet points
+* Use a single asterisk ( \* ) at the start of a line to create bullet points
 
-- Or alternatively, use a dash ( - )
+- Or alternatively, use a dash ( \- )
   - Adding 2 spaces before a dash creates a sub-bullet point
 
-# Headings are created by using a hashtag ( # ). More hashtags mean smaller font. A maximum of 6 hashtags can be used for 6 different heading sizes
+# Headings are created by using a hashtag ( \# ). More hashtags mean smaller font. A maximum of 6 hashtags can be used for 6 different heading sizes
 ## Tier 2 heading
 ### Tier 3 heading
 #### Tier 4 heading
 ##### Tier 5 heading
 ###### Tier 6 heading
 
-> A right arrow ( > ) is used to write quotes
+> A right arrow ( \> ) is used to write quotes
 
 Using a backslash ( \\ ) will cancel out the next character afterwards, useful for writing certain characters without accidentally formatting the text. Example:
 
