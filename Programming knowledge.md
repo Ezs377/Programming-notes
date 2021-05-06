@@ -12,15 +12,16 @@ The programming paradigms can be classified into 2 major groups:
 
 - **Procedural Programming Paradigm:** This paradigm utilises blocks of code that tell the program how to do a certain task by writing code step-by-step. Similar to functions, except where functions usually return a value, a procedure is simply a list of instructions for the program. Examples of procedures include While loops, For loops, etc. This paradigm is mostly associated with programs that require other developers to be able to easily view the code without being confused or the program isn’t going to be updated with new code for a while.
 - Advantages: 
-  -Easier to follow code 
-  -Simpler to program
-  -Efficient memory usage
+  - Easier to follow code 
+  - Simpler to program
+  - Efficient memory usage
+ 
 - Disadvantages:
-  -Everything has to work together properly
-  -A single change to part of the code might mean everything else has to be changed
-  -Code becomes more complicated the longer it gets, meaning it becomes less efficient for large programs (as in, professional business programs, high standard video games, etc).
-  -It becomes more difficult for other programmers to work together to create the program, as each programmer will program in a different way, which messes with the program as a whole.
-  -Code is programmed a certain way, so it is usually very difficult to combine other programs with the code.
+  - Everything has to work together properly
+  - A single change to part of the code might mean everything else has to be changed
+  - Code becomes more complicated the longer it gets, meaning it becomes less efficient for large programs (as in, professional business programs, high standard video games, etc).
+  - It becomes more difficult for other programmers to work together to create the program, as each programmer will program in a different way, which messes with the program as a whole.
+  - Code is programmed a certain way, so it is usually very difficult to combine other programs with the code.
 **Object Oriented Programming:** This paradigm utilises classes to create objects that are used by the program to run. An 
 **Parallel Processing Approach:**
 
