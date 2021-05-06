@@ -1,4 +1,4 @@
-## Python
+# Python
 **Generally useful info:**  
 Boolean expressions (eg. `If`, `While`, `And`) can take in a `True` or `False` value, which determines if the expression is initiated or not.
 Aside from `True` and `False`, other characters can be used as replacements. `True` and `False` are constants, and will always mean yes or no by Python.
@@ -16,34 +16,47 @@ Aside from `True` and `False`, other characters can be used as replacements. `Tr
   - The string `False`, ‘None’
 
 This also lets variables be used directly for boolean expressions as variables can be any of these characters, allowing them to be used directly without any operator. 
-Eg. Instead of using `If x != 0:` it is possible to instead use `If x:` as if `x` is not zero, then it must be `True`, 
-considering that non zero integers are considered `True`. To reverse the expression use a `not` operator, which basically returns the opposite of the state of the character. 
-Eg. `If x:` will return a `True` statement if `x` is not zero, and execute the program. However, if we want the program to not run when `x` is not zero, we can use `if not x:` instead, as if `x` is not zero, then it will return a `True` statement, 
-which is reversed by the `not` operator, rendering it `False` (`not True` = `False`). So the program reads the statement as `False` and will not execute it.
+Eg. Instead of using `If x != 0:` it is possible to instead use `If x:` as if `x` is not zero, then it must be `True`, considering that non zero integers are considered `True`. 
+To reverse the expression use a `not` operator, which basically returns the opposite of the state of the character. Eg. `If x:` will return a `True` statement if 
+`x` is not zero, and execute the program. However, if we want the program to not run when `x` is not zero, we can use `if not x:` instead, as if `x` is not zero, then it will 
+return a `True` statement, which is reversed by the `not` operator, rendering it `False` (`not True` = `False`). So the program reads the statement as `False` and will not execute it.
 
-*Technical Python terms:*
+**Technical Python terms:**
 An argument is a value that goes into brackets in a function/method. E.g. `writefunction(x, y)` means that a function called `writefunction` can 
-take 2 arguments, `x` and `y``. An argument can be thought of as an input to a function. Python contains a lot of in-built functions and methods, such as len(x) which is a function that counts the amount of items in x (a data structure) and returns an integer value that is the full count of items within x. x is an argument for len(x). Usually if you put a list in the brackets, that list is an argument for the function, and printing len(list) will give you a number that tells you the amount of items in the list. Some functions/methods don’t have arguments, such as upper(), which converts a string into all uppercase without an argument. When a function/method needs an argument, make sure that there is a valid argument in the brackets before running code otherwise error. However, some arguments are optional, and won’t become an error if they are not filled in the brackets. It depends on what you want your code to do.
+take 2 arguments, `x` and `y``. An argument can be thought of as an input to a function. Python contains a lot of in-built functions and methods, such as `len(x)` 
+which is a function that counts the amount of items in `x` (a data structure) and returns an integer value that is the full count of items within `x`. 
+`x` is an argument for `len(x)`. Usually if you put a list in the brackets, that list is an argument for the function, and printing `len(list)` will give you a number 
+that tells you the amount of items in the list. Some functions/methods don’t have arguments, such as `upper()`, which converts a string into all uppercase without an argument. 
+When a function/method needs an argument, make sure that there is a valid argument in the brackets before running code otherwise error. However, some arguments are optional, and 
+won’t become an error if they are not filled in the brackets. It depends on what you want your code to do.
 
-A statement is a block of code that lets you run a set of code separately to the main program. If, While, For loops are examples of statements. Basically, anything that is indented in the program is considered part of a statement. WHen running a statement, the program will usually read what kind of statement it is (e.g. A While loop), and proceed to run the indented code under the statement according to the statement. For example, the statement while x >= 5:  will cause the program to pause the whole program, and run any code that is part of the statement, while running the While loop until the conditions are met (which is, x is higher or equal to the number 5). A bigger example of a statement:
+A statement is a block of code that lets you run a set of code separately to the main program. `If`, `While`, and `For` loops are examples of statements. Basically, anything 
+that is indented in the program is considered part of a statement. When running a statement, the program will usually read what kind of statement it is (e.g. A `While` loop), and 
+proceed to run the indented code under the statement according to the statement. For example, the statement while `x >= 5:`  will cause the program to pause the whole program, and 
+run any code that is part of the statement, while running the `While` loop until the conditions are met (which is, `x` is higher or equal to the number 5). A bigger example of a statement:
 
+```Python
 For a in [5, 2, 1]:
 	print (a)
 	number = a+1
 	print (number)
 print (‘done’)
+```
 
-In this example, the statement is the For loop, which causes the program to run a specific set of code until it stops looping, ignoring the rest of the code until the statement is finished. The program will not print ‘done’ untilt For loop is finished (the statement is done)(i.e. The program will not run anything that is after the For loop until the For loop is finished looping). A statement doesn’t have to be a loop, it is anything that allows the program to run a specific set of code within the program (such as If statements). There are many different types of statements. ‘For’ is an example of a looping statement, while ‘If’ is an example of a conditional statement.
+In this example, the statement is the `For` loop, which causes the program to run a specific set of code until it stops looping, ignoring the rest of the code until the statement is finished. 
+The program will not print ‘done’ until `For` loop is finished (the statement is done)(i.e. The program will not run anything that is after the `For` loop until the `For` loop is finished looping). 
+A statement doesn’t have to be a loop, it is anything that allows the program to run a specific set of code within the program (such as `If` statements). There are many different types of statements. 
+`For` is an example of a looping statement, while `If` is an example of a conditional statement.
 
 A sequence/iteration is a repeated procedure that will repeat the same thing until it is told to stop. An example would be using a loop.
+<!---Add more stuff here--->
 
+**File writing:**
+First, a variable needs to be allocated to the text file. Use `<variable1> = open(<filename>, <option>)`. Options include `r`, `w`, `a`, `x`.
+`r` is for file reading only, cannot write to the file. `w` is write and read, can write to a file. `a` is used to add to a file without erasing its contents. `x` is used to create a new file. 
+Once a variable is allocated to a text file via one of the modes, another variable has to be used if you want to read the file. 
 
-
-FIle writing:
-First, a variable needs to be allocated to the text file. Use <variable1> = ‘open(<filename>, <option>). Options include ‘r’, ‘w’, ‘a’, ‘x’.
-‘r’ Is for file reading only, cannot write to the file. ‘w’ is write and read, can write to a file. ‘a’ is used to add to a file without erasing its contents. ‘x’ is used to create a new file. Once a variable is allocated to a text file via one of the modes, another variable has to be used if you want to read the file. 
-
-!!! Using ‘w’ mode on a file completely deletes its contents !!!
+**!!! Using `w`mode on a file completely deletes its contents !!!**
 
 For example: <variable2> = <variable1>.read()
 Then to edit text use <variable2>. The <variable1> is only used to take out the contents of a text file so Python can receive it. 
