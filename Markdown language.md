@@ -1,5 +1,7 @@
 Markdown language is a language similar to HTML that is used for writing .md files. There are many different formats that can be used to alter the look of the font and the text.
 
+New linees are created by simply adding a blank line in between. Note that there has to be a blank line between paragraphs, otherwise they are combined into one paragraph.
+
 Images can be imported by using ![<alternative name>](<image URL). If the image is located in the Github repository then the URL link of the image in the Github page can be used as the URL (e.g. https://github.com/Ezs377/Programming-notes/blob/main/Images/Programming%20paradigms.jpg). If the URL is wrong or there is no image the alternative text is used instead.
 
 For **bold** text, use a double asterisk ( **<text>**).
@@ -27,7 +29,7 @@ For lists:
 
 > A right arrow ( > ) is used to write quotes
 
-To write code in the text, use a backtick symbol ( ` )(it's usually right under the esc key). Codes can only be read if the md file is run on Github. Otherwise it will just show up as normal text.
+To write code in the text, use a backtick symbol `( ` )`(it's usually right under the esc key). Codes can only be read if the md file is run on Github. Otherwise it will just show up as normal text.
 `This is short code`
 
 Use triple backticks or indent 4 spaces before a line to write longer code. Example:
