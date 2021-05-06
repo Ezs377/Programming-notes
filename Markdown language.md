@@ -1,6 +1,12 @@
 Markdown language is a language similar to HTML that is used for writing .md files. There are many different formats that can be used to alter the look of the font and the text.
 
-New linees are created by simply adding a blank line in between. Note that there has to be a blank line between paragraphs, otherwise they are combined into one paragraph.
+New lines are created by simply adding a blank line in between. Note that there has to be a blank line between paragraphs, otherwise they are combined into one paragraph.
+
+Adding two whitespaces after a line allows the text to have a linebreak. ALternatively use the HTML tag for a linebreak, which is \<br>
+
+Linebreak example  
+linebreak example<br>
+linebreak example
 
 Images can be imported by using \![\<alternative name>](\<image URL>). If the image is located in the Github repository then the URL link of the image in the Github page can be used as the URL (e.g. https://github.com/Ezs377/Programming-notes/blob/main/Images/Programming%20paradigms.jpg). If the URL is wrong or there is no image the alternative text is used instead.
 
