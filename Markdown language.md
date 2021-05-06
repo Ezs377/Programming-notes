@@ -2,7 +2,7 @@ Markdown language is a language similar to HTML that is used for writing .md fil
 
 New linees are created by simply adding a blank line in between. Note that there has to be a blank line between paragraphs, otherwise they are combined into one paragraph.
 
-Images can be imported by using \![<alternative name>](<image URL>). If the image is located in the Github repository then the URL link of the image in the Github page can be used as the URL (e.g. https://github.com/Ezs377/Programming-notes/blob/main/Images/Programming%20paradigms.jpg). If the URL is wrong or there is no image the alternative text is used instead.
+Images can be imported by using ![\<alternative name>](<image URL>). If the image is located in the Github repository then the URL link of the image in the Github page can be used as the URL (e.g. https://github.com/Ezs377/Programming-notes/blob/main/Images/Programming%20paradigms.jpg). If the URL is wrong or there is no image the alternative text is used instead.
 
 For **bold** text, use a double asterisk ( \**<text>**).
 
