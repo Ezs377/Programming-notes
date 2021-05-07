@@ -97,10 +97,10 @@ An example of the reference format: \[<label>]: \<URL> (optional title)
 An example of the link format: \[<text>] [<label>]  
 An example using the reference link format:
 
-[My Github page][website]
+[My Github page][1]
 
 The code is avaialble so you can see what is going on
 
-[website] https://github.com/Ezs377/Programming-notes (Github page)
+[1]: https://github.com/Ezs377/Programming-notes (Github page)
 
 
