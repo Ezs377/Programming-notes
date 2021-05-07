@@ -1,7 +1,6 @@
 # MD Language
 Markdown language is a language similar to HTML that is used for writing .md files. There are many different formats that can be used to alter the look of the font and the text.
-Markdown language is much simpler to write than pure HTML, as HTML requires several tags that take quite a while. There are a lot of programs that can make writing HTML easier, 
-but markdown language is simple enough on its own. 
+Markdown language is much simpler to write than pure HTML, as HTML requires several tags that take quite a while. There are a lot of programs that can make writing HTML easier, but markdown language is simple enough on its own. 
 
 New lines are created by simply adding a blank line in between. Note that there has to be a blank line between paragraphs, otherwise they are combined into one paragraph.
 
@@ -76,9 +75,7 @@ print ("done")
 To write a horizontal line breaker, use a triple dash or asterisk on a line by itself.
 ***
 
-
-Images can be imported by using \![\<alternative name>](\<image URL>). If the image is located in the Github repository then the URL link of the image in the Github page can be used as the URL 
-(e.g. https://github.com/Ezs377/Programming-notes/blob/main/Images/Programming%20paradigms.jpg). If the URL is wrong or there is no image the alternative text is used instead.
+Images can be imported by using \![\<alternative name>](\<image URL>). If the image is located in the Github repository then the URL link of the image in the Github page can be used as the URL (e.g. https://github.com/Ezs377/Programming-notes/blob/main/Images/Programming%20paradigms.jpg). If the URL is wrong or there is no image the alternative text is used instead.
 
 Links are imported the same way, except without the exclamation mark, like this: \[\<text>](\<link URL>).
 
@@ -90,9 +87,7 @@ For URLs, use \%20 as spaces instead of just spacing the words in a URL.
 
 Links can be formatted like normal text (Italic, bold, quoted, etc)
 
-Reference style links can be used. These links are tidier and easier to read when written in the code, but produce the same output as a normal link when the page is read by software.
-To use such links, firstly create a reference link that is stored anywhere in the md file. The label for this link is closed in square brackets (\[ ] ). This is followed by the URL, 
-and finally an optional title for the link that is closed in either quotation marks or brackets. To reference this link, the linked text is closed in square brackets (\[ ]), folloed by the label which is also in square brackets.
+Reference style links can be used. These links are tidier and easier to read when written in the code, but produce the same output as a normal link when the page is read by software. To use such links, firstly create a reference link that is stored anywhere in the md file. The label for this link is closed in square brackets (\[ ] ). This is followed by the URL, and finally an optional title for the link that is closed in either quotation marks or brackets. To reference this link, the linked text is closed in square brackets (\[ ]), folloed by the label which is also in square brackets.
 An example of the reference format: \[<label>]: \<URL> (optional title)  
 An example of the link format: \[<text>] [<label>]  
 An example using the reference link format:
