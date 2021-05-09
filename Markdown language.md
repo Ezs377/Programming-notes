@@ -88,8 +88,8 @@ For URLs, use \%20 as spaces instead of just spacing the words in a URL.
 Links can be formatted like normal text (Italic, bold, quoted, etc)
 
 Reference style links can be used. These links are tidier and easier to read when written in the code, but produce the same output as a normal link when the page is read by software. To use such links, firstly create a reference link that is stored anywhere in the md file. The label for this link is closed in square brackets (\[ ] ). This is followed by the URL, and finally an optional title for the link that is closed in either quotation marks or brackets. To reference this link, the linked text is closed in square brackets (\[ ]), folloed by the label which is also in square brackets.
-An example of the reference format: \[<label>]: \<URL> (optional title)  
-An example of the link format: \[<text>] [<label>]  
+An example of the reference format: \[\<label>]: \<URL> (optional title)  
+An example of the link format: \[\<text>] [\<label>]  
 An example using the reference link format:
 
 [My Github page][1]
