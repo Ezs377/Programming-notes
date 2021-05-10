@@ -16,6 +16,8 @@ For *italic* text, use a single asterisk ( \*\<text>* ).
 
 For both ***bold and italic***, use triple asterisks  (\***\<text>**)
 
+For ~~strikethoughs~~, use double tildes (\~~)
+
 For lists:
 - Use numbers to make a numbered list. Example:
 
