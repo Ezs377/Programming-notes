@@ -1,6 +1,6 @@
 # MD Language
 Markdown language is a language similar to HTML that is used for writing .md files. There are many different formats that can be used to alter the look of the font and the text.
-Markdown language is much simpler to write than pure HTML, as HTML requires several tags that take quite a while. There are a lot of programs that can make writing HTML easier, but markdown language is simple enough on its own. 
+Markdown language is much simpler to write than pure HTML, as HTML requires several tags that take quite a while. There are a lot of programs that can make writing HTML easier, but markdown language is simple enough on its own. It is possible to use HTML and Markdown language together in one page. Markdown is easier to write, but HTML is more customizable and has more features. However, HTML and Markdown code needs to be separate (e.g. not in the same line) and HTML is usually not indented when writing it in Markdown language.
 
 New lines are created by simply adding a blank line in between. Note that there has to be a blank line between paragraphs, otherwise they are combined into one paragraph.
 
@@ -58,7 +58,7 @@ Using a backslash ( \\ ) will cancel out the next character afterwards, useful f
 To write code in the text, use a backtick symbol ( \` )(it's usually right under the esc key). Codes can only be read if the md file is run on Github. Otherwise it will just show up as normal text.
 `This is short code`
 
-Use triple backticks or indent 4 spaces before a line to write longer code. Example:
+Use triple backticks or indent 4 spaces before a line to write longer code (only on certain markdown processors). Example:
 
     Written with 4-spaces indent
 	if x = 2:
@@ -100,4 +100,8 @@ The code is avaialble so you can see what is going on
 
 [1]: https://github.com/Ezs377/Programming-notes (Github page)
 
+## Github specific md language:
+Github utilises its own version of markdown language, Github Flavored Markdown (GFM). This version allows people to add in more features using markdown language. Not all markdown language processors (software) can run all features, so ensure these features can be displayed with your software before writing the code.
 
+**Tables**
+A table is created by using hyphens ( \- ) and pipes ( \|\)
