@@ -66,24 +66,12 @@ Changeable: Elements in the list can be altered, removed, or added
 Allow duplicates: Duplicate elements are allowed and considered 2 separate elements in a list  
 No duplicates: Duplicate elements aren’t allowed and previous value will be overwritten by the newer value if there is duplicate
 
-<!---Format into a table
-Lists
-Dictionaries
-Tuples
-Sets
-Ordered
-Ordered
-Ordered
-Unordered
-Changeable
-Changeable
-Unchangeable
-Unchangeable 
-Allow duplicates
-No duplicates
-Allow duplicates
-No duplicates
---->
+| Lists | Dictionaries | Tuple | Sets |
+| :--- | :--- | :--- | :--- |
+| Ordered | Ordered | Ordered | Unordered |
+| Changeable | Changeable | Unchangeable | Unchangeable | 
+| Allow duplicates | No duplicates | Allow duplicates | No duplicates |
+
 
 Dictionaries are ordered as of Python 3.7 and onwards  
 New values can still be added to sets, but cannot edit values or delete values  
@@ -105,12 +93,11 @@ This loop continues for a certain amount of times given. Usually, a `for` loop w
 ### Methods: 
 Methods are like functions, except they take data from an object in order to return a value. Most methods don’t have arguments as they do not require other data.
 
-###Objects: 
+### Objects: 
 An object is a certain type of data used by a program to organize different data values into each data type which makes it easier for the computer to run a program. For example, integers are considered an object, and is an integer data type. Integers are a different data type to string, which displays characters that may include numbers, but cannot use these numbers to calculate as they are not an integer data type. 
 
 ### Classes: 
-A class is basically a blueprint for creating objects. String, integers, are part of a class (strings belong to the str class, integers belong to the int class). This way it lets Python classify values as certain ‘objects’ which makes it easier for a computer to run the program. 
-
+A class is basically a blueprint for creating objects. String, integers, are part of a class (strings belong to the str class, integers belong to the int class). This way it lets Python classify values as certain ‘objects’ which makes it easier for a computer to run the program. Classes are often called using `class: <class name>:`. `self` is the parameter that a class uses to access other variables within the class. It does not have to be named `self`, but it is always the first variable referenced in a class `init`.
 
 
 ### Modules: 
