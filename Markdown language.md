@@ -105,3 +105,17 @@ Github utilises its own version of markdown language, Github Flavored Markdown (
 
 **Tables**
 A table is created by using hyphens ( \- ) and pipes ( \|\)
+| For example | This is a header |
+| ----------- | ---------------- |
+| This is text | This is more text | 
+
+| Use \----- in a row | to separate headers | from text |
+| :--- | :---: | ---: |
+| Left indent, \:--- | Middle indent, \:---: | Right indent, ---: |
+
+Heading ID's can be used to scroll automatically to a heading using a link.
+### To use a heading ID, add curly brackets with the ID inside ( \{ } )
+Then link it in a link by using a hashtag instead of a slash
+For example:  
+#### Heading with ID {#id1}  
+[Link that goes to heading with ID](#id1)
