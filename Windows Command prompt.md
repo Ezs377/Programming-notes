@@ -29,10 +29,11 @@
 
 ### Changing directories:
 1. Type main drive (`C:` or `D:` dependeing on your computer).
-2. Alternatively type `cd`, followed by `/D`, followed by a drive, followed by directory path to immediately move drives and directories.
+2. Alternatively type `cd`, followed by `/D`, followed by a drive, followed by directory path to immediately move drives and directories. A directory path typicall looks something like `d:/EZ/download/Git`.
 3. Use `cd` to navigate files/folders, by using slashes (\/) to separate folders. For example, `cd D:/download/Git` will first navigate to D drive, then to the `EZ` folder, then to the `download` folder, and finally the `Git` folder. 
 4. Use `dir` to view files in a folder. For example, `dir Git` will show all files in that folder.
 5. Use `cd..` to move back to previous folder/directory.
+6. For files and folders that have a space in the name, use quotation marks ( " " ) to enclose the full name. For example, to navigate to the folder `Speeding camera assessment` the path would be `cd "Speeding camera assessment"`
 
 ### Using prompt for Python:
 Set directory path to Python folder (E.g. `D:\EZ\Download\Python`). Then python commands are available. Python files can be opened by typing the name of the file as long as it is in the current folder. Use speech marks ( “ “ ) to close the full name of the file to run it, otherwise the command prompt will read the first word only and will raise an error. For example, to run the Python file `My calculator`, it will need to be typed as `“My calculator.py”` in the command prompt to run it within the command prompt. 
