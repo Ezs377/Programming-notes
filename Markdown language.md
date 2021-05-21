@@ -103,6 +103,8 @@ The code is avaialble so you can see what is going on
 ## Github specific md language:
 Github utilises its own version of markdown language, Github Flavored Markdown (GFM). This version allows people to add in more features using markdown language. Not all markdown language processors (software) can run all features, so ensure these features can be displayed with your software before writing the code.
 
+#### Heading with ID (for later) {#id1}  
+
 **Tables**
 A table is created by using hyphens ( \- ) and pipes ( \|\)
 | For example | This is a header |
@@ -117,12 +119,4 @@ Heading ID's can be used to scroll automatically to a heading using a link.
 ### To use a heading ID, add curly brackets with the ID inside ( \{ } )
 Then link it in a link by using a hashtag instead of a slash
 For example:  
-#### Heading with ID {#id1}  
-
-	
-	
-	
-	
-
-
 [Link that goes to heading with ID](#id1)
