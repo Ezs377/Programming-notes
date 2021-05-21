@@ -77,6 +77,8 @@ print ("done")
 To write a horizontal line breaker, use a triple dash or asterisk on a line by itself.
 ***
 
+#### Heading with ID (for later) {#id1}
+
 Images can be imported by using \![\<alternative name>](\<image URL>). If the image is located in the Github repository then the URL link of the image in the Github page can be used as the URL (e.g. https://github.com/Ezs377/Programming-notes/blob/main/Images/Programming%20paradigms.jpg). If the URL is wrong or there is no image the alternative text is used instead.
 
 Links are imported the same way, except without the exclamation mark, like this: \[\<text>](\<link URL>).
@@ -101,9 +103,7 @@ The code is avaialble so you can see what is going on
 [1]: https://github.com/Ezs377/Programming-notes (Github page)
 
 ## Github specific md language:
-Github utilises its own version of markdown language, Github Flavored Markdown (GFM). This version allows people to add in more features using markdown language. Not all markdown language processors (software) can run all features, so ensure these features can be displayed with your software before writing the code.
-
-#### Heading with ID (for later) {#id1}  
+Github utilises its own version of markdown language, Github Flavored Markdown (GFM). This version allows people to add in more features using markdown language. Not all markdown language processors (software) can run all features, so ensure these features can be displayed with your software before writing the code.  
 
 **Tables**
 A table is created by using hyphens ( \- ) and pipes ( \|\)
