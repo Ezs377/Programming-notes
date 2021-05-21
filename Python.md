@@ -97,7 +97,7 @@ Methods are like functions, except they take data from an object in order to ret
 An object is a certain type of data used by a program to organize different data values into each data type which makes it easier for the computer to run a program. For example, integers are considered an object, and is an integer data type. Integers are a different data type to string, which displays characters that may include numbers, but cannot use these numbers to calculate as they are not an integer data type. 
 
 ### Classes: 
-A class is basically a blueprint for creating objects. String, integers, are part of a class (strings belong to the str class, integers belong to the int class). This way it lets Python classify values as certain ‘objects’ which makes it easier for a computer to run the program. Classes are often called using `class: <class name>:`. `self` is the parameter that a class uses to access other variables within the class. It does not have to be named `self`, but it is always the first variable referenced in a class `init`.
+A class is basically a blueprint for creating objects. String, integers, are part of a class (strings belong to the str class, integers belong to the int class). This way it lets Python classify values as certain ‘objects’ which makes it easier for a computer to run the program. Classes are often called using `class: <class name>:`. `self` is the parameter that a class uses to access other variables within the class. It does not have to be named `self`, but it is always the first variable referenced in a class `init`. 
 
 
 ### Modules: 
@@ -114,5 +114,22 @@ A table of accepted arguments (eg. `%B`) can be found by looking it up.
 Datetime can be used to express a time or find the current time. `Datetime.now()` will provide the current time registered on your device, while `datetime(<int>, <int>, <int>)` will present a specified time. Datetime orders time formats as `<year>, <month>, <day>, <hour>, <minute>, <second>, <microsecond>`.
 
 `Timedelta()` is another object in the datetime module that can tell the difference between two time values. For example, `difference = time - timedelta(hours=13)` will minus 13 hours from `time` (which is a variable that has a datetime value). `Timedelta` requires a specific value followed by an integer, and uses string values to specify the format. For example, `hours=5` means 5 hours. `Years=2` means 2 years. 
+
+### __name__ variable:
+The `__name__` variable is an inbuilt variable in Python that lets programs tell the difference between imported modules and modules inside other modules. `__name__` always defaults to `__main__` if `__name__` is being used in the program. However, if you make another program and import that program as a module in your original program, the `__name__` in your imported module will match the name of the module, instead of `__main__`. For example, take program 1 and program 2.
+
+```Python
+# Program1
+print (__name__)
+```
+
+```Python
+# Program2
+import Program1
+print (__name__)
+```
+
+If you run `Program1` by itself, `__name__` will equal `__main__`, as the `__name__` variable is being used in the same program. However, if you run `Program2`, you will get `Program1` and `__main__` as your outputs. This is because `__name__` becomes the name of the imported module if it is being used inside that module (`Program1`). Since `Program1` runs the `__name__` variable while being imported into `Program2` (which is your 'main' program) then the `__name__` in `Program1` becomes the program's name so Python can tell the difference between the original program (`Program2`) and the imported programs (`Program1`). Basically, `__name__` is an inbuilt variable that lets Python tell the difference between an original program and an imported program.   
+
 
 ### String formatting: 
