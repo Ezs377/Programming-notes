@@ -118,4 +118,11 @@ Heading ID's can be used to scroll automatically to a heading using a link.
 Then link it in a link by using a hashtag instead of a slash
 For example:  
 #### Heading with ID {#id1}  
+
+	
+	
+	
+	
+
+
 [Link that goes to heading with ID](#id1)
