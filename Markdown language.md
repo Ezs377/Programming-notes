@@ -76,20 +76,19 @@ print ("done")
 
 To write a horizontal line breaker, use a triple dash or asterisk on a line by itself.
 ***
-
-#### Heading with ID (for later) {#id1}
-
 Images can be imported by using \![\<alternative name>](\<image URL>). If the image is located in the Github repository then the URL link of the image in the Github page can be used as the URL (e.g. https://github.com/Ezs377/Programming-notes/blob/main/Images/Programming%20paradigms.jpg). If the URL is wrong or there is no image the alternative text is used instead.
 
-Links are imported the same way, except without the exclamation mark, like this: \[\<text>](\<link URL>).
+Links are imported the same way, except without the exclamation mark, like this: \[\<text>](\<link URL>).  
 
-To add a tooltip with the link, add the tooltip text right after the URL using quotation marks, like this: \[\<text>](\<link URL> \"<tooltip>")
+To add a tooltip with the link, add the tooltip text right after the URL using quotation marks, like this: \[\<text>](\<link URL>"\<tooltip>").
 
 Otherwise, for writing quick links, simply close a URL in angle brackets (\<URL>
 
 For URLs, use \%20 as spaces instead of just spacing the words in a URL.
 
 Links can be formatted like normal text (Italic, bold, quoted, etc)
+
+#### Heading with ID (for later) {#id1} 
 
 Reference style links can be used. These links are tidier and easier to read when written in the code, but produce the same output as a normal link when the page is read by software. To use such links, firstly create a reference link that is stored anywhere in the md file. The label for this link is closed in square brackets (\[ ] ). This is followed by the URL, and finally an optional title for the link that is closed in either quotation marks or brackets. To reference this link, the linked text is closed in square brackets (\[ ]), followed by the label which is also in square brackets.
 An example of the reference format: \[\<label>]: \<URL> (optional title)  
@@ -115,8 +114,9 @@ A table is created by using hyphens ( \- ) and pipes ( \|\)
 | :--- | :---: | ---: |
 | Left indent, \:--- | Middle indent, \:---: | Right indent, ---: |
 
-Heading ID's can be used to scroll automatically to a heading using a link.
-### To use a heading ID, add curly brackets with the ID inside ( \{ } )
-Then link it in a link by using a hashtag instead of a slash
-For example:  
+Heading ID's can be used to scroll automatically to a heading using a link.  
+### To use a heading ID, add curly brackets with the ID inside ( \{ } )  
+Then link it in a link by using a hashtag instead of a slash  
+For example:   
 [Link that goes to heading with ID](#id1)
+
