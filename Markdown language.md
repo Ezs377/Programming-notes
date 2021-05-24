@@ -117,6 +117,7 @@ A table is created by using hyphens ( \- ) and pipes ( \|\)
 Heading ID's can be used to scroll automatically to a heading using a link.  
 ### To use a heading ID, add curly brackets with the ID inside ( \{ } )  
 Then link it in a link by using a hashtag instead of a slash  
+Some markdown processor (like Github) automatically generate heading IDs based on the heading. In this case, instead of using curly brackets in the heading, simply replace the heading id in brackets with the heading itself.   
 For example:   
 [Link that goes to headings](#Headings)
 
