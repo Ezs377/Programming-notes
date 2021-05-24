@@ -22,17 +22,17 @@ The programming paradigms can be classified into 2 major groups:
   - It becomes more difficult for other programmers to work together to create the program, as each programmer will program in a different way, which messes with the program as a whole.
   - Code is programmed a certain way, so it is usually very difficult to combine other programs with the code.
 
-**Object Oriented Programming:** This paradigm utilises classes to create objects that are used by the program to run.  
-**Parallel Processing Approach:**
+- **Object Oriented Programming:** This paradigm utilises classes to create objects that are used by the program to run.  
+- **Parallel Processing Approach:**
 
 
 **Declarative Programming Paradigm:** This paradigm is based on telling the program WHAT to do. Instead of Imperative Programming, where the code is based on telling the program how to perform, Declarative Programming is based on letting the program know what needs to be done for the program to work. Usually this is done by functions or pre-built methods that are written in the code instead of writing the whole set of instructions. This shortens the amount of code used in the program, but can make it harder to debug as code is ‘hidden’ behind functions and etc. The types of paradigms that follow this particular paradigm are:
 
-**Logic Programming Paradigm:**
+- **Logic Programming Paradigm:**
 
-**Functional Programming:**
+- **Functional Programming:**
 
-**Database Processing Approach:**
+- **Database Processing Approach:**
 
 **Data:**
 
