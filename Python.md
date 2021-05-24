@@ -36,7 +36,6 @@ A statement doesn’t have to be a loop, it is anything that allows the program 
 
 A sequence/iteration is a repeated procedure that will repeat the same thing until it is told to stop. An example would be using a loop.
 
-
 ### File writing:
 First, a variable needs to be allocated to the text file. Use `<variable1> = open(<filename>, <option>)`. Options include `r`, `w`, `a`, `x`.
 `r` is for file reading only, cannot write to the file. `w` is write and read, can write to a file. `a` is used to add to a file without erasing its contents. `x` is used to create a new file. 
@@ -86,7 +85,7 @@ A Try and Except statement contains 2 statements: `Try` and `Except`. A `Try` st
 ### `for` loops:
 This loop continues for a certain amount of times given. Usually, a `for` loop will count each item in a sequence (list, tuple, etc) and repeat for as many times it counts an item in the sequence. For example, the list `[‘car’, 5, ‘yellow’, 1]` has 4 items/elements in it, so the loop will repeat 4 times. A for loop usually requires a variable that will become the item that that the loop is currently counting. For example, `for x in <list>:` the `x` is a variable that will become whatever is being counted. If the list is `[‘car’, 5, ‘yellow’, 1]`, then for the first loop `x` will be `“car”`, then in the next loop `x` will be `5`, and etc. This lets us manipulate what happens each iteration for each item in the list, such as scanning whether `x` is an integer or not. If the loop is left alone as it is (`for x in <list>:`) then the program will loop for each item in the list. However, the range function (`range()`) can be used instead of a sequence. Using range() lets you manually decide how many times the for loop will go on for. 
 
- ## while loops:
+### while loops:
 
 ### Functions:
 
@@ -98,22 +97,6 @@ An object is a certain type of data used by a program to organize different data
 
 ### Classes: 
 A class is basically a blueprint for creating objects. String, integers, are part of a class (strings belong to the str class, integers belong to the int class). This way it lets Python classify values as certain ‘objects’ which makes it easier for a computer to run the program. Classes are often called using `class: <class name>:`. `self` is the parameter that a class uses to access other variables within the class. It does not have to be named `self`, but it is always the first variable referenced in a class `init`. 
-
-
-### Modules: 
-A set of extra codes, functions, methods, objects that are kept separate from Python’s base programming to reduce unnecessary resources, as generally not all functions of Python are useful in a program. Certain functions are packed into modules, which then need to be called via import to be able to be used in Python. Modules are continuously updated and being added into Python, to expand Python’s use in modern times. You can also call a module by using <module_name>.<module_function>() if you don’t need to whole module and just a specific function from a module. It will only be called once though if you use this method to call the module, so with repeated uses it’s better to use import.
-
-### Datetime module: 
-The datetime module allows Python to convert strings into a to format, and vice versa. It must be imported first before being used as it is a module. The datetime module is mostly used when dealing with time formats and strings. `X = datetime.datetime()` is the general format of a datetime function. This function needs 3 arguments: A year, month, and date. You can also add hours, minutes, and seconds, microseconds afterwards but these are optional. An example of using this function is `X = datetime.datetime(2020, 4, 12)` which will print out the date `2020-04-12`. Another function from the module is the `strftime()` method (string format time method). This method formats the output of a datetime string in a specific format. DO NOT confuse this with `strptime()`, `strptime()` converts a string into a datetime using the format, while `strftime()` lets you print out specific time elements using formats. 
-`strptime()` = Converts a string into datetime. 
-`strftime()` = Lets you pick out which parts of a datetime object you want to print. 
-For example, you type a string `2020/03/12`. Using `strptime()`, it converts the string into an actual datetime object that Python recognizes as a time. You want to find the month only, so using `striftime(%B`) month is printed out in full name, `March`. 
-
-A table of accepted arguments (eg. `%B`) can be found by looking it up.
-
-Datetime can be used to express a time or find the current time. `Datetime.now()` will provide the current time registered on your device, while `datetime(<int>, <int>, <int>)` will present a specified time. Datetime orders time formats as `<year>, <month>, <day>, <hour>, <minute>, <second>, <microsecond>`.
-
-`Timedelta()` is another object in the datetime module that can tell the difference between two time values. For example, `difference = time - timedelta(hours=13)` will minus 13 hours from `time` (which is a variable that has a datetime value). `Timedelta` requires a specific value followed by an integer, and uses string values to specify the format. For example, `hours=5` means 5 hours. `Years=2` means 2 years. 
 
 ### __name__ variable:
 The `__name__` variable is an inbuilt variable in Python that lets programs tell the difference between imported modules and modules inside other modules. `__name__` always defaults to `__main__` if `__name__` is being used in the program. However, if you make another program and import that program as a module in your original program, the `__name__` in your imported module will match the name of the module, instead of `__main__`. For example, take program 1 and program 2.
@@ -130,5 +113,59 @@ print (__name__)
 ```
 
 If you run `Program1` by itself, `__name__` will equal `__main__`, as the `__name__` variable is being used in the same program. However, if you run `Program2`, you will get `Program1` and `__main__` as your outputs. This is because `__name__` becomes the name of the imported module if it is being used inside that module (`Program1`). Since `Program1` runs the `__name__` variable while being imported into `Program2` (which is your 'main' program) then the `__name__` in `Program1` becomes the program's name so Python can tell the difference between the original program (`Program2`) and the imported programs (`Program1`). Basically, `__name__` is an inbuilt variable that lets Python tell the difference between an original program and an imported program. THis is useful for making a program do different things depending on whether it was imported or not.
+
+### Modules: 
+A set of extra codes, functions, methods, objects that are kept separate from Python’s base programming to reduce unnecessary resources, as generally not all functions of Python are useful in a program. Certain functions are packed into modules, which then need to be called via import to be able to be used in Python. Modules are continuously updated and being added into Python, to expand Python’s use in modern times. You can also call a module by using <module_name>.<module_function>() if you don’t need to whole module and just a specific function from a module. It will only be called once though if you use this method to call the module, so with repeated uses it’s better to use import. There are different ways to import a module. For example, pretend there is a module called `Maths`. Module `Maths` has 3 classes inside that can be used when imported: `Addition()`, `Multiply()`, and `Powers()`.  
+- `import Maths`: This will import the module and its contents into your program allowing to use the classes. To use a class in the module you have to sepcify the module and the class, e.g. to use the `Addition()` class, you have to type `Maths.Addition()`.
+- `import Maths as numbers`: This will import the module and give it a different label to make it easier to type in (usually for complicated module names or long module names). It works the same as the previous method, except instead of typing `Maths` you use `numbers`, like `numbers.Addition()`. 
+- `from Maths import *`: Like the presious methods, except you don't need to specify the module used. Instead, this import gathers all the classes in the module, and imports them as available in-built classes/functions/objects/methods etc. For example, you don't need to do `Maths.Addition()` anymore, you would just use `Addition()`. This usually hides the name of your modules which may be confusing when using multiple modules.
+
+### Datetime module: 
+The datetime module allows Python to convert strings into a to format, and vice versa. It must be imported first before being used as it is a module. The datetime module is mostly used when dealing with time formats and strings. `X = datetime.datetime()` is the general format of a datetime function. This function needs 3 arguments: A year, month, and date. You can also add hours, minutes, and seconds, microseconds afterwards but these are optional. An example of using this function is `X = datetime.datetime(2020, 4, 12)` which will print out the date `2020-04-12`. Another function from the module is the `strftime()` method (string format time method). This method formats the output of a datetime string in a specific format. DO NOT confuse this with `strptime()`, `strptime()` converts a string into a datetime using the format, while `strftime()` lets you print out specific time elements using formats. 
+`strptime()` = Converts a string into datetime. 
+`strftime()` = Lets you pick out which parts of a datetime object you want to print. 
+For example, you type a string `2020/03/12`. Using `strptime()`, it converts the string into an actual datetime object that Python recognizes as a time. You want to find the month only, so using `striftime(%B`) month is printed out in full name, `March`. 
+
+A table of accepted arguments (eg. `%B`) can be found by looking it up.
+
+Datetime can be used to express a time or find the current time. `Datetime.now()` will provide the current time registered on your device, while `datetime(<int>, <int>, <int>)` will present a specified time. Datetime orders time formats as `<year>, <month>, <day>, <hour>, <minute>, <second>, <microsecond>`.
+
+`Timedelta()` is another object in the datetime module that can tell the difference between two time values. For example, `difference = time - timedelta(hours=13)` will minus 13 hours from `time` (which is a variable that has a datetime value). `Timedelta` requires a specific value followed by an integer, and uses string values to specify the format. For example, `hours=5` means 5 hours. `Years=2` means 2 years. 
+
+### Tkinter module:  
+Tkinter is the default module used by Python for creating Graphical User Interfaces (GUIs). It contains several classes and functions that can be imported to design GUIs with python. Widegets are typically features of a GUI that can be made, such as buttons or text. For Tkinter these are:  
+- `Button`
+- `Canvas`
+- `Checkbutton`
+- `Entry`
+- `Frame`
+- `Label`
+- `Listbox`
+- `Menubutton`
+- `Menu`
+- `Message`
+- `Radiobutton`
+- `Scale`
+- `Scrollbar`
+- `Text`
+- `Toplevel`
+- `Spinbox`
+- `Panedwindow`
+- `Labelframe`
+- `tkMessagebox`
+
+There are also several atrributes available which ar eused to manipulate these widgets  
+- `Dimensions`
+- `Colors`
+- `Fonts`
+- `Anchors`
+- `Relief styles`
+- `Bitmaps`
+- `Cursors`
+
+And finally, there are 3 different methods to position these widgets  
+- `pack()`
+- `grid()`
+- `place()`
 
 ### String formatting: 
