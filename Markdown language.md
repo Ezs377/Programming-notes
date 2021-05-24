@@ -41,6 +41,7 @@ Example:
 
 - Second item
 
+# Headings  
 # Headings are created by using a hashtag ( \# ). More hashtags mean smaller font. A maximum of 6 hashtags can be used for 6 different heading sizes
 ## Tier 2 heading
 ### Tier 3 heading
@@ -88,7 +89,6 @@ For URLs, use \%20 as spaces instead of just spacing the words in a URL.
 
 Links can be formatted like normal text (Italic, bold, quoted, etc)
 
-#### Heading with ID (for later)
 
 Reference style links can be used. These links are tidier and easier to read when written in the code, but produce the same output as a normal link when the page is read by software. To use such links, firstly create a reference link that is stored anywhere in the md file. The label for this link is closed in square brackets (\[ ] ). This is followed by the URL, and finally an optional title for the link that is closed in either quotation marks or brackets. To reference this link, the linked text is closed in square brackets (\[ ]), followed by the label which is also in square brackets.
 An example of the reference format: \[\<label>]: \<URL> (optional title)  
@@ -118,7 +118,7 @@ Heading ID's can be used to scroll automatically to a heading using a link.
 ### To use a heading ID, add curly brackets with the ID inside ( \{ } )  
 Then link it in a link by using a hashtag instead of a slash  
 For example:   
-[Link that goes to heading with ID](#Heading-with-ID-for-later)
+[Link that goes to headings](#Headings)
 
 Emojis can be inserted by copy-pasting an emoji or using emoji shortcodes. Note that shortcodes for emojis can be different for each markdown processor.  
 😀 This was copy-pasted  
