@@ -37,3 +37,4 @@
 
 ### Using prompt for Python:
 Set directory path to Python folder (E.g. `D:\EZ\Download\Python`). Then python commands are available. Python files can be opened by typing the name of the file as long as it is in the current folder. Use speech marks ( “ “ ) to close the full name of the file to run it, otherwise the command prompt will read the first word only and will raise an error. For example, to run the Python file `My calculator`, it will need to be typed as `“My calculator.py”` in the command prompt to run it within the command prompt. 
+
