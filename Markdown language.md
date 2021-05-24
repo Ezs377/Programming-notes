@@ -82,7 +82,7 @@ Links are imported the same way, except without the exclamation mark, like this:
 
 To add a tooltip with the link, add the tooltip text right after the URL using quotation marks, like this: \[\<text>](\<link URL>"\<tooltip>").
 
-Otherwise, for writing quick links, simply close a URL in angle brackets (\<URL>
+Otherwise, for writing quick links, simply close a URL in angle brackets (\<URL>)
 
 For URLs, use \%20 as spaces instead of just spacing the words in a URL.
 
@@ -97,7 +97,7 @@ An example using the reference link format:
 
 [My Github page][1]
 
-The code is avaialble so you can see what is going on
+The code is available so you can see what is going on
 
 [1]: https://github.com/Ezs377/Programming-notes (Github page)
 
