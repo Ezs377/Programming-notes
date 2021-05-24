@@ -131,5 +131,4 @@ print (__name__)
 
 If you run `Program1` by itself, `__name__` will equal `__main__`, as the `__name__` variable is being used in the same program. However, if you run `Program2`, you will get `Program1` and `__main__` as your outputs. This is because `__name__` becomes the name of the imported module if it is being used inside that module (`Program1`). Since `Program1` runs the `__name__` variable while being imported into `Program2` (which is your 'main' program) then the `__name__` in `Program1` becomes the program's name so Python can tell the difference between the original program (`Program2`) and the imported programs (`Program1`). Basically, `__name__` is an inbuilt variable that lets Python tell the difference between an original program and an imported program. THis is useful for making a program do different things depending on whether it was imported or not.
 
-
 ### String formatting: 
