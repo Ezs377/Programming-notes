@@ -34,5 +34,6 @@ Please keep in mind that Linux is a kernel, not a whole operating system. Linux 
 `sleep`: Delay a process for determined length of time (seconds)  
 `alias`: Create an alias. Aliases are used as functions that run the series of commands from calling one variable/label. For example, `alias c = 'clear'` will execute the command `clear` everytime `c` is used in the command line
 
+To permanently keep aliases in Bash, alias have to be added at the bottom of the `bash.rc` file which is located in Bash folders. The file can be added with most text editors such as Notepad++. 
 Using tab will autofill file names that have been already typed in, rather than cycling through all the files.  
 Join words using `\` when navigating files, instead of putting the whole string in quotation marks (eg. `Speeding camera assessment` becomes `Speeding\ camera\ assessment`)
