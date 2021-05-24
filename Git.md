@@ -1,69 +1,72 @@
-GIT/GITHUB
-Git:
-To install just look up Git downloads. For installation, it’s best to leave everything to default. For the text editor, you can use Notepad, but it’s recommended to have Notepad++ installed as it is the easiest way to edit text with Git. For the Git init branch name, Git defaults to ‘master’, but you can change the default to something else if preferable (this provides the name of the git repository). For everything else leave it as it is.
+# GIT/GITHUB
+### Git:  
+To install just look up Git downloads. For installation, it’s best to leave everything to default. For the text editor, you can use Notepad, but it’s recommended to have Notepad++ installed as it is the easiest way to edit text with Git. For the Git init branch name, Git defaults to `master`, but you can change the default to something else if preferable (this provides the name of the git repository). For everything else leave it as it is.
 
-Git common terms:
-Branch: A version of the repository (main project head) 
-Checkout: Go to and edit, whether commit, branch, etc
-Commit: A change to the repository from saving. Basically a ‘save’ of your current file state. Is separate from your file’s own savestate. Git takes a mini ‘screenshot’ of your file state when you commit, but your files themselves shouldn’t be affected unless you reset or revert stuff
-Clone: Duplicates a repository 
-Head: The current branch being worked on. It’s basically what your location is in Git.
-Index: A temporary storage for preparing changes to be made. You add or unstage files to commit in the index.
-Master: The default branch, although it can be labelled with different names (eg. main)
-Merging: Combines the changes made in different branches together
-Original: The local\remote repository that the whole repository was cloned off. Usually shortened to origin.
-Pull: A change from an online repository that is ‘pulled’ and integrated into a working repository
-Push: Uploading a change from a local repository to a remote repository
-Remote: A remote repository that is stored on a server and not locally.
-Repository: A data storage used by Git to store files and changes to those files
-Stashing: Switching branches without committing the current file(s)
-Tag: Marking specified commits with a label. Can have customized labels. 
-Upstream: The main repository where files are cloned off
-Downstream: Files, projects, repositories that have been cloned from ‘upstream’
-GIt revert: Undo a change to a commit. This creates another commit with the undone changes
-Git checkout: Pulls original files from the main repository and becomes a new commit. Basically resets the current work with the original
-Git reset: Resets all changes done in a commit and loads to a previous commit if --hard is used
-Git ignore: Ignore certain untracked files, preventing them from accidentally being tracked and committed
-Git diff: Shows differences between commits, repository, and other files 
-Git cheat sheet: A list of quick references for Git for various information regarding Git
-Git Flow: The branching model used for Git. A type of branching that is designed to work in collaborative work. Branching is basically a type of version control that duplicates files from a main, allowing people to work with them without altering the main files
-Git squash: Combining several commits into one commit. Useful when combining multiple changes from different people to submit
-Git rm: Used to remove files from the index or working directory
-Git fork: A temporary copy of the main repository that people can use to edit without changing the main repository. A fork is usually used to submit changes to a repository in group projects. Forks aren’t stored locally and local files can be forked and then submitted. Differs from pulling as in that forking is like making a remix of a song on your own. Pushing and pulling is like working with the songwriter to make music.
+### Git common terms:
+- **Branch**: A version of the repository (main project head) 
+- **Checkout**: Go to and edit, whether commit, branch, etc
+- **Commit**: A change to the repository from saving. Basically a ‘save’ of your current file state. Is separate from your file’s own savestate. Git takes a mini ‘screenshot’ of your file state when you commit, but your files themselves shouldn’t be affected unless you reset or revert stuff
+- **Clone**: Duplicating a repository 
+- **Head**: The current branch being worked on. It’s basically what your location is in Git.
+- **Index**: A temporary storage for preparing changes to be made. You add or unstage files to commit in the index.
+- **Master**: The default branch, although it can be labelled with different names (eg. main)
+- **Merging**: Combines the changes made in different branches together
+- **Original**: The local\remote repository that the whole repository was cloned off. Usually shortened to origin.
+- **Pull**: A change from an online repository that is ‘pulled’ and integrated into a working repository
+- **Push**: Uploading a change from a local repository to a remote repository
+- **Remote**: A remote repository that is stored on a server and not locally.
+- **Repository**: A data storage used by Git to store files and changes to those files
+- **Stashing**: Switching branches without committing the current file(s)
+- **Tag**: Marking specified commits with a label. Can have customized labels. 
+- **Upstream**: The main repository where files are cloned off
+- **Downstream**: Files, projects, repositories that have been cloned from ‘upstream’
 
-Git configuration:
-Git config can be used to set Git settings. Use ‘git config’ to find settings. ‘--list --show-origin’ is used to locate config files for Git. ‘--list’ lists all current config settings for GIt. “user.name” sets the username for Git projects. “init.defaultBranch” sets the name for the default branch. Use ‘git config --global core.editor’ to change the text editor used to set messages for commits.
+<!-- For commands
+- Git revert: Undo a change to a commit. This creates another commit with the undone changes
+- Git checkout: Pulls original files from the main repository and becomes a new commit. Basically resets the current work with the original
+- Git reset: Resets all changes done in a commit and loads to a previous commit if --hard is used
+- Git ignore: Ignore certain untracked files, preventing them from accidentally being tracked and committed
+- Git diff: Shows differences between commits, repository, and other files 
+- Git cheat sheet: A list of quick references for Git for various information regarding Git
+- Git Flow: The branching model used for Git. A type of branching that is designed to work in collaborative work. Branching is basically a type of version control that duplicates files from a main, allowing people to work with them without altering the main files
+- Git squash: Combining several commits into one commit. Useful when combining multiple changes from different people to submit
+- Git rm: Used to remove files from the index or working directory
+- Git fork: A temporary copy of the main repository that people can use to edit without changing the main repository. A fork is usually used to submit changes to a repository in group projects. Forks aren’t stored locally and local files can be forked and then submitted. Differs from pulling as in that forking is like making a remix of a song on your own. Pushing and pulling is like working with the songwriter to make music.
+-->
 
-Git config options:
---global = Set for all projects
---local = Set for current repository
---unset = Remove a variable
---list = List all current configs 
+### Git configuration:  
+Git config can be used to set Git settings. Use ‘git config’ to find settings. `--list --show-origin` is used to locate config files for Git. `--list` lists all current config settings for GIt. `user.name` sets the username for Git projects. `init.defaultBranch` sets the name for the default branch. Use `git config --global core.editor` to change the text editor used to set messages for commits.
 
-Variables can be added. For example, ‘user.name’ adds a variable called user.name, which can then be followed by any string afterwards for that variable’s value. It helps with labelling Git projects, such as setting a name for each project. Any word can be used for a variable name as long as it is in the right format (a dot between 2 words)
+### Git config options:
+- `--global` = Set for all projects
+- `--local` = Set for current repository
+- `--unset` = Remove a variable
+- `--list` = List all current configs 
 
-Common Git commands (start with ‘git’ for all):
-add = Add files to be committed. Can be repeated until the commit, adding more files. Also prepares a commit to be updated with file changes. Doesn’t change commit.
-clone = Clone a repository into a working folder in files. Can start working with repo. Online 
-commit = Update commit to match updated file. Requires file to be added first
-commit -a: Change commit to match the file changes. Requires a message from user (using Notepad++). A simpler, one command function that updates a commit without using add and commit.
-servers/repositories can be cloned via URL.
-init = Creates an empty repository or activate an existing repository in local drive. Adding a directory name after the init will create a folder with the repository inside
-status = Check status of files in a repository and whether they are changed or not
-rm = Remove files
-push = “Upload” committed files to a remote repository, which is kept online. 
-pull = “Download” a remote repository into a local repository and merge changes, essentially copying the remote repository and mixing it with a local repository. This is basically a fetch and merge at once.
-fetch = Notes changes done to a remote repository and allows you to compare them to your local repository without actually transferring files. Afterwards using merge can merge these changes to your local repository.
+Variables can be added. For example, `user.name` adds a variable called `user.name`, which can then be followed by any string afterwards for that variable’s value. It helps with labelling Git projects, such as setting a name for each project. Any word can be used for a variable name as long as it is in the right format (a dot between 2 words)
 
-Git options (use with a command)
--m = Add a message along with the commit (git commit)
--a = Include all changed files in the commit, as long as they have been tracked (git add)
---amend = Redo the last commit done and replace it with a new commit (git commit)
--v = View your attributed data with a variable name. Usually used with git remote to see where you are pushing and pulling with ‘origin’.
-- = Use with git reset to move back to HEAD’s last position, useful to put HEAD back to where it was if you accidentally move it somewhere.
--s = Use with git status to have a shorter summary of status.
+### Common Git commands (start with ‘git’ for all):  
+- `add` = Add files to be committed. Can be repeated until the commit, adding more files. Also prepares a commit to be updated with file changes. Doesn’t change commit.
+- `clone` = Clone a repository into a working folder in files. Can start working with repo. Online servers/repositories can be cloned via URL.
+- `commit` = Update commit to match updated file. Requires file to be added first
+- `commit -a`: Change commit to match the file changes. Requires a message from user (using Notepad++). A simpler, one command function that updates a commit without using add and commit.
 
-Useful Git stuff:
+- `init` = Creates an empty repository or activate an existing repository in local drive. Adding a directory name after the init will create a folder with the repository inside
+- `status` = Check status of files in a repository and whether they are changed or not
+- `rm` = Remove files
+- `push` = “Upload” committed files to a remote repository, which is kept online. 
+- `pull` = “Download” a remote repository into a local repository and merge changes, essentially copying the remote repository and mixing it with a local repository. This is basically a fetch and merge at once.
+- `fetch` = Notes changes done to a remote repository and allows you to compare them to your local repository without actually transferring files. Afterwards using merge can merge these changes to your local repository.
+
+### Git options (use with a command)
+- `-m` = Add a message along with the commit (git commit)
+- `-a` = Include all changed files in the commit, as long as they have been tracked (git add)
+- `--amend` = Redo the last commit done and replace it with a new commit (git commit)
+- `-v` = View your attributed data with a variable name. Usually used with git remote to see where you are pushing and pulling with ‘origin’.
+- `-` = Use with git reset to move back to HEAD’s last position, useful to put HEAD back to where it was if you accidentally move it somewhere.
+- `-s` = Use with git status to have a shorter summary of status.
+
+### Useful Git stuff:
 git restore --staged <file>: Untrack a file/files from a commit
 git add <file(s)>: Add files to be tracked
 git add *: Add all files in the directory to be tracked (except files that start with a dot). Adding a file extension name after the asterisk (eg. .HTML) will track all files with that extension
