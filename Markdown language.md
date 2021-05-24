@@ -123,6 +123,6 @@ For example:
 
 Emojis can be inserted by copy-pasting an emoji or using emoji shortcodes. Note that shortcodes for emojis can be different for each markdown processor.  
 😀 This was copy-pasted  
-:smiley: This was using shortcode :smiley
+:smiley: This was using shortcode :smiley  
 Shortcodes can be looked up or show up sometimes as autofillers in certain markdown processors (like in Github)  
 [A list of emoji and their shortcodes](https://gist.github.com/rxaviers/7360908)
