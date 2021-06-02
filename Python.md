@@ -133,8 +133,10 @@ Datetime can be used to express a time or find the current time. `Datetime.now()
 `Timedelta()` is another object in the datetime module that can tell the difference between two time values. For example, `difference = time - timedelta(hours=13)` will minus 13 hours from `time` (which is a variable that has a datetime value). `Timedelta` requires a specific value followed by an integer, and uses string values to specify the format. For example, `hours=5` means 5 hours. `Years=2` means 2 years. 
 
 ### Tkinter module:  
-Tkinter is the default module used by Python for creating Graphical User Interfaces (GUIs). It contains several classes and functions that can be imported to design GUIs with python. Widegets are typically features of a GUI that can be made, such as buttons or text. For Tkinter these are:  
-- `Button`
+Tkinter is a simple in-built module used by Python for creating Graphical User Interfaces (GUIs). It contains several classes and functions that can be imported to design GUIs with python. Widgets are typically features of a GUI that can be made, such as buttons or text. For Tkinter these are:  
+- `Button`:  
+Creates a clickable button. Following options are:
+
 - `Canvas`
 - `Checkbutton`
 - `Entry`
@@ -154,7 +156,7 @@ Tkinter is the default module used by Python for creating Graphical User Interfa
 - `Labelframe`
 - `tkMessagebox`
 
-There are also several atrributes available which ar eused to manipulate these widgets  
+There are also several atrributes available which are used to manipulate these widgets  
 - `Dimensions`
 - `Colors`
 - `Fonts`
@@ -167,5 +169,15 @@ And finally, there are 3 different methods to position these widgets
 - `pack()`
 - `grid()`
 - `place()`
+
+#### How to setup a GUI with tkinter module using classes:  
+1. Import tkinter
+2. Create a class
+3. In the `def __init__` function, create 2 arguments, self and variable (any name), This variable will be used to import Tk() (tkinter) into the class
+4. `variable = tkinter.Tk()`, followed by `<classname>(<variable name>)` will import tkinter into the class
+5. `<variable name>.mainloop()` will keep looping the GUI program until it is closed. This ensures the GUI will stay open until the user closes it. This is basically running a forever `While` loop with `update()` within. `update()` refreshes your GUI and lets you interact with it. Mkae sure `mainloop()` is at the bottom of your program as any code under `mainloop()` will not be run until the GUI is closed, then the `mainloop()` breaks and runs the remaining code
+6. `<variable name>.title=(<title name>)` lets you name your GUI window
+7. Firstly, setup the frame. Then, widgets can be added as many as you like and moved around the GUI. This is the basics of a GUI
+8. To use tkinter with the class, `<variable name>.<another variable> = tkinter.<widget()>` will create a widget for your GUI. Wdigets have many options that can be edited depending on the widget. Remember that Python is case-sensitive and some widgets have a capital letter, if not capitalised then program won't work.
 
 ### String formatting: 
