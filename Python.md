@@ -133,10 +133,30 @@ Datetime can be used to express a time or find the current time. `Datetime.now()
 `Timedelta()` is another object in the datetime module that can tell the difference between two time values. For example, `difference = time - timedelta(hours=13)` will minus 13 hours from `time` (which is a variable that has a datetime value). `Timedelta` requires a specific value followed by an integer, and uses string values to specify the format. For example, `hours=5` means 5 hours. `Years=2` means 2 years. 
 
 ### Tkinter module:  
-Tkinter is a simple in-built module used by Python for creating Graphical User Interfaces (GUIs). It contains several classes and functions that can be imported to design GUIs with python. Widgets are typically features of a GUI that can be made, such as buttons or text. For Tkinter these are:  
+Tkinter is a simple in-built module used by Python for creating Graphical User Interfaces (GUIs). It contains several classes and functions that can be imported to design GUIs with python. A master is required for every widget, this is usually the main frame that you setup at the start of the program. Widgets are typically features of a GUI that can be made, such as buttons or text. For Tkinter these are:  
 - `Button`:  
-Creates a clickable button. Following options are:
-
+  Creates a clickable button. Following options are:
+  - `activebackground`: Set background colour when mouse is hovered over button
+  - `activeforeground`: Set foreground color when mouse is hovered over the button
+  - `bd`: Border width in pixels
+  - `bg`: Set default background color
+  - `command`: Set what happens if button is clicked (what code to run, usually a function)
+  - `fg`: Set default foreground color
+  - `font`: Set default font. Has 3 parameters: font, text size, and format
+  - `height`: Height of the button in characters, or pixels if using an image
+  - `highlight`: Set highlihgt color when button is pressed
+  - `image`: Set image on the button instead of text. Imported by directory path
+  - `justify`: Set the alignment of text if there are multiple lines
+  - `padx`: Set the padding to the left and right of text
+  - `pady`: Set the padding to above and below the text
+  - `relief`: Set the type of button border
+  - `state`: Set the state of the button. `DISABLED` renders the button inactive, `NORMAL` is the default state, `ACTIVE` is when the button is clicked
+  - `underline`: Underlines the specified characters. Default is -1, any negative value will mean no underlined text
+  - `width`: Set the width of the button in characters, or pixels if using an image
+  - `wraplength`: Set the wrap length for text (the amount of characters in one line)  
+  - The following methods can also be used:  
+      - `flash()`: Flashes the button between active and normal colours
+      - `invoke()`: Calls the button's callback function and returns what the function returns. Doesn't work if there is no callback.  
 - `Canvas`
 - `Checkbutton`
 - `Entry`
