@@ -200,4 +200,7 @@ And finally, there are 3 different methods to position these widgets
 7. Firstly, setup the frame. Then, widgets can be added as many as you like and moved around the GUI. This is the basics of a GUI
 8. To use tkinter with the class, `<variable name>.<another variable> = tkinter.<widget()>` will create a widget for your GUI. Wdigets have many options that can be edited depending on the widget. Remember that Python is case-sensitive and some widgets have a capital letter, if not capitalised then program won't work.
 
+#### Toplevel window management:  
+Window Manager (WM) is used by tkinter to manage toplevel windows with Python. 
+
 ### String formatting: 
