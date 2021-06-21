@@ -93,10 +93,44 @@ This loop continues for a certain amount of times given. Usually, a `for` loop w
 Methods are like functions, except they take data from an object in order to return a value. Most methods don’t have arguments as they do not require other data.
 
 ### Objects: 
-An object is a certain type of data used by a program to organize different data values into each data type which makes it easier for the computer to run a program. For example, integers are considered an object, and is an integer data type. Integers are a different data type to string, which displays characters that may include numbers, but cannot use these numbers to calculate as they are not an integer data type. 
+An object is a certain type of data used by a program to organize different data values into each data type which makes it easier for the computer to run a program. For example, integers are considered an object, and is an integer data type. Integers are a different data type to string, which displays characters that may include numbers, but cannot use these numbers to calculate as they are not an integer data type. An object instance is an object generated from a class with specific attributes that are determined by the class. Instances of objects are just different versions of objects generated from the same class.
 
 ### Classes: 
-A class is basically a blueprint for creating objects. String, integers, are part of a class (strings belong to the str class, integers belong to the int class). This way it lets Python classify values as certain ‘objects’ which makes it easier for a computer to run the program. Classes are often called using `class: <class name>:`. `self` is the parameter that a class uses to access other variables within the class. It does not have to be named `self`, but it is always the first variable referenced in a class `init`. 
+A class is basically a blueprint for creating instances of objects. String, integers, are part of a class (strings belong to the str class, integers belong to the int class). This way it lets Python classify values as certain ‘objects’ which makes it easier for a computer to run the program. Classes are often called using `class: <class name>:`. `self` is the parameter that a class uses to access other variables within the class. It does not have to be named `self`, but it is always the first variable referenced in a class `init`. `self` contains the instance of the class (the current version of the class) which can be manipulated to provide different objects.
+
+- ##### Instance variable:  
+A vairbale made in the `__init__` function of a class (e.g. `self.cars = 5`). They apply to the current object of the class and not the whole class, letting you manipulate individual aspects of objects instead of the same thing over and over again.
+
+- ##### Class variable:  
+A normal variable made inside a class (e.g. `cars = 5`). Can be called by using `<classname>.<variablename>`. 
+
+The variables in play can affect the class in different ways. For example:
+
+```Python
+class Car:
+    wheels = 4    # <- Class variable
+    def __init__(self, name):
+        self.name = name    # <- Instance variable
+```
+Wrting this code lets you do manipulate the name of the class, but `wheels` stays the same as it is a class variable. For example:  
+```Python
+> car_type = Car(Ferrari)
+> print (Car.wheels)
+> print (Car.name)
+```  
+This code prints out `4` and `Ferrari`. `Wheels` stays the same but `Car.name` can be changed depending on what you put in the brackets when calling the class. If you don't allocate the class to a variable (`car_type = Car(Ferrari)`) then you cannot use the variable as this would create an error because just doing `print (Car.name)` wouldn't put anything inside the class, thus `Car.name` becomes nothing which raises an error. The class variable `Car.wheels` is used to change the value of the `Wheels` variable, and unlike the instance variable `Car.name` it can be called without using another variable (i.e. `print (Car.wheels)` would print out 4). You can also have 2 instances of objects using the same class, but `Wheels` would staty the same of each object instance. For example:  
+```Python
+> first_car = Car(Ferrari)
+> second_car = Car(Honda)
+> print (first_car.name)
+> print (second_car.name)
+```  
+This prints out both `Ferrari` and `Honda`. Now if we:
+```Python
+> print (first_car.Wheels)
+> print (second_car.Wheels)
+```  
+This will print out `4` for each one. Thus, class variabels remain constant for every instance, while instance variables differ from each instance. BE CAREFUL! An instance variable takes priorty over class variables, so if an instance and class variables have the same names it can replace your variables without you knowing and can break your program. E.g. `Car.Wheels = 5` and `first_car.Wheels = 10` will make `print (first_car.Wheels)` equal `10` instead of `5` as typing `first_car.Wheels = 10` creates an INSTANCE variable for that object instead of using the CLASS variable.
 
 ### __name__ variable:
 The `__name__` variable is an inbuilt variable in Python that lets programs tell the difference between imported modules and modules inside other modules. `__name__` always defaults to `__main__` if `__name__` is being used in the program. However, if you make another program and import that program as a module in your original program, the `__name__` in your imported module will match the name of the module, instead of `__main__`. For example, take program 1 and program 2.
