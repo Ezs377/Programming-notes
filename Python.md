@@ -87,7 +87,26 @@ This loop continues for a certain amount of times given. Usually, a `for` loop w
 
 ### while loops:
 
-### Functions:
+### Functions:  
+###### Lambda function:  
+The `lambda()` function can be used to create an anonymous function in Python. An anonymous function is basically a simple function without a label; i.e. A function wihtout using the `def <function name>():` code. Usually the lambda function is given to a variable, then the variable can be used anywhere to use the function. A lambda function cannot du much except return a value. An example:  
+```Python
+greeting = lambda a, b, c:a + b + c
+print (greeting("Hello ", "there ","friend!")
+```  
+This will print out `Hello there friend!`. As opposed to using a defined funtion, which would look like this:  
+```Python
+def greeting(a, b, c):
+	sentence = a+b+c
+	return sentence
+print (greeting("Hello ", "there ", "friend!")
+```  
+This code does the same thing, but takes more lines and is more intricate. The uses of this function may be, for example, to create a sentence using any three words. By simply changing the values in the brackets, you can make a sentence using any word. Using lambda is much faster and easier that creating another defined function. However, a lambda function can only have one line of command. For example, this won't work:  
+```Python
+greeting = lambda a, b, c:x = a+b+c, print(X)
+print (greeting("Hello ", "there ","friend!")
+```  
+as you're trying to do 2 things in one command. Lambda is only useful for replacing small quick functions, which can have a big impact when you're writing a big program.
 
 ### Methods: 
 Methods are like functions, except they take data from an object in order to return a value. Most methods don’t have arguments as they do not require other data.
