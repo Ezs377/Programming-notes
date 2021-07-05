@@ -118,7 +118,7 @@ An object is a certain type of data used by a program to organize different data
 A class is basically a blueprint for creating instances of objects. String, integers, are part of a class (strings belong to the str class, integers belong to the int class). This way it lets Python classify values as certain ‘objects’ which makes it easier for a computer to run the program. Classes are often called using `class: <class name>:`. `self` is the parameter that a class uses to access other variables within the class. It does not have to be named `self`, but it is always the first variable referenced in a class `init`. `self` contains the instance of the class (the current version of the class) which can be manipulated to provide different objects.
 
 - ##### Instance variable:  
-A vairbale made in the `__init__` function of a class (e.g. `self.cars = 5`). They apply to the current object of the class and not the whole class, letting you manipulate individual aspects of objects instead of the same thing over and over again.
+A variable made in the `__init__` function of a class (e.g. `self.cars = 5`). They apply to the current object of the class and not the whole class, letting you manipulate individual aspects of objects instead of the same thing over and over again.
 
 - ##### Class variable:  
 A normal variable made inside a class (e.g. `cars = 5`). Can be called by using `<classname>.<variablename>`. 
