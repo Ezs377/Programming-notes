@@ -21,18 +21,17 @@ To install just look up Git downloads. For installation, it’s best to leave ev
 - **Upstream**: The main repository where files are cloned off
 - **Downstream**: Files, projects, repositories that have been cloned from ‘upstream’
 
-<!-- For commands
-- Git revert: Undo a change to a commit. This creates another commit with the undone changes
-- Git checkout: Pulls original files from the main repository and becomes a new commit. Basically resets the current work with the original
-- Git reset: Resets all changes done in a commit and loads to a previous commit if --hard is used
-- Git ignore: Ignore certain untracked files, preventing them from accidentally being tracked and committed
-- Git diff: Shows differences between commits, repository, and other files 
-- Git cheat sheet: A list of quick references for Git for various information regarding Git
-- Git Flow: The branching model used for Git. A type of branching that is designed to work in collaborative work. Branching is basically a type of version control that duplicates files from a main, allowing people to work with them without altering the main files
-- Git squash: Combining several commits into one commit. Useful when combining multiple changes from different people to submit
-- Git rm: Used to remove files from the index or working directory
-- Git fork: A temporary copy of the main repository that people can use to edit without changing the main repository. A fork is usually used to submit changes to a repository in group projects. Forks aren’t stored locally and local files can be forked and then submitted. Differs from pulling as in that forking is like making a remix of a song on your own. Pushing and pulling is like working with the songwriter to make music.
--->
+#### Complex terms and commands:
+- **Git revert**: Undo a change to a commit. This creates another commit with the undone changes
+- **Git checkout**: Pulls original files from the main repository and becomes a new commit. Basically resets the current work with the original
+- **Git reset**: Resets all changes done in a commit and loads to a previous commit if --hard is used
+- **Git ignore**: Ignore certain untracked files, preventing them from accidentally being tracked and committed
+- **Git diff**: Shows differences between commits, repository, and other files 
+- **Git cheat sheet**: A list of quick references for Git for various information regarding Git
+- **Git Flow**: The branching model used for Git. A type of branching that is designed to work in collaborative work. Branching is basically a type of version control that duplicates files from a main, allowing people to work with them without altering the main files
+- **Git squash**: Combining several commits into one commit. Useful when combining multiple changes from different people to submit
+- **Git rm**: Used to remove files from the index or working directory
+- **Git fork**: A temporary copy of the main repository that people can use to edit without changing the main repository. A fork is usually used to submit changes to a repository in group projects. Forks aren’t stored locally and local files can be forked and then submitted. Differs from pulling as in that forking is like making a remix of a song on your own. Pushing and pulling is like working with the songwriter to make music.
 
 ### Git configuration:   
 Git config can be used to set Git settings. Use ‘git config’ to find settings. `--list --show-origin` is used to locate config files for Git. `--list` lists all current config settings for GIt. `user.name` sets the username for Git projects. `init.defaultBranch` sets the name for the default branch. Use `git config --global core.editor` to change the text editor used to set messages for commits.
@@ -125,7 +124,7 @@ You edit some stuff and commit it
 	we are bad
 	bye
 ```
-Now this commit is HEAD
+Now this commit is HEAD  
 You realize the stuff you edited was wrong, but it has been committed. So you use `git revert HEAD~1` to restore the file to a previous version to undo the changes. `HEAD~1` is used as that is the previous HEAD, and HEAD numbers are counted from the current HEAD.
 ```
 	Hello there
