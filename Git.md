@@ -213,13 +213,12 @@ Using `HEAD` without any number will simply bring back your most recent commit v
 
 `HEAD@{1}` will move to commmit 1 specifically. This uses the label from reflog to identify a previous commit in your history, and brings that back.
 
-`HEAD^` is usually used if you’ve merged branches. `HEAD^` is usually used to identify the branch number that was before you merged it with another branch. Usually you would need to use both `HEAD~` and `HEAD^` to move to another branch and the previous commit. The diagram provides a better explanation:
+`HEAD^` is usually used if you’ve merged branches. `HEAD^` is usually used to identify the branch number that was before you merged it with another branch. Usually you would need to use both `HEAD~` and `HEAD^` to move to another branch and the previous commit. The diagram provides a better explanation:  
+![Git branch HEAD flow](https://github.com/Ezs377/Programming-notes/blob/main/Images/Git%20undos.jpg)  
+Note that the ‘first’ commit isn’t `HEAD~1`. If using `HEAD@{}` then yes, you would do `HEAD@{1}` to move to the first commit. But `HEAD~1` will only move you one step before the current commit (which is simply HEAD). `HEAD~2^1`  is used to move to the third commit, as `HEAD~2`  will move back 2 steps from your current commit, while `HEAD^1` ensures you stay on the first branch, and not the other branch which is merged later on.
 
-	
-	
-Note that the ‘first’ commit isn’t HEAD~1. If using HEAD@{} then yes, you would do HEAD@{1} to move to the first commit. But HEAD~1 will only move you one step before the current commit (which is simply HEAD). HEAD~2^1  is used to move to the third commit, as HEAD~2  will move back 2 steps from your current commit, while HEAD^1 ensures you stay on the first branch, and not the other branch which is merged later on.
+Please note that all navigation done with HEAD either needs a `git checkout` or a `git reset` command with it, or another command that is used with HEAD. Using HEAD on its own doesn’t work. 
 
-Please note that all navigation done with HEAD either needs a git checkout or a git reset command with it, or another command that is used with HEAD. Using HEAD on its own doesn’t work. 
-
-Simple Git cheat sheet:
-
+Simple Git cheat sheet, for quick referencing on commands:  
+![Git cheat sheet](https://github.com/Ezs377/Programming-notes/blob/main/Images/Git%20cheat%20sheet.jpg)
+***
