@@ -256,4 +256,18 @@ And finally, there are 3 different methods to position these widgets
 #### Toplevel window management:  
 Window Manager (WM) is used by tkinter to manage toplevel windows with Python. 
 
+#### Photoimage method:
+Tkinter utilises a method called `Photoimage` to import images into a GUI. Tkinter has to convert an image to an object in Python in order to be able to display it. After using `Photoimage` the object can now be used in a widget such as `Label` or `Button`. In order to use the `Photoimage` method, firstly, allocate a variable to the method. Then, that variable can be used for any image parameter in a widget. For example:  
+```Python  
+import tkinter
+
+class Imageimporting:
+	self.importedimage = tkinter.Photoimage(file=d:/download/images/picture.png)
+	text = tkinter.Label(self, image=self.importedimage)
+
+run = Imageimporting()
+root = Tk()
+root.mainloop()
+```  
+An example of how to use `Photoimage`. Photoimage can only convert PNG, GIF, PGM, and PPM image formats. For other formats such as JPG, another module needs to be imported that can work with Tkinter to convert images.  
 ### String formatting: 
