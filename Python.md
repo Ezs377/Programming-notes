@@ -59,7 +59,7 @@ Another aspect of tuples is that they can be used dictionary keys, or assigned t
 - **Sets:** Similar to a dictionary, except without the key-value pairs. One useful aspect of sets is that they do not allow duplicate values, which makes it easier to check for duplicate values in a program instead of using a dictionary (the only other data structure that doesn’t let duplicates). You also cannot change them (add or delete elements) after a set has been assigned some values. A set uses curly brackets like a dictionary, but in the format of a list. An example of a set is:  
 `Car_info = {‘cars’, 5, ‘yellow’}`
 
-**Differences between data structures/sequence (Python):**
+**Differences between data structures/sequence (Python):**  
 Ordered: The order you add elements will stay the same in a list  
 Changeable: Elements in the list can be altered, removed, or added  
 Allow duplicates: Duplicate elements are allowed and considered 2 separate elements in a list  
