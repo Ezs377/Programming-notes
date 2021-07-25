@@ -262,11 +262,11 @@ Tkinter utilises a method called `Photoimage` to import images into a GUI. Tkint
 import tkinter
 
 class Imageimporting:
-	self.importedimage = tkinter.Photoimage(file=d:/download/images/picture.png)
-	text = tkinter.Label(self, image=self.importedimage)
-
-run = Imageimporting()
+	def __init__ (self):
+		self.importedimage = tkinter.Photoimage(file=d:/download/images/picture.png)
+		text = tkinter.Label(self, image=self.importedimage)
 root = Tk()
+run = Imageimporting(root)
 root.mainloop()
 ```  
 An example of how to use `Photoimage`. Photoimage can only convert PNG, GIF, PGM, and PPM image formats. For other formats such as JPG, another module needs to be imported that can work with Tkinter to convert images.  
