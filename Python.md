@@ -255,9 +255,7 @@ And finally, there are 3 different methods to position these widgets
 6. `<variable name>.title=(<title name>)` lets you name your GUI window
 7. Firstly, setup the frame. Then, widgets can be added as many as you like and moved around the GUI. This is the basics of a GUI
 8. To use tkinter with the class, `<variable name>.<another variable> = tkinter.<widget()>` will create a widget for your GUI. Wdigets have many options that can be edited depending on the widget. Remember that Python is case-sensitive and some widgets have a capital letter, if not capitalised then program won't work.
-
-#### Toplevel window management:  
-Window Manager (WM) is used by tkinter to manage toplevel windows with Python. 
+ 
 
 #### Photoimage method:
 Tkinter utilises a method called `Photoimage` to import images into a GUI. Tkinter has to convert an image to an object in Python in order to be able to display it. After using `Photoimage` the object can now be used in a widget such as `Label` or `Button`. In order to use the `Photoimage` method, firstly, allocate a variable to the method. Then, that variable can be used for any image parameter in a widget. For example:  
