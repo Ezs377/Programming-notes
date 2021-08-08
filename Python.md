@@ -214,15 +214,18 @@ Tkinter is a simple in-built module used by Python for creating Graphical User I
 - `Checkbutton`
 - `Entry`
 - `Frame`
-- `Label`
+- `Label`:  
+   Creates a singleline text that can be altered. Following options are:  
 - `Listbox`
 - `Menubutton`
 - `Menu`
-- `Message`
+- `Message`:  
+   Creates text that automatically wraps itslef to multiline if neccesary. Following options are:  
 - `Radiobutton`
 - `Scale`
 - `Scrollbar`
-- `Text`
+- `Text`:  
+   Creates an editable text box for the user, and can display text as well. Following options are:
 - `Toplevel`
 - `Spinbox`
 - `Panedwindow`
