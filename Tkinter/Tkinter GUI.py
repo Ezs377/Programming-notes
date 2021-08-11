@@ -1,7 +1,5 @@
 # Tkinter GUI guide
-# Steps:
-# 1. Import tkinter
-# 
+
 
 # 12 functions, so a 3*4 square of buttons
 # Functions:
@@ -21,6 +19,8 @@ def Toplevel_frame(self):
 
 # main class
 class Main:
+        # Function for creating the buttons
+        # label sets the title of the button, function sets the command of the button
         def button(self, label, function):
                 return tkinter.Button(self.frame,
                                text = label,
@@ -56,7 +56,8 @@ class Main:
                 
                 # Button labels
                 buttons = ["Toplevel", "Canvas", "Checkbutton", "Listbox", "Message", "Radiobutton",
-                             "Scale", "Scrollbar", "Text", "Entry", "Spinbox", "Panedwindow"]
+                             "Scale", "Scrollbar", "Text", "Entry", "Spinbox", "PanedWindow"]
+                
                 # Classes to call
                 functions = [Toplevel, Canvas, Checkbutton, Listbox, Message, Radiobutton, Scale,
                              Scrollbar, Text, Entry, Spinbox, Panedwindow]
@@ -66,13 +67,13 @@ class Main:
                 row_no = 1
                 column_no = 0
                 
-                
                 '''Buttons for menu'''
                 for a in buttons:
                         
                         # Button creation function
                         self.some_button = self.button(a, functions[function_no])
                         
+                        # If all functions have been used
                         if function_no < (len(functions)-1):
                                 function_no += 1
                         else:
@@ -95,6 +96,7 @@ class Main:
 
 class Toplevel:
         def __init__(self):
+                # Setup toplevel frame
                 Toplevel_frame(self)
                 
                 '''A Toplevel window allows multiple windows to be made from the main window'''
@@ -112,8 +114,10 @@ class Toplevel:
 
 class Canvas:
         def __init__(self):
+                # Setup toplevel frame
                 Toplevel_frame(self)
                 
+                # Title
                 self.text2 = tkinter.Label(self.window,
                                            text = "These are canvases, each with a different method")
                 self.text2.grid(row=0,
@@ -208,8 +212,10 @@ class Canvas:
         
 class Checkbutton:
         def __init__(self):
+                # Setup toplevel frame
                 Toplevel_frame(self)
                 
+                # Title
                 self.text3 = tkinter.Label(self.window,
                                            pady=10,
                                            padx=10,
@@ -249,8 +255,10 @@ class Checkbutton:
 
 class Listbox:
         def __init__(self):
+                # Setup toplevel frame
                 Toplevel_frame(self)
                 
+                # Title
                 self.text4 = tkinter.Label(self.window,
                                            pady=10,
                                            padx=10,
@@ -280,8 +288,10 @@ class Listbox:
                 
 class Message:
         def __init__(self):
+                # Setup toplevel frame
                 Toplevel_frame(self)
                 
+                # Title
                 self.text5 = tkinter.Label(self.window,
                                            text="This is a message",
                                            padx=10,
@@ -314,8 +324,10 @@ class Message:
 
 class Radiobutton:
         def __init__(self):
+                # Setup toplevel frame
                 Toplevel_frame(self)
                 
+                # Title
                 self.text6 = tkinter.Label(self.window,
                                            text="These are radiobuttons",
                                            pady=10,
@@ -354,8 +366,10 @@ class Radiobutton:
 
 class Scale:
         def __init__(self):
+                # Setup toplevel frame
                 Toplevel_frame (self)
                 
+                # Title
                 self.text7 = tkinter.Label(self.window,
                                            text="This is a scale",
                                            pady=10,
@@ -383,8 +397,10 @@ class Scale:
 
 class Scrollbar:
         def __init__(self):
+                # Setup toplevel frame
                 Toplevel_frame(self)
                 
+                # Title
                 self.text8 = tkinter.Label(self.window,
                                            text = "This is a scrollbar",
                                            pady=10,
@@ -427,7 +443,10 @@ class Scrollbar:
 
 class Text:
         def __init__(self):
+                # Setup toplevel frame
                 Toplevel_frame(self)
+                
+                # Title
                 self.text9 = tkinter.Label(self.window,
                                           text="This is a text",
                                           pady=10,
@@ -452,7 +471,10 @@ class Text:
                                 columnspan = 2)                
 class Entry:
         def __init__(self):
+                # Setup toplevel frame
                 Toplevel_frame(self)
+                
+                # Title
                 self.text10 = tkinter.Label(self.window,
                                             text="This is an entrybox",
                                             pady=10,
@@ -493,7 +515,10 @@ class Entry:
 
 class Spinbox:
         def __init__(self):
+                # Setup toplevel frame
                 Toplevel_frame(self)
+                
+                # Title
                 self.text11 = tkinter.Label(self.window,
                                             text="This is a spinbox",
                                             pady=10,
@@ -517,13 +542,57 @@ class Spinbox:
                                 columnspan = 2)                
 class Panedwindow:
         def __init__(self):
+                # Setup frame
                 Toplevel_frame(self)
                 
+                # Title
                 self.text12 = tkinter.Label(self.window,
-                                            text="This is a Panedwindow",
+                                            text="This is a PanedWindow",
                                             padx=10,
                                             pady=10)
                 self.text12.grid(row=0, columnspan=2)
+                
+                
+                # PanedWindow bar
+                self.panedwindow = tkinter.PanedWindow(self.window,
+                                                       bg="red",
+                                                       showhandle=True,
+                                                       orient=tkinter.HORIZONTAL)
+                self.panedwindow.grid(row=1)
+                
+                # Adding widgets
+                self.left = tkinter.Label(self.panedwindow,
+                                          text="On the left pane, horizontal shift",
+                                          padx=10,
+                                          pady=10)
+                self.panedwindow.add(self.left)
+                
+                self.right = tkinter.Label(self.panedwindow,
+                                        text="On the right pane",
+                                        padx=10,
+                                        pady=10)
+                self.panedwindow.add(self.right)
+                
+                
+                # Second PanedWindow
+                self.panedwindow2 = tkinter.PanedWindow(self.window,
+                                                        bg="green",
+                                                        showhandle=True,
+                                                        orient=tkinter.VERTICAL)
+                self.panedwindow2.grid(row=2)
+                
+                # Adding widgets
+                self.top = tkinter.Label(self.panedwindow2,
+                                        text="On the top pane, vertical shift",
+                                        padx=10,
+                                        pady=10)
+                self.panedwindow2.add(self.top)
+                
+                self.bottom = tkinter.Label(self.panedwindow2,
+                                        text="On the right pane",
+                                        padx=10,
+                                        pady=10)
+                self.panedwindow2.add(self.bottom)                
                 
                 
                 
@@ -531,9 +600,11 @@ class Panedwindow:
                 self.exit1 = tkinter.Button(self.window,
                                            text = "Exit",
                                            command = lambda:self.window.destroy()) # Destroy toplevel window
-                self.exit1.grid(row=2,
+                self.exit1.grid(row=3,
                                 columnspan = 2)
         
+
+# Run the program loop
 root = tkinter.Tk()
 root.title ("Tkinter Widgets Guide")
 run = Main(root)
@@ -545,7 +616,9 @@ def__init__(self):
      self.text = tkinter.Label(self.window, <name of function>)
      self.text.grid(row=0, columnspan=2)
      
+     
      <function code goes here, use self.window for master>
+     
      
      self.exit1 = tkinter.Button(self.window,
                                 text = "Exit",

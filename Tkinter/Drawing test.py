@@ -13,13 +13,22 @@ class Main:
         self.canvas.grid(row=0,
                          column=0)
         
-        self.canvas.bind ('<Button-1>', self.draw)
+        self.canvas.bind ('<Button-1>', self.getcoords)
         self.canvas.bind ('<B1-Motion>', self.draw)
-        
+    
+    # Get coordinates of current mouse position. This is just for the start when the mouse is pressed
+    def getcoords(self, event):
+        self.lastx = event.x
+        self.lasty = event.y
+    
+    # Draw a line, using the previous mouse position, to the current mouse position. Continously updates itself
     def draw(self, coords):
-        self.x = coords.x
-        self.y = coords.y 
-        self.canvas.create_rectangle ((self.x-1), (self.y-1), (self.x+1), (self.y+1), width=1, fill='black')
+        
+        # | Starting x point | Starting y point | Draw to x point | Draw to y point |
+        self.canvas.create_line (self.lastx, self.lasty, coords.x, coords.y, width=5, fill='black')
+
+        self.lastx = coords.x
+        self.lasty = coords.y                                       
 
 
 

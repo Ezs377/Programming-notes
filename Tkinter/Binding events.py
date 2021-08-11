@@ -1,5 +1,20 @@
 import tkinter
 
+'''Events include:
+<Button-1>, <B1-Motion>, <ButtonRelease-1>, <Double-Button--1>, <Enter>, <Leave>,
+<FocusIn>, <FocusOut>, <Return>, <Key>, <Shift-Up>, <Configure>, <Activate>, <Deactivate>,
+<Destroy>, <Expose>, <KeyRelease>, <Map>, <Motion>, <MouseWheel>, <Unmap>, <Visibility>
+Using '<any key>' will also bind to that specifc key, for example, 's' will bind an event 
+to the s key'''
+# <Button-1> = When left mouse button is clicked. Use other numbers to represent other buttons on the mouse, e.g. <Button-3> will use middle mouse button
+# <B1-Motion> = When the button is pressed and the mouse is moved around. Same number rule applies, where <B3-Motion> means middle mouse button 
+# <ButtonRelease-1> = When the specified button is released
+# <Double-Button--1> = When the specified button is double clicked. Can also use Triple click
+# <Enter> = When the cursor enters the widget. NOT WHEN THE ENTER BUTTON IS PRESSED!
+# <FocusIn> = When the mouse/keyboard is focused on the widget
+# <FocusOut> = Opposite of above
+# 
+
 class Main:
         
     def __init__(self, x):
