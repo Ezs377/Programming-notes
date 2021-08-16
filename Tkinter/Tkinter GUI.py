@@ -13,11 +13,11 @@ import tkinter
 def Toplevel_frame(self):
         self.window = tkinter.Toplevel() # Create new window
         
-        # Frame
+        # Create frame
         self.toplevel_frame = (self.window)
         self.toplevel_frame.grid()    
 
-# main class
+# Main class
 class Main:
         # Function for creating the buttons
         # label sets the title of the button, function sets the command of the button
@@ -67,16 +67,19 @@ class Main:
                 row_no = 1
                 column_no = 0
                 
-                '''Buttons for menu'''
+                '''Buttons for menu. Create a 4x3 grid of buttons'''
+                
                 for a in buttons:
                         
-                        # Button creation function
+                        # Button creation function to create a button, 
+                        # a = button label
+                        # functions[function_no] = the command of the button
                         self.some_button = self.button(a, functions[function_no])
                         
-                        # If all functions have been used
+                        # Move to the next function command everytime a button is made
                         if function_no < (len(functions)-1):
                                 function_no += 1
-                        else:
+                        else:   # If there are less functions then buttons, go back to first function (prevents errors)
                                 function_no = 0
                         
                         # Grid placement for each button
@@ -85,7 +88,8 @@ class Main:
                                               pady = 0,
                                               sticky = tkinter.W+tkinter.E) # Occupy all space in grid cell
                         
-                        # Change column and row values when needed
+                        # Change column position by 1 until it reaches the fourth column,
+                        # then change the row number by 1. Repeat until the third row
                         column_no += 1
                         if column_no == 3:
                                 row_no += 1
@@ -604,15 +608,19 @@ class Panedwindow:
                                 columnspan = 2)
         
 
+
+
 # Run the program loop
 root = tkinter.Tk()
 root.title ("Tkinter Widgets Guide")
 run = Main(root)
 root.mainloop()
 
+
 '''Format of each function:
 def__init__(self):
      Toplevel_frame(self)
+     
      self.text = tkinter.Label(self.window, <name of function>)
      self.text.grid(row=0, columnspan=2)
      
