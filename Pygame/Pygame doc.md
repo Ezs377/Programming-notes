@@ -26,14 +26,14 @@ Pygame is a module created for Python to generate a game with Python programming
 ### Display:  
 Using `pygame.display.set_mode(coordinates)` lets you set the size of the display, where `coordinates` is equal to a tuple with two integer values, a width and height. For example, `size = 340, 520` creates a tuple called `size` which has the values `(340, 520)`. This is used in the `coordinates` bracket to tell Python what size to set hte display. In this case, 340 pixels wide and 520 pixels tall. A display sets the coordinates of (0,0) at the **top left** of the screen. So X=0 and Y=0 when at the top left of the display, like a tkinter canvas. Only one display be opened by Pygame at a time.  
 
-A display is considered a Surface object by Python. Any images are also considered Surface objects. Drawings are drawn on the `display` Surface.  
-
-`pygame.image.load` lets us load an image into Python as a Surface object. This works by keeping the pixel colour values of the image data. This function supports various image file formats including JPG, PNG, GIF, etc.  
-
-Blit (short for block transfer) is a method of copy-pasting an image object to a Surface. This is often used to create animation for moving objects in a Surface.  
+A display is considered a Surface object by Python. Any images are also considered Surface objects. Drawings are drawn on the `display` Surface.    
 
 Double buffering is a common technique used in Pygame to render everything in a single frame instead of one by one. The way Pygame works is that computing objects and displaying them on screen are two different processes. Without double buffering, your program would be trying to compute the changes to an image while also trying to display it, resulting in screen flickering and most of your images not appearing. An example of this is making a black background with a moving image of a ball. Python will try to render the moving ball while also drawing the background, resulting in either the ball only displaying or the background only. By double buffering, Python computes everything before displaying them on screen. This ensures that everything is rendered before being displayed in a single frame, reducing flickering or stutters. To update the screen, Pygame uses the `pygame.display.update()`function. This updates every Surface object in the display. If you want to only update specific areas of the display, adding object variables  in the brackets will only update those Surface objects. An alternative function is the `pygame.display.flip()` function, which updates every Surface. But leaving `pygame.display.update()` blank does the same thing anyway. 
 
+##### Images:  
+`pygame.image.load(<image URL>)` lets us load an image into Python as a Surface object. This works by keeping the pixel colour values of the image data. This function supports various image file formats including JPG, PNG, GIF, etc. `<image URL>` stands for the image name, and if necessary, the path to the image if the image is not in the same folder as the program. 
+
+Blit (short for block transfer) is a method of copy-pasting an image object to a Surface. This is often used to create animation for moving objects in a Surface. It is often preferably to use the `.convert()` method after the `pygame.image.load()` function, like this: `pygame.image.load(Ball.jpg).convert()`. Using the `convert()` function basicallt onverts the image into the same data type of the display Surface, so when using blitting the program uses less memory to blit an image.
 
 ### Events:  
 
