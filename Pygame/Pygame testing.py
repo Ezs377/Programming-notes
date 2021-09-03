@@ -10,6 +10,13 @@ color_line = (255, 100, 100) # Color RGB tuple for line drawing
 color_rect = (100, 255, 100) # Color RGB tuple for rectangle drawing
 color_circ = (100, 100, 255) # Color RGB tuple for circle drawing
 color_arc = (100, 100, 100) # COlor RGB tuple for circle drawing
+x = 350
+y = 350
+coordinates = (x, y)
+radius = 5
+
+def make_circle(screen, coord, rad):
+    pygame.draw.circle(screen, (100, 255, 100), coord, rad, 1)
 
 
 # Fill screen display Surface
@@ -20,7 +27,12 @@ while loop == 1: # Pygame loop
     for event in pygame.event.get(): # Refresh event queue (THIS IS NECESSARY TO PREVENT FREEZING)
         if event.type == pygame.QUIT:
             loop = 0
+            
+    screen.fill(color)
+    radius += 5
+    coordinates = (x, y)
     
+    make_circle (screen, coordinates, radius)
     
     pygame.display.update() # Call this for every edit to the screen (e.g. Animations)
     
