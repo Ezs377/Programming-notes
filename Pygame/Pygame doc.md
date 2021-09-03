@@ -54,7 +54,7 @@ Pygame can also draw shapes onto the display Surface instead of importing images
 -  `thickness` = The thickness of the border line of the rectangle. If zero is used, then the rectangle is filled with the same color instead.
 
 **Circles:**  
-`pygame.draw.circle(screen, color, (x,y), radius, thickness). Following parameters are:  
+`pygame.draw.circle(screen, color, (x,y), radius, thickness)`. Following parameters are:  
 - `screen` = The display Surface variable (where you initialized the main display). 
 - `color` = A RGB value that consists of 3 integers in a tuple (e.g. Like `(255, 120, 33)`.
 - `(x, y)` = A tuple value that gives coordinates for the CENTRE of the circle. `x` is x position, `y` is y position. Remember that coordinates are based off the TOP LEFT corner of the display screen (i.e. (0,0) = top left corner).
