@@ -34,13 +34,13 @@ import sys, pygame
 pygame.init() # initialize
 
 size = width, height = 320, 240 # Set width to 320, height to 240, and combine them both to a tuple called size
-speed = [2, 2]
+speed = [1, 1] # Speed values, X speed is the first value, Y speed is the second value
 black = 0, 0, 0
 
 screen = pygame.display.set_mode(size) # Create a display Surface to certain size
 
 ball = pygame.image.load("Test.jpg") # Load an image as a Surface object
-ballrect = ball.get_rect() # Turn image into Rect object
+ballrect = ball.get_rect() # Turn image into Rect object (rectangle)
 
 while True: # Infinite loop
     for event in pygame.event.get(): # Seach all events in event queue
