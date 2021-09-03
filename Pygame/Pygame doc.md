@@ -35,6 +35,14 @@ Double buffering is a common technique used in Pygame to render everything in a 
 
 Blit (short for block transfer) is a method of copy-pasting an image object to a Surface. This is often used to create animation for moving objects in a Surface. It is often preferably to use the `.convert()` method after the `pygame.image.load()` function, like this: `pygame.image.load(Ball.jpg).convert()`. Using the `convert()` function basicallt onverts the image into the same data type of the display Surface, so when using blitting the program uses less memory to blit an image.
 
+##### Drawing:  
+Pygame can also draw shapes onto the display Surface instead of importing images in. Pygame uses similar methods of drawing with Tkinter canvas, except it is more specific and more variability than Tkinter canvas.  
+
+**Lines:**  
+`pygame.draw.lines(screen, color, closed, pointlist, thickness`  
+- screen` = The display Surface variable (where you initialized the main display)  
+- 
+
 ### Events:  
 
 
