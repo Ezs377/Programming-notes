@@ -70,7 +70,30 @@ Pygame can also draw shapes onto the display Surface instead of importing images
 - `stop_angle` = The ending angle point of the arc. Measured in radians as well, and follows same rules as `start_angle`.
 - `Thickness` = Thickness of the arc in pixels.
 
+**Animations:**  
+When moving a drawing from one position to another, usually the whole screen is cleared by filling it with the same colour as the background, then re-drawing the drawings with different coordinates. Since the `pygame.display.update()` employs double buffering, that means that the changes to the display are applied at the saem time, so it appears as the drawing has moved. This is a common method of animation with Pygame, and is the most reliable. If the screen wasn't cleared before redrawing the drawing, then the previous drawing would remain, so there would be 2 drawings on the display, instead of a moving drawing.
 
+**Setting the framerate:**  
+An in-game clock can be modified to set the delay between screen updates, thus appearing to 'slow down' the speed that the drawings are drawn. There are two main ways to use this in Pygame: Using a time delay, or using the in-game clock. 
+- `pygame.time.delay(milliseconds)`: Set the delay between each frame, where `milliseconds` = the delay in milliseconds. Inserted into the `while` loop of a Pygame update loop. E.g. `pygame.time.delay(100)` sets a time delay of 100 milliseconds between frames, which is also 10 frames per second.
+- `<variable name> = pygame.time.Clock()` followed by `<variable name?.tick(FPS)`: Set the amount of frames per second, where `<variable name>` = you usual variable, FPS = Frames per second. `<variable name> = pygame.time.Clock()` is inserted outside the display update loop, while `<variable name?.tick(FPS)` is inserted inside the display update loop. For example:  
+```Python
+import pygame, sys
+ingameclock = pygame.time.Clock()
+color = (255, 255, 100)
+
+while True:
+  for event in pygame.event.get():
+          if event.type == pygame.QUIT:
+              sys.exit()
+  screen.fill(color)
+  
+  ingameclock.tick(30)
+ ```  
+In this program, the framerate has been set to 30 FPS by using the in-game clock (this program doesn't do anything however, it will just color in the display). The `ingameclock.tick(FPS)` function simply forces a maximum amount of frames per second; thus, it also sets the maximmum amount of times the loop repeats itself in a second. It will enforce a delay to ensure that the framerate never exceeds the given FPS, HOWEVER it does not mean that your program will go faster, just that it will stay under the given FPS.
+
+It is often preferable to use the clock over a time delay, as the time delay requires you to calculate the delay between frames to achieve a certain framerate, while `Clock` creates an object that manages time and framerate for you. By using `Clock` you are also able to debug the tick values and frame data. The following functions let you extract debug data.
+- `pygame.time.get_ticks())`: The only debug data you can extract if you use a time delay, but can also be used if you use the `Clock` object. This will give you the total runtime of the program in milliseconds. Useful for finding out if your program is lagging or not. E.g. 
 
 ### Events:  
 
