@@ -85,7 +85,8 @@ A Try and Except statement contains 2 statements: `Try` and `Except`. A `Try` st
 ### `for` loops:
 This loop continues for a certain amount of times given. Usually, a `for` loop will count each item in a sequence (list, tuple, etc) and repeat for as many times it counts an item in the sequence. For example, the list `[‘car’, 5, ‘yellow’, 1]` has 4 items/elements in it, so the loop will repeat 4 times. A for loop usually requires a variable that will become the item that that the loop is currently counting. For example, `for x in <list>:` the `x` is a variable that will become whatever is being counted. If the list is `[‘car’, 5, ‘yellow’, 1]`, then for the first loop `x` will be `“car”`, then in the next loop `x` will be `5`, and etc. This lets us manipulate what happens each iteration for each item in the list, such as scanning whether `x` is an integer or not. If the loop is left alone as it is (`for x in <list>:`) then the program will loop for each item in the list. However, the range function (`range()`) can be used instead of a sequence. Using range() lets you manually decide how many times the for loop will go on for. 
 
-### while loops:
+### while loops:  
+A `while` loop will keep looping until the conditions are met, then the loop breaks. Ypu can have other loops within a `while` loop. The most common use of the `while` loop is `while True` which essentially keeps looping a whole program until it is terminated using `sys.exit()` or any self-termination function within the `while` loop. 
 
 ### Functions:  
 ###### Lambda function:  
@@ -186,4 +187,8 @@ Datetime can be used to express a time or find the current time. `Datetime.now()
 `Timedelta()` is another object in the datetime module that can tell the difference between two time values. For example, `difference = time - timedelta(hours=13)` will minus 13 hours from `time` (which is a variable that has a datetime value). `Timedelta` requires a specific value followed by an integer, and uses string values to specify the format. For example, `hours=5` means 5 hours. `Years=2` means 2 years. 
 
 
-### String formatting: 
+### String formatting:  
+There's a lot of functions available within Python that lets you manipulate strings and how they are presented/printed out. I'm not going to bother because most of these aren't exactly useful. Although, the trickiest issue you'll come across is how to print a variable within a string, without splitting up the string. For example, `print ("Hello there ", name, " you have", value, "$ left in your bank account"). This string outputs as `Hello there Mike you have 5 $ left in your bank account`. Obviously it's not exactly neat, both the code and the output. 
+
+## Useful notes:  
+- `enumerate()` is apparently very useful to replace counters. Gonna do more research.
