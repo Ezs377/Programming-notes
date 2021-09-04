@@ -86,9 +86,9 @@ while loop == 1: # Pygame loop
     '''Using a time delay'''
     #pygame.time.delay(1000)   
     
-    print (pygame.time.get_ticks()) # Total runtime in millisceconds
+    #print (pygame.time.get_ticks()) # Total runtime in millisceconds
     #print (clock.get_time()) # Time in milliseconds from previous tick to the next
-    #print (clock.get_fps())
+    #print (clock.get_fps()) # Current FPS
     
     for event in pygame.event.get(): # Refresh event queue (THIS IS NECESSARY TO PREVENT FREEZING)
         if event.type == pygame.QUIT:
