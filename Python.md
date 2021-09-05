@@ -48,7 +48,7 @@ For example: `<variable2> = <variable1>.read()`
 Then to edit text use `<variable2>`. The `<variable1>` is only used to take out the contents of a text file so Python can receive it. 
 
 ### Data structures/sequence:
-A data structure is a form of storage used by a program that can store several data in several forms (this is also called a sequence in Python). Python has 4 in-built data structures: Lists, dictionaries, sets, and tuples. Data structures become very important for complex programming, as there are multiple ways you can write a program to call data from a data structure, and the method used can impact your program in many different ways. Variables are NOT data structures, they can be used to hold a data structure, but variables are only a name for a set of code. They exist to make life easier for programmers by becoming a temporary storage for something else that would otherwise take up more space in the program, such as a line of code.
+A data structure is a form of storage used by a program that can store several data in several forms (this is also called a sequence in Python). Python has 4 in-built data structures: Lists, dictionaries, sets, and tuples. Data structures become very important for complex programming, as there are multiple ways you can write a program to call data from a data structure, and the method used can impact your program in many different ways. Variables are NOT data structures, they can be used to hold a data structure, but variables are only a name for a set of code. They exist to make life easier for programmers by becoming a temporary storage for something else that would otherwise take up more space in the program, such as a line of code.  
 - **Lists:** A list is an array of values that can be modified. Elements are used to refer to the position of a value. Lists can hold any type of data, and can add or remove elements as needed. An example of a list is `Car_info = [“cars”, 5, “colors”, “yellow”]`  
 - **Dictionaries:** A dictionary contains key-value pairs as items within the dictionary. Each key is associated with its own value. An item is a key-value pair within a dictionary. Calling a key will allocate its value to the variable. For example, `<variable> = <dictionary>[<key>]` will allocate the value of the `<key>` to the variable. Items in a dictionary can be any data type, remember to use apostrophes/speech marks to indicate strings. Dictionaries cannot have duplicate keys. You cannot have two of the same key, such as having the keys `"home:here”` and `“home:there”`, but you can have two different keys with the same value, such as the keys `“time:60”` and `“days:60”`. Dictionaries are defined with curly brackets `{ }`, with items using a semicolon ` : ` to define a key-value pair, and commas to separate items. Most of the time a variable has to allocated to a dictionary in order to be able to use it. An example of a dictionary is:  
 `Car_info = {“cars”:5, “colors”:”yellow”, “tires”:”round”, “factory”:”Daihatsu”}`  
@@ -89,6 +89,8 @@ This loop continues for a certain amount of times given. Usually, a `for` loop w
 A `while` loop will keep looping until the conditions are met, then the loop breaks. Ypu can have other loops within a `while` loop. The most common use of the `while` loop is `while True` which essentially keeps looping a whole program until it is terminated using `sys.exit()` or any self-termination function within the `while` loop. 
 
 ### Functions:  
+A function is a series of step-by-step lines of code that are all combined into one line, AKA a function. A function simply lets you re-use a series of larger code into a simpler form, which greatly reduces memory of the program and makes it easier to read and use. 
+
 ###### Lambda function:  
 The `lambda()` function can be used to create an anonymous function in Python. An anonymous function is basically a simple function without a label; i.e. A function wihtout using the `def <function name>():` code. Usually the lambda function is given to a variable, then the variable can be used anywhere to use the function. A lambda function cannot du much except return a value. An example:  
 ```Python
@@ -110,7 +112,7 @@ print (greeting("Hello ", "there ","friend!")
 as you're trying to do 2 things in one command. Lambda is only useful for replacing small quick functions, which can have a big impact when you're writing a big program.
 
 ### Methods: 
-Methods are like functions, except they take data from an object in order to return a value. Most methods don’t have arguments as they do not require other data.
+Methods are like functions, except they take data from an object in order to return a value. A method acts from an object (that has been constructed by an in-built class) and allos you to either alter the object. 
 
 ### Objects: 
 An object is a certain type of data used by a program to organize different data values into each data type which makes it easier for the computer to run a program. For example, integers are considered an object, and is an integer data type. Integers are a different data type to string, which displays characters that may include numbers, but cannot use these numbers to calculate as they are not an integer data type. An object instance is an object generated from a class with specific attributes that are determined by the class. Instances of objects are just different versions of objects generated from the same class.
@@ -191,4 +193,4 @@ Datetime can be used to express a time or find the current time. `Datetime.now()
 There's a lot of functions available within Python that lets you manipulate strings and how they are presented/printed out. I'm not going to bother because most of these aren't exactly useful. Although, the trickiest issue you'll come across is how to print a variable within a string, without splitting up the string. For example, `print ("Hello there ", name, " you have", value, "$ left in your bank account"). This string outputs as `Hello there Mike you have 5 $ left in your bank account`. Obviously it's not exactly neat, both the code and the output. 
 
 ## Useful notes:  
-- `enumerate()` is apparently very useful to replace counters. Gonna do more research.
+- `enumerate()` is apparently very useful to replace counters. Gonna 
