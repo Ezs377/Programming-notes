@@ -34,7 +34,25 @@ print (‘done’)
 In this example, the statement is the `For` loop, which causes the program to run a specific set of code until it stops looping, ignoring the rest of the code until the statement is finished. The program will not print ‘done’ until `For` loop is finished (the statement is done)(i.e. The program will not run anything that is after the `For` loop until the `For` loop is finished looping). 
 A statement doesn’t have to be a loop, it is anything that allows the program to run a specific set of code within the program (such as `If` statements). There are many different types of statements. `For` is an example of a looping statement, while `If` is an example of a conditional statement.
 
-A sequence/iteration is a repeated procedure that will repeat the same thing until it is told to stop. An example would be using a loop.
+A sequence is a repeated procedure that will repeat the same thing until it is told to stop. An example would be using a loop.  
+An iteration is similar, in that it is a repeated action to go over a group of values.  However, an *iterable* and *iterator* are two different aspects to an iteration.  
+- An iterable is anything that can be looped over, and usually contains multiple values, which are counted one by one to extract it (e.g. A list, dictionary, string). You can get an *iterator* from an iterable using the `iter()` method. 
+- An iterator is an object that gives intructions on how to cycle through to the next item in an **iterable**. An iterator provides intructions on how to get the next iteration in a loop, which lets you cycle through items in an **iterable**. Generally speaking, the `next()` method in an iterator moves on the the next item in the iterable, and the `iter()`method allows you to extract the *iterator* from an **iretable**. Iretator = how to get to the next item in an iretable.
+Every **iretable** has an *iretator* that lets you cycle through items in the **iretable**, therefore creating an iretation. An example:  
+``` Python
+listofstuff = [1, 2, 3, 4, 5]
+for x in list of stuff:
+	print (x)
+```  
+Output:  
+```Python
+1
+2
+3
+4
+5
+```  
+Here, the **iretable** is `listofstuff`. It is a list of values, therefore, it is an iretable container that contains multiple values. The *iretator* is hidden, and is used by the `for` loop to get to the next item in `listofstuff`. There are methods that let you amnually use iretators to craete classes and etc, and you can create your own iretables using classes and iretator methods.
 
 ### File writing:
 First, a variable needs to be allocated to the text file. Use `<variable1> = open(<filename>, <option>)`. Options include `r`, `w`, `a`, `x`.
@@ -83,7 +101,7 @@ There are 3 main data types with Python: Integers, floats, and strings. An integ
 A Try and Except statement contains 2 statements: `Try` and `Except`. A `Try` statement tells the program to attempt running the code written within the statement; The `Except` statement provides the program with the backup code if the Try statement fails. A `Try` statement is always attempted first by the program, if the code raises an error, then the program will skip and move on to the `Except` statement, otherwise, if there is no error, the code in the `Try` statement is executed and the program continues, ignoring the `Except` statement. Try and Except statements are very useful for checking errors without breaking the program. 
 
 ### `for` loops:
-This loop continues for a certain amount of times given. Usually, a `for` loop will count each item in a sequence (list, tuple, etc) and repeat for as many times it counts an item in the sequence. For example, the list `[‘car’, 5, ‘yellow’, 1]` has 4 items/elements in it, so the loop will repeat 4 times. A for loop usually requires a variable that will become the item that that the loop is currently counting. For example, `for x in <list>:` the `x` is a variable that will become whatever is being counted. If the list is `[‘car’, 5, ‘yellow’, 1]`, then for the first loop `x` will be `“car”`, then in the next loop `x` will be `5`, and etc. This lets us manipulate what happens each iteration for each item in the list, such as scanning whether `x` is an integer or not. If the loop is left alone as it is (`for x in <list>:`) then the program will loop for each item in the list. However, the range function (`range()`) can be used instead of a sequence. Using range() lets you manually decide how many times the for loop will go on for. 
+This loop continues for a certain amount of times given. Usually, a `for` loop will count each item in a sequence (list, tuple, etc) and repeat for as many times it counts an item in the sequence. For example, the list `[‘car’, 5, ‘yellow’, 1]` has 4 items/elements in it, so the loop will repeat 4 times. A `for` loop usually requires a variable that will become the item that that the loop is currently counting. For example, `for x in <list>:` the `x` is a variable that will become whatever is being counted. If the list is `[‘car’, 5, ‘yellow’, 1]`, then for the first loop `x` will be `“car”`, then in the next loop `x` will be `5`, and etc. This lets us manipulate what happens each iteration for each item in the list, such as scanning whether `x` is an integer or not. If the loop is left alone as it is (`for x in <list>:`) then the program will loop for each item in the list. However, the range function (`range()`) can be used instead of a sequence. Using `range()` lets you manually decide how many times the for loop will go on for. 
 
 ### while loops:  
 A `while` loop will keep looping until the conditions are met, then the loop breaks. Ypu can have other loops within a `while` loop. The most common use of the `while` loop is `while True` which essentially keeps looping a whole program until it is terminated using `sys.exit()` or any self-termination function within the `while` loop. 
@@ -111,20 +129,40 @@ print (greeting("Hello ", "there ","friend!")
 ```  
 as you're trying to do 2 things in one command. Lambda is only useful for replacing small quick functions, which can have a big impact when you're writing a big program.
 
+### Classes: 
+A class is basically a blueprint for creating instances of objects. String, integers, are part of a class (strings belong to the str class, integers belong to the int class). This way it lets Python classify values as certain ‘objects’ which makes it easier for a computer to run the program. Classes are often called using `class: <class name>:`. `self` is the parameter that a class uses to access other variables within the class. It does not have to be named `self`, but it is always the first variable referenced in a class `init`. `self` contains the instance of the class (the current version of the class) which can be manipulated to provide different objects. A class has several aspects to it, which will be explained using this example class:  
+``` Python
+class Larynx: # Create class
+	def __init__(self, bogo): # def __init__ function, create in-built values
+		self.farad = bogo # Use self to apply the variable to the class
+		
+	def reaper(self): # A function within the class, called by a method
+		print ("Heck yeah!") # Print an output
+```
+**NOTE: While I call them functions within a class, they are actually methods when the class is created. I just call them functions because they use the same way of creating**  
+- `self` = Labelled in the `def __init__`. `self` represents an instance of the class and lets you access the attributes and methods of the class. The `self` parameter is passed whenever you create an instance of the class, letting you create multiple instances of the same class without those instances intefering with each other. Also, the `self` parameter does not have be named `self`, but as long as it is the first variable in the brackets for a function within a class, and it has to be same for other functions within the class. It's important to note that any variables you want to create within a class should be a part of `self`, as this sets the variable as part of the class, and therefore applying it to an instance of the class (object). Using the example:  
+``` Python
+Hept = Larynx(377)
+Hept.reaper()
+```  
+Output = `Heck yeah!`  
+In this case, the instance becomes `Hept`. The `self` parameter is replaced with `Hept`, thus allowing you to use `Hept` as an instance of the class `Larynx`, thereby creating an object. This code prints out `Heck yeah!` because it is calling the method. Important terms associated with a class:  
+- Object = An object is simply an instance of a class. Anything you want to do that uses the class functions, you apply to the object e.g. `Hept.reaper()` is an example of applying a method (`reaper()`) to an object (`Hept`).  
+- `def __init__ (self, +, +...)` = The 'constructor' for the class. It is a reserved function that is automatically run whenever you create an object using the class, thus anything in this function will be applied to create the object. This function is very important as it sets the in-built variables and values for the object, and makes it unique to other objects. The `+` stands for other parameters you can add, which work like standard function parameters. You can add as many as you like, as long as there are they are all used in the `def __init__` (like any other function). 
+
 ### Methods: 
-Methods are like functions, except they take data from an object in order to return a value. A method acts from an object (that has been constructed by an in-built class) and allos you to either alter the object. 
+Methods are like functions, except they are functions within a class, allowing them to operate within the class object only. A method acts from an object (that has been constructed by an in-built class) and allows you to use several functions by creating one class (AKA an object that has its own properties). Functions can often be used by themselves without being attached to anythin (e.g. `print("Hello")) while methods have to be attached to an instance (e.g. `Hept.reaper()`). There are two types of methods: Bounded, and Unbounded (this is discontinued in Python 3).
+- Bounded methods rely on the instance of a class, and are often the traditional methods you often use. For example: `Hept.reaper()` uses the `reaper()` method, byb calling the `reaper(self)` function from within the class.  
+- Unbounded methods occur when the class is called without creating an instance, thus you need to use an instance of the class to replace the `self` parameter. This is discontinued in Python 3, instead of becoming an error you will just get the function if you try to call a class without using an instance.
 
 ### Objects: 
 An object is a certain type of data used by a program to organize different data values into each data type which makes it easier for the computer to run a program. For example, integers are considered an object, and is an integer data type. Integers are a different data type to string, which displays characters that may include numbers, but cannot use these numbers to calculate as they are not an integer data type. An object instance is an object generated from a class with specific attributes that are determined by the class. Instances of objects are just different versions of objects generated from the same class.
 
-### Classes: 
-A class is basically a blueprint for creating instances of objects. String, integers, are part of a class (strings belong to the str class, integers belong to the int class). This way it lets Python classify values as certain ‘objects’ which makes it easier for a computer to run the program. Classes are often called using `class: <class name>:`. `self` is the parameter that a class uses to access other variables within the class. It does not have to be named `self`, but it is always the first variable referenced in a class `init`. `self` contains the instance of the class (the current version of the class) which can be manipulated to provide different objects.
+- ##### Instance variable/Instance atrributes:  
+A variable made in the `__init__` function of a class (e.g. `self.cars = 5`). Can be called by using `self.<variablename>`. An instance variable is attached to 'self' and they apply to the current instance of the class and not the whole class, letting you manipulate individual aspects of objects instead of the same thing over and over again. They also allow instances of a class to be unique to each other, creating different properties for objects.
 
-- ##### Instance variable:  
-A variable made in the `__init__` function of a class (e.g. `self.cars = 5`). They apply to the current object of the class and not the whole class, letting you manipulate individual aspects of objects instead of the same thing over and over again.
-
-- ##### Class variable:  
-A normal variable made inside a class (e.g. `cars = 5`). Can be called by using `<classname>.<variablename>`. 
+- ##### Class variables/Class atrributes:  
+A normal variable made inside a class (e.g. `cars = 5`). Can be called by using `<classname>.<variablename>`. Unlike instance variables, class variables aren't attached to `self`, so they remain constant across all instances of the class.
 
 The variables in play can affect the class in different ways. For example:
 
@@ -136,7 +174,7 @@ class Car:
 ```
 Wrting this code lets you do manipulate the name of the class, but `wheels` stays the same as it is a class variable. For example:  
 ```Python
-> car_type = Car(Ferrari)
+> car_type = Car(Ferrari) # car_type becomes (self)
 > print (Car.wheels)
 > print (Car.name)
 ```  
@@ -152,7 +190,7 @@ This prints out both `Ferrari` and `Honda`. Now if we:
 > print (first_car.Wheels)
 > print (second_car.Wheels)
 ```  
-This will print out `4` for each one. Thus, class variabels remain constant for every instance, while instance variables differ from each instance. BE CAREFUL! An instance variable takes priorty over class variables, so if an instance and class variables have the same names it can replace your variables without you knowing and can break your program. E.g. `Car.Wheels = 5` and `first_car.Wheels = 10` will make `print (first_car.Wheels)` equal `10` instead of `5` as typing `first_car.Wheels = 10` creates an INSTANCE variable for that object instead of using the CLASS variable.
+This will print out `4` for each one. Thus, class variabels remain constant for every instance, while instance variables differ from each instance. BE CAREFUL! An instance variable takes priorty over class variables, so if an instance and class variables have the same names it can replace your variables without you knowing and can break your program. E.g. `Car.Wheels = 5` and `first_car.Wheels = 10` will make `print (first_car.Wheels)` equal `10` instead of `5` as typing `first_car.Wheels = 10` creates an INSTANCE variable for that object instead of using the Class variable.
 
 ### __name__ variable:
 The `__name__` variable is an inbuilt variable in Python that lets programs tell the difference between imported modules and modules inside other modules. `__name__` always defaults to `__main__` if `__name__` is being used in the program. However, if you make another program and import that program as a module in your original program, the `__name__` in your imported module will match the name of the module, instead of `__main__`. For example, take program 1 and program 2.
@@ -193,4 +231,6 @@ Datetime can be used to express a time or find the current time. `Datetime.now()
 There's a lot of functions available within Python that lets you manipulate strings and how they are presented/printed out. I'm not going to bother because most of these aren't exactly useful. Although, the trickiest issue you'll come across is how to print a variable within a string, without splitting up the string. For example, `print ("Hello there ", name, " you have", value, "$ left in your bank account"). This string outputs as `Hello there Mike you have 5 $ left in your bank account`. Obviously it's not exactly neat, both the code and the output. 
 
 ## Useful notes:  
-- `enumerate()` is apparently very useful to replace counters. Gonna 
+- `enumerate()` is apparently very useful to replace counters. 
+- `min()` function gives the lowest value in an iterable with integers, gives the lowest string alphabetically when using string. E.g. `x = min(3, 4, 10, 1) = 3` while `x = min("ant", "bee", "larvae") = "ant". 
+- `dir()` returns all properties and methods of an object (without the values). This also includes default methods that are usually hidden (a perfect example is the `def __init(self)` function, this is usually hidden but still runned by the program, unless you actually type it out and give it some code). Useful for finding out what you can do with classses and objects (e.g. Using it on an integer object to see if there's anything else you can with integers). 
