@@ -99,7 +99,7 @@ It is often preferable to use the clock over a time delay, as the time delay req
 ![Screenshot](https://github.com/Ezs377/Programming-notes/blob/main/Images/Pygame%20runtime%20example.jpg).  
 Using the debug data we can see that the program takes 2280 milliseconds to start the Pygame loop, which could be useful when trying to optimize perfomance in a program.
 - `clock.get_time()`: Where `clock` = `pygame.time.Clock()`, this will give the time in milliseconds from one tick to the next. A 'tick' is basically the next update loop. This function needs a Clock object, so it can't be used if you use a time delay instead of the in-game clock. This is useful for finding the time between frames, so if lag occurs you can see where the time between frames has spiked. 
-- `clock.get_fps()`: Where `clock` = `pygame.time.Clock()`, this also requires a Clock object. Gives the current Frames Per Second of the current loop, can also be used to see when your program slows down.
+- `clock.get_fps()`: Where `clock` = `pygame.time.Clock()`, this also requires a Clock object. Gives the current Frames Per Second of the current loop, can also be used to see when your program slows down. The FPS shown is the current FPS for the current loop, and not consistent throughout the program.
 
 
 ### Events:  
