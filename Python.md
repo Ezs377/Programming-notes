@@ -228,7 +228,7 @@ Datetime can be used to express a time or find the current time. `Datetime.now()
 
 
 ### String formatting:  
-There's a lot of functions available within Python that lets you manipulate strings and how they are presented/printed out. I'm not going to bother because most of these aren't exactly useful. Although, the trickiest issue you'll come across is how to print a variable within a string, without splitting up the string. For example, `print ("Hello there ", name, " you have", value, "$ left in your bank account"). This string outputs as `Hello there Mike you have 5 $ left in your bank account`. Obviously it's not exactly neat, both the code and the output. 
+There's a lot of functions available within Python that lets you manipulate strings and how they are presented/printed out. I'm not going to bother because most of these aren't exactly useful. Although, the trickiest issue you'll come across is how to print a variable within a string, without splitting up the string. For example, `print ("Hello there ", name, " you have", value, "$ left in your bank account"). This string outputs as `Hello there Mike you have 5 $ left in your bank account`. Obviously it's not exactly neat, both the code and the output. Using `+` instead of `,` will join two sets of strings together without a space, and is the simplest and easiest way to join strings. There are also stirng methods you can use, or string formatting.
 
 ## Useful notes:  
 - `enumerate()` is apparently very useful to replace counters. 
