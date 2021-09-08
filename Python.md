@@ -36,8 +36,8 @@ A statement doesn’t have to be a loop, it is anything that allows the program 
 
 A sequence is a repeated procedure that will repeat the same thing until it is told to stop. An example would be using a loop.  
 An iteration is similar, in that it is a repeated action to go over a group of values.  However, an *iterable* and *iterator* are two different aspects to an iteration.  
-- An iterable is anything that can be looped over, and usually contains multiple values, which are counted one by one to extract it (e.g. A list, dictionary, string). You can get an *iterator* from an iterable using the `iter()` method. 
-- An iterator is an object that gives intructions on how to cycle through to the next item in an **iterable**. An iterator provides intructions on how to get the next iteration in a loop, which lets you cycle through items in an **iterable**. Generally speaking, the `next()` method in an iterator moves on the the next item in the iterable, and the `iter()`method allows you to extract the *iterator* from an **iretable**. Iretator = how to get to the next item in an iretable.
+- An **iterable** is anything that can be looped over, and usually contains multiple values, which are counted one by one to extract it (e.g. A list, dictionary, string). You can get an *iterator* from an iterable using the `iter()` method. 
+- An *iterator* is an object that gives intructions on how to cycle through to the next item in an **iterable**. An iterator provides intructions on how to get the next iteration in a loop, which lets you cycle through items in an **iterable**. Generally speaking, the `next()` method in an iterator moves on the the next item in the iterable, and the `iter()`method allows you to extract the *iterator* from an **iretable**. Iretator = how to get to the next item in an iretable.
 Every **iretable** has an *iretator* that lets you cycle through items in the **iretable**, therefore creating an iretation. An example:  
 ``` Python
 listofstuff = [1, 2, 3, 4, 5]
@@ -52,7 +52,7 @@ Output:
 4
 5
 ```  
-Here, the **iretable** is `listofstuff`. It is a list of values, therefore, it is an iretable container that contains multiple values. The *iretator* is hidden, and is used by the `for` loop to get to the next item in `listofstuff`. There are methods that let you amnually use iretators to craete classes and etc, and you can create your own iretables using classes and iretator methods.
+Here, the **iretable** is `listofstuff`. It is a list of values, therefore, it is an iretable container that contains multiple values. The *iretator* is hidden, and is used by the `for` loop to get to the next item in `listofstuff`. There are methods that let you manually use iretators to create classes and etc, and you can create your own iretables using classes and iretator methods. A great example is making a class that creates your own custom type of data  (e.g. You create a class that classifies emojis as an `emoji` object). You then create the *iretator* for a custom **iretable** so you can organize your own object data in any way you want (e.g. You create an **iretable** called `mood` that organizes your `emoji` objects in a list by the expressions on the emoji using your onw custom *iretator*).
 
 ### File writing:
 First, a variable needs to be allocated to the text file. Use `<variable1> = open(<filename>, <option>)`. Options include `r`, `w`, `a`, `x`.
@@ -93,6 +93,41 @@ No duplicates: Duplicate elements aren’t allowed and previous value will be ov
 Dictionaries are ordered as of Python 3.7 and onwards  
 New values can still be added to sets, but cannot edit values or delete values  
 Sets are in a random order everytime, so cannot manually locate a value in a set (you can use `If <variable> in <set>:` but not `<variable> = <set>[2]` like in a list).
+
+When comparing two sets, some data structures behave differently. For example, comparing two variables is quite obvious:  
+```Python
+Firstvar = 10
+Seconvar = 20
+
+Firstvar > Seconvar = True
+```  
+However, data structures act a bit differently. You can compare individual values from within data structures (e.g. `if dictionary[0] > list[3]`) or the whole data strucutre. WHen this occurs, the way Python compares things gets a bit differently. For startes, integers are compared as they are, i.e. 2 is more than 1. However, with strings, Python compares them by their byte code, which appears as alphabetical (eg. The letter 'b' is 'more' than the letter 'a'). Because Python uses the byte code of strings, there is a difference when comparing upper case and lower case strings (e.g. The capital letter 'A' is more than the lowercase letter 'a').
+
+All comparisons return either `True` or `False`. A comparison is usually in an `if` statement, such as `if x == y:`. Comparisons use operators to compare two or more values.  
+Table of operators:  
+| Operator | Meaning |
+| -------- | ------- |
+| `==` | Equal to (the same as) |
+| `!=` | Not equal to (not the same as) |
+| `>` | More than |
+| `<` | Less than |
+| `>=` | More than or equal to |
+| `<=` | Less than or equal to |
+| `in` | Equal to an item in a container |
+| `not in` | Not in the container |
+| `is` | Exactly the same |
+| `is not` | Not the same |
+| `and` | Check if both conditions are met |
+| `or` | CHeck if one of the conditions are met |  
+
+A bit of explanations:
+- Always use double equal signs (`==`) for finding if two values are the same.
+- `>` and `<` both only occur if the value is NOT equal (e.g. `if 5 > 3:` will be `True`, but `if 5 > 5:` will be `False`). `>=` and `<=` are used instead.
+- `not` can be applied to other string operators (e.g. `in`, `is`) to reverse the operator, so it will act the opposite as before.
+- `in` is mostly used to check if a value is inside a container (e.g. A list).
+- `is` DOES NOT do the same thing as `==`. `is` checks if both values are EXACTLY the same as each other, from its proeprties, attributes, to memory location. `is` is mostly used for comparing objects, which have multiple properties/attributes.
+- `and` and `or` can be stacked infinitely, although there are probably better ways to compare multiple values than spamming them.
+- You can't mix string operators with symbol operators (e.g. Like this `if x not == y:`). Use the corresponding symbols/string operators.
 
 ### Integer, floats, and strings:
 There are 3 main data types with Python: Integers, floats, and strings. An integer is a whole number, that can be used by Python to perform mathematical calculations. A float also acts the same as an integer, but can hold infinite decimal places, while an integer has to be a whole number. Integers can be the default data type for many Python functions and methods, such as `len()` and `range()` which returns an integer by default. A string however, can be any character. A string is treated as it is by Python, which means you cannot perform mathematical calculations with a string. You can print any character as a string as long as Python recognizes that character (an example of this is printing an apostrophe from a Word document, Python cannot recognize this character and it is printed as an encoded value). Strings can be manipulated with a variety of methods, such as `split(`) and `upper()`. Integers in a string cannot be used for math, and any methods that affect alhabetical characters are usually ignore with integer strings (e.g. Using `upper()` will uppercase normal letters, but numbers are ignored).
@@ -231,6 +266,6 @@ Datetime can be used to express a time or find the current time. `Datetime.now()
 There's a lot of functions available within Python that lets you manipulate strings and how they are presented/printed out. I'm not going to bother because most of these aren't exactly useful. Although, the trickiest issue you'll come across is how to print a variable within a string, without splitting up the string. For example, `print ("Hello there ", name, " you have", value, "$ left in your bank account"). This string outputs as `Hello there Mike you have 5 $ left in your bank account`. Obviously it's not exactly neat, both the code and the output. Using `+` instead of `,` will join two sets of strings together without a space, and is the simplest and easiest way to join strings. There are also stirng methods you can use, or string formatting.
 
 ## Useful notes:  
-- `enumerate()` is apparently very useful to replace counters. 
+- `enumerate()` is apparently very useful to replace counters. `enumerate()` returns an enumerate object, with a counter as the key. `enumerate(iterable, start)`, where `iterable` = any data structure (Lists, tuples, etc), and `start` = a starting number for the counter, which is defaulted at zero if left blank. 
 - `min()` function gives the lowest value in an iterable with integers, gives the lowest string alphabetically when using string. E.g. `x = min(3, 4, 10, 1) = 3` while `x = min("ant", "bee", "larvae") = "ant". 
 - `dir()` returns all properties and methods of an object (without the values). This also includes default methods that are usually hidden (a perfect example is the `def __init(self)` function, this is usually hidden but still runned by the program, unless you actually type it out and give it some code). Useful for finding out what you can do with classses and objects (e.g. Using it on an integer object to see if there's anything else you can with integers). 
