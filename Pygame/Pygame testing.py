@@ -9,16 +9,16 @@ color = (0, 0, 0)
 rect_color = (255, 100, 100)
 clock = pygame.time.Clock()
 screen.fill(color)
+counter = 0
 
 pointlist = [(100, 100), (450, 100), (450, 450), (100, 450)]
 
-x = 100
-y = 100
+x = pointlist [counter][0]
+y = pointlist [counter][1]
 
 coordinates = (x, y)
 size = (50, 50)
 
-counter = 0
 
 
 while loop == 1:
@@ -26,10 +26,19 @@ while loop == 1:
         if event.type == pygame.QUIT:
             loop = 0
     
-    coordinates = pointlist[counter]
-    counter += 1
-    if counter == 4:
-        counter = 0
+    # Grid lines
+    pygame.draw.lines(screen, (100, 255, 100), False, [(100, 0), (100, 600)], 1) # Left vertical
+    pygame.draw.lines(screen, (100, 255, 100), False, [(450, 0), (450, 600)], 1) # Right vertical
+    pygame.draw.lines(screen, (100, 255, 100), False, [(0, 100), (600, 100)], 1) # Upper horizontal
+    pygame.draw.lines(screen, (100, 255, 100), False, [(0, 450), (600, 450)], 1) # Lower horizontal
+    
+    clock.tick(10)
+    if x != pointlist[counter+1][0]:
+        x += 5
+    
+    
+    
+    coordinates = (x, y)
     
     screen.fill(color)
     pygame.draw.rect(screen, rect_color, (coordinates, size), 0)
