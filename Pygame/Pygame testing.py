@@ -3,14 +3,29 @@
 import pygame, sys
 pygame.init()
 
+'''Variables'''
+screen = pygame.display.set_mode((600, 600))
+bg_color = (0,0,0)
+
+clock = pygame.time.Clock()
+
+screen.fill(bg_color)
+
 
 # While loop is still going i.e. program is still running
-while loop == 1:
+while True:
     # Refresh event queue (THIS IS NECESSARY TO PREVENT FREEZING)
     for event in pygame.event.get(): 
         if event.type == pygame.QUIT: # If Pygame detects program shutdown
-            loop = 0
-    
+            sys.exit()
+            
     '''Do stuff here'''
-
+    clock.tick(10)
+    screen.fill(bg_color)
+    
+    
+ 
+    
+    pygame.display.update()
+    
 print ("done") # Indicate finish

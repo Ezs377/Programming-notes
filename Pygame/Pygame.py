@@ -57,7 +57,7 @@
     #screen.blit(ball, ballrect) # Redraw ball image by copy/pasting the ball image onto the display SUrface
     #pygame.display.flip() # Update everything
 #__________________________________________________________________________________________________________________________
-#'''Animation'''
+'''Animation'''
 
 #import pygame
 #pygame.init()
@@ -110,84 +110,124 @@
 #print ("done")
 #__________________________________________________________________________________________________________________________
 '''Moving animation!'''
+#import pygame, sys
+#pygame.init()
+
+#loop = 1 # Instead of using sys.exit, use variable
+#screen = pygame.display.set_mode((600, 600)) # Set display size
+#color = (0, 0, 0) # Color RGB tuple
+#rect_color = (255, 100, 100) # Color RGB tuple 2
+#clock = pygame.time.Clock() # Create clock object
+#screen.fill(color) # Fill display color
+#counter = 0 # Counter value for coordinates
+#increment = 10 # Value for setting the movement value of square
+
+## List of coordinates to get square to move to
+#pointlist = [(100, 100), (450, 100), (450, 450), (100, 450)]
+
+## Set x and y coordinates
+#x = pointlist [counter][0]
+#y = pointlist [counter][1]
+
+## Set coordinates
+#coordinates = (x, y)
+
+## Size of square
+#size = (50, 50)
+
+## While loop is still going i.e. program is still running
+#while loop == 1:
+    ## Refresh event queue (THIS IS NECESSARY TO PREVENT FREEZING)
+    #for event in pygame.event.get(): 
+        #if event.type == pygame.QUIT: # If Pygame detects program shutdown
+            #loop = 0
+    
+    ## Set FPS
+    #clock.tick(30)
+    
+    ## Refresh screen
+    #screen.fill(color)
+    
+    ## Grid lines
+    #pygame.draw.lines(screen, (100, 255, 100), False, [(100, 0), (100, 600)], 1) # Left vertical
+    #pygame.draw.lines(screen, (100, 255, 100), False, [(500, 0), (500, 600)], 1) # Right vertical
+    #pygame.draw.lines(screen, (100, 255, 100), False, [(0, 100), (600, 100)], 1) # Upper horizontal
+    #pygame.draw.lines(screen, (100, 255, 100), False, [(0, 500), (600, 500)], 1) # Lower horizontal
+    
+    
+    ## Code for coordinates seeking
+    #if x < pointlist[counter+1][0]: # if x is less than the desired coordinate, add x
+        #x += increment
+    #elif x > pointlist[counter+1][0]: # if x is more than desired coordinate, subtract x
+        #x -= increment
+    
+    ## Same formula used for y
+    #if y < pointlist[counter+1][1]:
+        #y += increment
+    #if y > pointlist[counter+1][1]:
+        #y -= increment
+
+
+    ## If the cooridnates match the target coordinates, move to the enxt coordinate
+    #if coordinates == pointlist[counter+1]:
+        #counter += 1
+    
+
+    #if counter == 3:
+        #counter = -1
+    
+    ## Set coordinates of square
+    #coordinates = (x, y)
+
+    ## Draw square
+    #pygame.draw.rect(screen, rect_color, (coordinates, size), 0)
+    
+    ## Update screen
+    #pygame.display.update()
+
+#print ("done") # Indicate finish
+#__________________________________________________________________________________________________________________________
+'''Expanding circle'''
 import pygame, sys
 pygame.init()
 
-loop = 1 # Instead of using sys.exit, use variable
-screen = pygame.display.set_mode((600, 600)) # Set display size
-color = (0, 0, 0) # Color RGB tuple
-rect_color = (255, 100, 100) # Color RGB tuple 2
-clock = pygame.time.Clock() # Create clock object
-screen.fill(color) # Fill display color
-counter = 0 # Counter value for coordinates
-increment = 10 # Value for setting the movement value of square
+'''Variables'''
+screen = pygame.display.set_mode((600, 600)) # Make screen
+bg_color = (0,0,0) # Set RGB color
+cir_color = (0, 255, 0) # Set RGB color for circle
+clock = pygame.time.Clock() # Create clock
 
-# List of coordinates to get square to move to
-pointlist = [(100, 100), (450, 100), (450, 450), (100, 450)]
-
-# Set x and y coordinates
-x = pointlist [counter][0]
-y = pointlist [counter][1]
-
-# Set coordinates
-coordinates = (x, y)
-
-# Size of square
-size = (50, 50)
+screen.fill(bg_color) # Fill screen
+radius = 0
+state = 0
 
 # While loop is still going i.e. program is still running
-while loop == 1:
+while True: # Always on
     # Refresh event queue (THIS IS NECESSARY TO PREVENT FREEZING)
     for event in pygame.event.get(): 
         if event.type == pygame.QUIT: # If Pygame detects program shutdown
-            loop = 0
+            sys.exit() # Exit system
+            
+    '''Do stuff here'''
+    clock.tick(60) # Set FPS
     
-    # Set FPS
-    clock.tick(30)
+    screen.fill(bg_color) # Refresh screen
+    if radius < 300 and state == 0: # If circle is expanding
+        radius += 5
+    else:
+        state = 1 # When circle has reached limit
+        
+    if state == 1: # Shrink circle
+        radius -= 5
+        
+    if radius == 10: # When circle is small enough, begin expanding again
+        state = 0
     
-    # Refresh screen
-    screen.fill(color)
+    pygame.draw.circle(screen, cir_color, (300, 300), radius, 1) # Draw circle
     
-    # Grid lines
-    pygame.draw.lines(screen, (100, 255, 100), False, [(100, 0), (100, 600)], 1) # Left vertical
-    pygame.draw.lines(screen, (100, 255, 100), False, [(500, 0), (500, 600)], 1) # Right vertical
-    pygame.draw.lines(screen, (100, 255, 100), False, [(0, 100), (600, 100)], 1) # Upper horizontal
-    pygame.draw.lines(screen, (100, 255, 100), False, [(0, 500), (600, 500)], 1) # Lower horizontal
+    pygame.display.update() # Update screen
     
-    
-    # Code for coordinates seeking
-    if x < pointlist[counter+1][0]: # if x is less than the desired coordinate, add x
-        x += increment
-    elif x > pointlist[counter+1][0]: # if x is more than desired coordinate, subtract x
-        x -= increment
-    
-    # Same formula used for y
-    if y < pointlist[counter+1][1]:
-        y += increment
-    if y > pointlist[counter+1][1]:
-        y -= increment
-
-
-    # If the cooridnates match the target coordinates, move to the enxt coordinate
-    if coordinates == pointlist[counter+1]:
-        counter += 1
-    
-
-    if counter == 3:
-        counter = -1
-    
-    # Set coordinates of square
-    coordinates = (x, y)
-
-    # Draw square
-    pygame.draw.rect(screen, rect_color, (coordinates, size), 0)
-    
-    # Update screen
-    pygame.display.update()
-
 print ("done") # Indicate finish
-#__________________________________________________________________________________________________________________________
-
 #__________________________________________________________________________________________________________________________
 
 #__________________________________________________________________________________________________________________________
