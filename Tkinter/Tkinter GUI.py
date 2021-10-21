@@ -93,10 +93,7 @@ class Main:
                         column_no += 1
                         if column_no == 3:
                                 row_no += 1
-                                column_no = 0
-                        
-                
-
+                                column_no = 0        
 
 class Toplevel:
         def __init__(self):
