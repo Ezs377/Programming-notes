@@ -68,7 +68,6 @@ And finally, there are 3 different methods to position these widgets
 6. `<variable name>.title=(<title name>)` lets you name your GUI window
 7. Firstly, setup the frame. Then, widgets can be added as many as you like and moved around the GUI. This is the basics of a GUI
 8. To use tkinter with the class, `<variable name>.<another variable> = tkinter.<widget()>` will create a widget for your GUI. Wdigets have many options that can be edited depending on the widget. Remember that Python is case-sensitive and some widgets have a capital letter, if not capitalised then program won't work.
- 
 
 #### Photoimage method:
 Tkinter utilises a method called `Photoimage` to import images into a GUI. Tkinter has to convert an image to an object in Python in order to be able to display it. After using `Photoimage` the object can now be used in a widget such as `Label` or `Button`. In order to use the `Photoimage` method, firstly, allocate a variable to the method. Then, that variable can be used for any image parameter in a widget. For example:  
@@ -84,3 +83,11 @@ run = Imageimporting(root)
 root.mainloop()
 ```  
 An example of how to use `Photoimage`. Photoimage can only convert PNG, GIF, PGM, and PPM image formats. For other formats such as JPG, another module needs to be imported that can work with Tkinter to convert images.  
+
+#### Layouts:  
+Tkinter utilises 3 methods to arrange the layout of a GUI: `pack()`, `grid()`, and `place()`. 
+- `pack()` utilises a geometric straight-forward layout, that arranges the elements of a GUI as blocks. THis usually means that elements in a GUI are always stretched to their limit, unless blocked by another element, or coded to a specific size. This type of layout is most suited for neat single rows/columns where you need everything to be aligned in a striaight line.
+- `place()` utilises geometrical coordinates to place elements of a GUI. Unlike `grid()` and `pack()`, the elements on a GUI are manually set and don't resize themselves relative to the GUI window. You can set the element relative to other GUI elements, and set the exact coordinates using offsets. This is mostly suited when you want very specific palcements of GUI elements, whether for functionality or aesthetics.
+- `grid()` utilises a table=like structure, where the elements of the GUI go. The amount of rows and columns of the 'table' is determined by the programmer, and elements simply fit inside cells in the 'table'. This is generally suited for general use, and can do most of the functions that `place()` and `pack()` can do.
+
+With `padx` and `pady` for GUI elements, using these codes inside the element strcture will create the *inner* padding. For example, `self.heading = tkinter.Label(self.frame, padx=20, pady=10)` will create a Label that has a 20px padding between the text and the Label borders (since a Label is just a ractangle with text). However, placing the `padx` and `pady` inside the `grid()` geometry manager will cause a padding between GUI elements instead of the text and border, which is also why `grid()` is one of the most versatile geometry managers as it lets you deterimne the distance between GUI elements. 
