@@ -164,6 +164,55 @@ print (greeting("Hello ", "there ","friend!")
 ```  
 as you're trying to do 2 things in one command. Lambda is only useful for replacing small quick functions, which can have a big impact when you're writing a big program.
 
+###### kwargs and args:
+`*args` and `**kwargs` can be used in the definition of a function to allow multuple entries into the function without breaking the program. Instead of using specific arguments in a function, using either `*args` or `**kwargs` can allow you to input as many arguments as you like in a function without it breaking. `*args` is used for non-keyword arguments, which are direct values, such as `"hello!"` or `42.2`. `**kwargs` is used for keyword arguments, which generally represent other values, such `names = ["john", "mike"]` or `colors = (34,53,12)`. These arguments can be passed in a function along with the default values, so you can mix and match arguments together. Arguments passed through these special syntax arguments are held in a tuple which is accessed by calling the argument name. You can rename `*args` and `**kwargs` with any other name, as long as you follow the asterisk rule. The asterisk rule means that one asterisk (`*`) makes it a `*arg`, and two asterisks (`**`) makes it a `**kwarg`. You can replace the `arg` and `kwarg` with other names. This example uses a standard function format, where you pass 2 arguments to the function:  
+```Python
+def your_info(name, age):
+	print ("Your name is", name)
+	print ("Your age is", age)
+your_info("Mike", 34)
+
+--> Your name is Mike
+--> Your age is 34
+```
+
+The example below utilises special syntax arguments:  
+```Python
+def your_info(*args):
+	for data in args:
+		print (data)
+your_info("Mike", 34)
+
+--> Mike
+--> 34
+```
+The example below uses custom argument names:
+```Python
+def your_info(*data):
+	name = data[0]
+	age = data[1]
+	print ("Your name is", name)
+	print ("Your age is", age)
+
+your_info("Mike", 34)
+
+--> You name is Mike
+--> Your age is 34
+```
+
+Using `**kwargs` is the same as using `*args`, just that `**kwargs` accepts variables that hold other data, and instead of holding them in a tuple, they are held in a dictionary. For example:  
+```Python
+def your_info(**data_list):
+	print ("Your name is", data_list[name])
+	print ("Your age is", data_list[age])
+	print ("You enjoy doing", data_list[hobbies])
+
+your_info(name="Mike", age=34, hobbies=['soccer', 'hockey', 'gaming', 'cooking'])
+
+--> You name is Mike
+--> Your age is 34
+--> You enjoy doing ['soccer', 'hockey', 'gaming', 'cooking']
+
 ### Classes: 
 A class is basically a blueprint for creating instances of objects. String, integers, are part of a class (strings belong to the str class, integers belong to the int class). This way it lets Python classify values as certain ‘objects’ which makes it easier for a computer to run the program. Classes are often called using `class: <class name>:`. `self` is the parameter that a class uses to access other variables within the class. It does not have to be named `self`, but it is always the first variable referenced in a class `init`. `self` contains the instance of the class (the current version of the class) which can be manipulated to provide different objects. A class has several aspects to it, which will be explained using this example class:  
 ``` Python
@@ -269,3 +318,4 @@ There's a lot of functions available within Python that lets you manipulate stri
 - `enumerate()` is apparently very useful to replace counters. `enumerate()` returns an enumerate object, with a counter as the key. `enumerate(iterable, start)`, where `iterable` = any data structure (Lists, tuples, etc), and `start` = a starting number for the counter, which is defaulted at zero if left blank. 
 - `min()` function gives the lowest value in an iterable with integers, gives the lowest string alphabetically when using string. E.g. `x = min(3, 4, 10, 1) = 3` while `x = min("ant", "bee", "larvae") = "ant". 
 - `dir()` returns all properties and methods of an object (without the values). This also includes default methods that are usually hidden (a perfect example is the `def __init(self)` function, this is usually hidden but still runned by the program, unless you actually type it out and give it some code). Useful for finding out what you can do with classses and objects (e.g. Using it on an integer object to see if there's anything else you can with integers). 
+
