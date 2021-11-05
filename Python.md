@@ -212,6 +212,7 @@ your_info(name="Mike", age=34, hobbies=['soccer', 'hockey', 'gaming', 'cooking']
 --> You name is Mike
 --> Your age is 34
 --> You enjoy doing ['soccer', 'hockey', 'gaming', 'cooking']
+```
 
 ### Classes: 
 A class is basically a blueprint for creating instances of objects. String, integers, are part of a class (strings belong to the str class, integers belong to the int class). This way it lets Python classify values as certain ‘objects’ which makes it easier for a computer to run the program. Classes are often called using `class: <class name>:`. `self` is the parameter that a class uses to access other variables within the class. It does not have to be named `self`, but it is always the first variable referenced in a class `init`. `self` contains the instance of the class (the current version of the class) which can be manipulated to provide different objects. A class has several aspects to it, which will be explained using this example class:  
