@@ -1,5 +1,3 @@
-**NOTE: No updates for a few days as I work on my programming project**
-
 This is a set of notes for my personal programming learning to replace my google doc, feel free to read through!
 
 Questions can be asked on google doc \--> [Google Doc](https://docs.google.com/document/d/1sO_c73nbQS5we_01ClfYhlaP1bwsfsLS6uQwVXQlr6U/edit)
