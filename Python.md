@@ -142,15 +142,15 @@ This loop continues for a certain amount of times given. Usually, a `for` loop w
 A `while` loop will keep looping until the conditions are met, then the loop breaks. Ypu can have other loops within a `while` loop. The most common use of the `while` loop is `while True` which essentially keeps looping a whole program until it is terminated using `sys.exit()` or any self-termination function within the `while` loop. 
 
 ### Functions:  
-A function is a series of step-by-step lines of code that are all combined into one line, AKA a function. A function simply lets you re-use a series of larger code into a simpler form, which greatly reduces memory of the program and makes it easier to read and use. 
+A function is a series of step-by-step lines of code that are all combined into one line, AKA a function. A function simply lets you re-use a series of larger code into a simpler form, which greatly reduces memory of the program and makes it easier to read and use. But there are many more 'functions' that a function can do. A function can be defined by its *arguments*, which can be used as inputs into the entire function. It is possible to have adaptable functions, so they can take in any input for their arguments, which allows the function to be versatile and used in many situations. Python has many in-built functions, such as the `print()` function, which takes an input as arguments, that processes it into a string that is printed out on the terminal.
 
 ###### Lambda function:  
-The `lambda()` function can be used to create an anonymous function in Python. An anonymous function is basically a simple function without a label; i.e. A function wihtout using the `def <function name>():` code. Usually the lambda function is given to a variable, then the variable can be used anywhere to use the function. A lambda function cannot du much except return a value. An example:  
+The `lambda()` function can be used to create an anonymous function in Python. An anonymous function is basically a simple function without a label; i.e. A function wihtout using the `def <function name>():` code. Usually the lambda function is given to a variable, then the variable can be used anywhere to use the function. A lambda function cannot do much except return a value. An example:  
 ```Python
 greeting = lambda a, b, c:a + b + c
 print (greeting("Hello ", "there ","friend!")
 ```  
-This will print out `Hello there friend!`. As opposed to using a defined funtion, which would look like this:  
+This will print out `Hello there friend!`. As opposed to using a defined function, which would look like this:  
 ```Python
 def greeting(a, b, c):
 	sentence = a+b+c
