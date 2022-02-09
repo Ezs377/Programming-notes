@@ -9,7 +9,7 @@
 [Classes](#classes)  
 [Objects](#objects)  
 [Modules](#modules)  
-[String formatting](#string-formatting)  
+[Strings](#string-formatting)  
 [Additional notes](#useful-notes)  
 
 ### Generally useful info:  
@@ -326,7 +326,23 @@ Datetime can be used to express a time or find the current time. `Datetime.now()
 
 
 ### String formatting:  
-There's a lot of functions available within Python that lets you manipulate strings and how they are presented/printed out. I'm not going to bother because most of these aren't exactly useful. Although, the trickiest issue you'll come across is how to print a variable within a string, without splitting up the string. For example, `print ("Hello there ", name, " you have", value, "$ left in your bank account"). This string outputs as `Hello there Mike you have 5 $ left in your bank account`. Obviously it's not exactly neat, both the code and the output. Using `+` instead of `,` will join two sets of strings together without a space, and is the simplest and easiest way to join strings. There are also stirng methods you can use, or string formatting.
+There's a lot of functions available within Python that lets you manipulate strings and how they are presented/printed out. I'm not going to bother because ther's a lot. Although, the trickiest issue you'll come across is how to print a variable within a string, without splitting up the string. For example:  
+`value = 5`  
+`name = 'Mike'`
+`print ("Hello there ", name, " you have", value, "$ left in your bank account")`  
+This string outputs as `Hello there Mike you have 5 $ left in your bank account`. Obviously it's not exactly neat, both the code and the output. Using `+` instead of `,` will join two sets of strings together without a space, and is the simplest and easiest way to join strings. By using the `+` you can put together the `$` and `5` like so:  
+`value = 5`  
+`name = 'Mike'`
+`print ("Hello there ", name, " you have", value+"$ left in your bank account")` 
+Making the output `Hello there Mike you have 5$ left in your bank account`. Here, instead of `$ 5` we get `$5`. There are also string methods you can use, or string formatting, which can benefit the output of strings. 
+
+### String applications:  
+Strings can be treated like lists when it comes to methods and functions. For example, a string can be used in a `for` loop like a list. The loop goes through every character in the string, whereas when using a list the loop goes through every item in the list. For example:  
+```Python
+for x in "hello":
+	print (x)
+```  
+This would print out all the letters in the string one by one. 
 
 ## Useful notes:  
 - `enumerate()` is apparently very useful to replace counters. `enumerate()` returns an enumerate object, with a counter as the key. `enumerate(iterable, start)`, where `iterable` = any data structure (Lists, tuples, etc), and `start` = a starting number for the counter, which is defaulted at zero if left blank. 
