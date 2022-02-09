@@ -1,4 +1,17 @@
 # Python
+[Useful info](#generally-useful-info)  
+[Python terms](#technical-python-terms)  
+[File writing](#file-writing)  
+[Data structures](#data-structuressequence)  
+[Data types](#integer-floats-and-strings)  
+[Loops](#try--except)  
+[Functions](#functions)  
+[Classes](#classes)  
+[Objects](#objects)  
+[Modules](#modules)  
+[String formatting](#string-formatting)  
+[Additional notes](#useful-notes)  
+
 ### Generally useful info:  
 Boolean expressions (eg. `If`, `While`, `And`) can take in a `True` or `False` value, which determines if the expression is initiated or not. Aside from `True` and `False`, other characters can be used as replacements. `True` and `False` are constants, and will always mean yes or no by Python.
 
