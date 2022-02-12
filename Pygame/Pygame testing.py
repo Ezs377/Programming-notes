@@ -1,7 +1,7 @@
-'''Events'''
+'''FOR PYGAME TESTING'''
 '''LOOK UP ENUMERATE FIRST'''
 import pygame, sys
-pygame.init()
+pygame.init() # initialize Pygame
 
 '''Variables'''
 screen = pygame.display.set_mode((600, 600))
@@ -19,7 +19,12 @@ while True:
         if event.type == pygame.QUIT: # If Pygame detects program shutdown
             sys.exit()
             
-    '''Do stuff here'''
+        
+    
+    '''Do program testing stuff here (e.g. drawings)'''
+    
+    
+
     clock.tick(10)
     screen.fill(bg_color)
     
