@@ -2,6 +2,41 @@
 ### Git:  
 To install just look up Git downloads. For installation, it’s best to leave everything to default. For the text editor, you can use Notepad, but it’s recommended to have Notepad++ installed as it is the easiest way to edit text with Git. For the Git init branch name, Git defaults to `master`, but you can change the default to something else if preferable (this provides the name of the git repository). For everything else leave it as it is.
 
+## Teamworking:  
+`fetch` pulls changes from a remote without merging, by retrieving commit list without actually changing local data. `pull` does both automatically.  
+Remote and local branches are stored separately in files, so they don't interfere with each other until merged. It is possible to view remote branches using `checkout` but it goes in detached `HEAD` state (i.e. Read only). To checkout rmeote branch use `-r` prefix when using `git branch` commands or use `git log`. `git merge` to merge changes.  
+
+`git fetch origin <branch>` to fetch a branch only. Use `git branch` by itself to view local branches, `git branch -r` to view local and remote branches.  
+
+Note that `fetch` is like the opposite of `commit`, fetching leaves the local behind (hence requires merge/pull), commiting leaves the local ahead (hence requires push).  
+
+Github will attempt to combine edits together in one file during merging, so if multiple people work on the same file it is possible to commit and merge everything in some circumstances. Usually this is if people edit different lines in a file, Git can combine edits together since the edits are on different lines. However in other circumstances a merge conflict can occur. 
+
+Typically, if the remote contains commited changes, and a local push is done, local push is rejected and warns of newer commits in remote. Git priorties remotely commited changes over local changes, so local needs to be updated with remote changes first. As previously mentioned, if edits are on different lines Git can merge easily, but merge conflicts can occur. Note that a merge is considered a commit in itself.  
+
+For merge conflicts, use text editor or a file editor to edit file. During conflict, there will be additional text that indicates the conflict, indicated by `<<<<< HEAD` (indicates start), `=================` (indicates changes), and `>>>>> <commit hash>` (indicates end).  
+![image](https://github.com/Ezs377/Programming-notes/assets/79125281/1fae1a8d-baca-4935-9f36-b3c9482ef8a7)  
+To indicate solved conflict, remove these additional text. Note that it is possible to remove these texts without changing anything, since Git doesn't know exactly what is going on in the file, that is up to the user.  
+
+When solving conflict, we can either keep one change, or write a completely new change. This should be documented as commit message to indicate to other people what happened, to avoid others losing their work.  
+
+Git has Git Issues, which 
+
+
+
+
+
+
+### TO GET OUT OF "please write commit message":  
+1. press `i` button to insert
+2. Write merge message
+3. Press `esc` button
+4. Write `:wq` to exit
+
+
+
+
+
 ### Git common terms:  
 - **Branch**: A version of the repository (main project head) 
 - **Checkout**: Go to and edit, whether commit, branch, etc
