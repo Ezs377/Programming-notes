@@ -13,7 +13,7 @@
 [Additional notes](#useful-notes)  
 
 ### Generally useful info:  
-Boolean expressions (eg. `If`, `While`, `And`) can take in a `True` or `False` value, which determines if the expression is initiated or not. Aside from `True` and `False`, other characters can be used as replacements. `True` and `False` are constants, and will always mean yes or no by Python.
+Boolean expressions (e.g.. `If`, `While`, `And`) can take in a `True` or `False` value, which determines if the expression is initiated or not. Aside from `True` and `False`, other characters can be used as replacements. `True` and `False` are constants, and will always mean yes or no by Python.
 
 * Characters that are considered `True` are:
   - Integers that are not zero
