@@ -3,16 +3,26 @@
 To install just look up Git downloads. For installation, it’s best to leave everything to default. For the text editor, you can use Notepad, but it’s recommended to have Notepad++ installed as it is the easiest way to edit text with Git. For the Git init branch name, Git defaults to `master`, but you can change the default to something else if preferable (this provides the name of the git repository). For everything else leave it as it is.
 
 ## Teamworking:  
+The basic steps are:  
+1. Clone online repository
+2. Create new branch to create new code
+3. Push branch to main when done
+4. If you want to work on a branch fetch origin then switch to branch
+5. Pull main branch when ready to merge
+6. Merge branches
+
+Note that the main branch should always be production-ready code, and hence should not be broken or messy code. 
+
 `fetch` pulls changes from a remote without merging, by retrieving commit list without actually changing local data. `pull` does both automatically.  
-Remote and local branches are stored separately in files, so they don't interfere with each other until merged. It is possible to view remote branches using `checkout` but it goes in detached `HEAD` state (i.e. Read only). To checkout rmeote branch use `-r` prefix when using `git branch` commands or use `git log`. `git merge` to merge changes.  
+Remote and local branches are stored separately in files, so they don't interfere with each other until merged. It is possible to view remote branches using `checkout` but it goes in detached `HEAD` state (i.e. Read only). To checkout remote branch use `-r` prefix when using `git branch` commands or use `git log`. `git merge` to merge changes.  
 
 `git fetch origin <branch>` to fetch a branch only. Use `git branch` by itself to view local branches, `git branch -r` to view local and remote branches.  
 
-Note that `fetch` is like the opposite of `commit`, fetching leaves the local behind (hence requires merge/pull), commiting leaves the local ahead (hence requires push).  
+Note that `fetch` is like the opposite of `commit`, fetching leaves the local behind (hence requires merge/pull), committing leaves the local ahead (hence requires push).  
 
 Github will attempt to combine edits together in one file during merging, so if multiple people work on the same file it is possible to commit and merge everything in some circumstances. Usually this is if people edit different lines in a file, Git can combine edits together since the edits are on different lines. However in other circumstances a merge conflict can occur. 
 
-Typically, if the remote contains commited changes, and a local push is done, local push is rejected and warns of newer commits in remote. Git priorties remotely commited changes over local changes, so local needs to be updated with remote changes first. As previously mentioned, if edits are on different lines Git can merge easily, but merge conflicts can occur. Note that a merge is considered a commit in itself.  
+Typically, if the remote contains committed changes, and a local push is done, local push is rejected and warns of newer commits in remote. Git prioritizes remotely committed changes over local changes, so local needs to be updated with remote changes first. As previously mentioned, if edits are on different lines Git can merge easily, but merge conflicts can occur. Note that a merge is considered a commit in itself.  
 
 For merge conflicts, use text editor or a file editor to edit file. During conflict, there will be additional text that indicates the conflict, indicated by `<<<<< HEAD` (indicates start), `=================` (indicates changes), and `>>>>> <commit hash>` (indicates end).  
 ![image](https://github.com/Ezs377/Programming-notes/assets/79125281/1fae1a8d-baca-4935-9f36-b3c9482ef8a7)  
@@ -20,12 +30,7 @@ To indicate solved conflict, remove these additional text. Note that it is possi
 
 When solving conflict, we can either keep one change, or write a completely new change. This should be documented as commit message to indicate to other people what happened, to avoid others losing their work.  
 
-Git has Git Issues, which 
-
-
-
-
-
+Merging syntax is `git merge <branchtobemerged>`. Specifically branch we are currently on is the branch that is going to be merged with the named branch.
 
 ### TO GET OUT OF "please write commit message":  
 1. press `i` button to insert
@@ -100,20 +105,20 @@ Variables can be added. For example, `user.name` adds a variable called `user.na
 - `-s` = Use with git status to have a shorter summary of status.
 
 ### Useful Git stuff:  
-- `git restore` --staged <file>: Untrack a file/files from a commit
+- `git restore --staged <file>`: Untrack a file/files from a commit
 - `git add <file(s)>`: Add files to be tracked
 - `git add *`: Add all files in the directory to be tracked (except files that start with a dot). Adding a file extension name after the asterisk (eg. .HTML) will track all files with that extension  
 - `git add -p`: View changes in files before adding
 - `git log`: Shows history of commits and changes, with messages that were typed prior to saving a commit
-- `git push` -u origin <branch name>: Upload (push) files from a local repository to a remote repository
+- `git push -u origin <branch name>`: Upload (push) files from a local repository to a remote repository
 - `git remote rm origin`: Delete a remote repository. Useful to reset the location of remote repository
--  git remote add origin <URL>`: Set a new address for a remote repository to label ‘origin’
-- `git init <filename>`: Create a folder named <filename> which will contain the repository. Useful to set a folder for the repository without cloning
+-  `git remote add origin <URL>`: Set a new address for a remote repository to label ‘origin’
+- `git init <filename>`: Create a folder named \<filename> which will contain the repository. Useful to set a folder for the repository without cloning
 - `git clone <URL>`: Use to copy a remote repository and make the copy into a local repository. Useful when pushing and pulling from repositories
 - `git diff --status`: Shows the difference between currently staged files and committed files.
 - `git show/diff HEAD~<no> <file>`: Shows the difference between commits. The number after HEAD determines the previous commit referenced (1 is the commit right before the current commit, 2 is the commit 2 times before the current commit, and so on). Using show will also display the message with the commit
-- `git checkout (head no) <file>`: Reverts back into a previous version of the file determined by the commit no. Useful if you haven’t committed, but want to discard changes to files (usually files that have been saved with their editors and can’t undo the files with their editors). Beware of using this, as moving back more that your latest commit will detach HEAD and mess up your files if you commit. Only use in the form git checkout HEAD <file>. 
-- `git revert <HEAD no.>`: Same like git checkout HEAD <file>, but now you can safely move HEAD back as many times as you like without repercussions. Lets you undo changes by moving back to a previous commit. Revert also makes you commit to save the ‘undo’ you just did, so you can undo the revert by using revert again.
+- `git checkout (head no) <file>`: Reverts back into a previous version of the file determined by the commit no. Useful if you haven’t committed, but want to discard changes to files (usually files that have been saved with their editors and can’t undo the files with their editors). Beware of using this, as moving back more that your latest commit will detach HEAD and mess up your files if you commit. Only use in the form git checkout HEAD \<file>. 
+- `git revert <HEAD no.>`: Same like git checkout HEAD \<file>, but now you can safely move HEAD back as many times as you like without repercussions. Lets you undo changes by moving back to a previous commit. Revert also makes you commit to save the ‘undo’ you just did, so you can undo the revert by using revert again.
 - `git reset HEAD~(no)`: Resets files to a previous version depending on the HEAD number. This will completely reset everything to its previous state, so undoing a hard reset is really difficult. Only use if you know what you want to undo and don’t mind losing some work.
 - `git rm <file>`: Add a deleted file to commit
 - `git commit --amend`: Update a commit message by recommitting. Useful if you write the wrong message or typo in a commit message (which is used to tell what changes you have done in a commit, very important for keeping track of changes)
@@ -140,7 +145,7 @@ A list of common symbols used for the file:
 
 ###### How to push a local branch to a remote repository:  
 The purpose of this is to save files locally, then transfer them online to a remote repository.
-First git remote add origin <URL> will set a remote repository as ‘origin’. Then use the push command to push a branch to the repository. Make sure origin is the URL and not something else otherwise won’t push. Using -f as an option will force a push, and replace the remote repository with the commits from the local repository. This might delete files and commits from the remote repository.
+First git remote add origin \<URL> will set a remote repository as ‘origin’. Then use the push command to push a branch to the repository. Make sure origin is the URL and not something else otherwise won’t push. Using -f as an option will force a push, and replace the remote repository with the commits from the local repository. This might delete files and commits from the remote repository.
 
 ##### Undoing changes:  
 Git has 3 different methods for undoing changes: Revert, Checkout, and Reset.  
@@ -190,7 +195,7 @@ You don’t like the way it looks, or all the spelling errors. So you use `git c
 	we are good
 	Goodbye
 ```  
-No harm, no foul. FIle is restored to before and nothing has been committed.
+No harm, no foul. File is restored to before and nothing has been committed.
 
 Simply put, `git checkout` is used when undoing all of your changes to a file, instead of going through the file yourself and deleting your changes manually. As long as the last commit contains a saved file you can keep using checkout to revert back to the original version until your next commit. If you do commit some bad changes, use `git revert`. Don’t use `git checkout` with a HEAD no. as that will move your HEAD back to before your most recent commit and detach it, meaning that now you can’t do anything without messing up your files (doing this creates a non-existent branch, which is way too complicated). `git checkout` is primarily used for switching branches in Git, so if possible it's preferable to undo your changes manually in the file.
 
@@ -245,7 +250,7 @@ Using `HEAD` without any number will simply bring back your most recent commit v
 
 `HEAD@{}` is another type of navigation that uses your commit history from reflog, instead of using your current commit as your reference point. Reflog contains a list of ALL commits you have done, even deleted commits, so this type of HEAD navigation is usually used to bring back lost files. `HEAD@{`} works differently, as you would probably need to run `git reflog` to find the right HEAD number that has the commit you want (which is why leaving messages in your commits is useful as you can use them to identify which commit is which) and use that number in between the curly brackets (eg. `HEAD@{4}`) to navigate to that. `HEAD@{}` actually follows the number to the attributed commit, while `HEAD~` uses the number to move back that amount of steps. For example: 
 
-`HEAD@{1}` will move to commmit 1 specifically. This uses the label from reflog to identify a previous commit in your history, and brings that back.
+`HEAD@{1}` will move to commit 1 specifically. This uses the label from reflog to identify a previous commit in your history, and brings that back.
 
 `HEAD^` is usually used if you’ve merged branches. `HEAD^` is usually used to identify the branch number that was before you merged it with another branch. Usually you would need to use both `HEAD~` and `HEAD^` to move to another branch and the previous commit. The diagram provides a better explanation:  
 ![Git branch HEAD flow](https://github.com/Ezs377/Programming-notes/blob/main/Images/Git%20undos.jpg)  

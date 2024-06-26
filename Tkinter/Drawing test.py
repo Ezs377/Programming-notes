@@ -1,5 +1,6 @@
 import tkinter
 
+# If possible implement menu with eraser
 class Main:
     def __init__(self, x):
         self.frame = tkinter.Frame(x,
