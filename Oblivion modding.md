@@ -46,6 +46,7 @@ The buttons are:
 Center Wheel Scroll - Zoom  
 Center Wheel Hold - Move  
 Shift + Mouse - Rotate  
+Space + Mouse - Pan
 C - Center On selected  
 T - Top View selected  
 Arrow Keys - Move the camera view Left, Right, Up and Down.  
@@ -110,11 +111,137 @@ For chairs the outlines indicate the character model positions and sizes, make s
 
 For fires they are rendered sideways on X axis by default.  
 
-## How to install mod:
+### Oblivion items:  
+![[Pasted image 20240628001115.png]]  
+
+**Duplicating:**  
+To copy and paste items, ctrl+click to select multiple objects (or drag and select). 
+
+Pressing ctrl+d will duplicate all selected objects, and automatically set the selection on the duplicated items, so clicking and dragging the objects will move the duplicates. NOTE that the duplicated objects will superimpose themselves on the existing objects so needs to be clicked and dragged out.  
+![[Pasted image 20240701220227.png]]
+Alternatively ctrl+c and ctrl+v works as well.  
+
+### Containers:  
+For player containers (i.e. Items stay permanently) use containers with a PC prefix.  
+
+Double click the container to edit its base contents and ID. ALWAYS change the baseID first before making a custom container, as editing a container will change all existing containers in the world. Once baseID is changed then accept the option to create a new form.  
+
+The `Edit Base` option in the reference window brings up the container's default items and status.  
+![[Pasted image 20240702000920.png]]  
+The list on the right shows all items in the chest. 
+
+To add items to a container find the item in the object window, then drag into the container list.  
+
+### Pathgrids:  
+Pathgrids tell NPCs where they're allowed to move. Use the pathgrid option in the navigation menu to start.  
+![[Pasted image 20240702010840.png]]  
+Use right click to place red nodes, and ctrl+right click to add a connected node. Left click selects nodes, where we can move them, delete them, etc. We can also connect nodes with a path by using ctrl+left click when not placing new nodes. Note that this connects a path from the clicked node to the active node, which is the previously selected node.  
+
+A node indicates a safe spot for NPCs to stand in, and a path between nodes tells the NPC they can move along the path. Multiple paths can connect a node to others. 
+
+In exteriors, path grids come in 3 different nodes:  Blue, orange, red. 
+- Blue nodes are important nodes and NPCs will prioritize following these nodes (ONLY IN EXTERIORS). Ideally minimize the amount of blue nodes, and don't delete existing blue nodes  (just move them)
+- Red nodes are medium importance and NPCs will follow them sometimes
+- Orange nodes are auto generated and have the lowest priority
+
+
+
+
+### Exteriors:  
+Exterior cells represent the whole world. The main worldspace is the Tamriel exterior cell, which represents the land. Child worldspaces are smaller worlds, such as city interiors which aren't interior cells but another cell used for exteriors. Editing objects in a worldspace will cause it to show up.  
+
+Be careful to note where existing objects are in an exterior cell, since the land is comprised of grids of exterior cells.  
+
+Exterior cells can be selected in the cell view window by switching to another cell other than the Interior type. Note that child worldspaces are considered their own exterior cells, the Tamriel exterior cell is the one we want.  
+![[Pasted image 20240702121319.png]]  
+Ideally rename the desired cell grid so we don't have to navigate by grid coordinates each time. This is done by clicking on the editor ID name when already selected (like an interior cell). NOTE, exterior Tamriel cells that are named Wilderness are safe to use, but if it isn't then it could potentially disrupt existing objects. Naming cell IDs doesn't affect the actual game but it helps to keep track of our work.
+
+Also note that using arrow keys on the camera causes it to navigate to the next neighboring cell instead of panning the camera for some stupid reason. And note that interacting with objects outside the selected exterior cell will cause the cell view to move to that cell.
+
+Press B key to show grids of cells. This shows the boundaries of each exterior cell in the selected coordinate. REMEMBER: Exterior cells are shown as a bunch rather than one by one, the grids help keep the objects within the same cell. 
+
+Purple regions represent water in the exterior cell view.  
+![[Pasted image 20240702133213.png]]
+Aside from that the exterior cells operate in the same manner as interior cells for placing objects and etc.
+
+We can disable objects by double clicking and ticking 'initially disabled'. This stops them from being drawn in the world but keeps them there as a reference for later use if needed.  
+
+### Landscaping:  
+Altering the terrain land is different from objects. 
+
+Press the H key to bring up the landscape editor or press the landscape button on the menu.  
+![[Pasted image 20240702144311.png]]  
+![[Pasted image 20240702144359.png]]  
+
+The edit radius determines the size of the our landscape paintbrush. We can hold and drag to either raise/lower terrain within the paintbrush. Flatten and soften vertices options will change the behaviour to whatever is selected, flatten will make the land flat, soften will smooth out the land.  
+
+Roughly a radius of 2 is enough to form a basic path width when reducing terrain. 
+
+Right clicking with the landscaping tool will paint the chosen texture from the texture list onto the terrain. The max opacity determines how visible the texture can be (note, this is not from one right click, but the max opacity if the texture is layered multiple times). 
+
+Pressing the I key when the edit radius is over terrain brings up the terrain info.  
+![[Pasted image 20240702155252.png]]  
+There can only be a maximum of 9 different textures used in each quad (each exterior cell is divided into 4 quad regions). If the amount of textures exceeds 9 then we get janky textures. 
+
+The dominant texture is the texture listed at the top of each quad list and the dominant texture covers the most terrain in that quad. NEVER delete the dominant texture otherwise we get a black texture. If we get the black texture error it is mostly unrecoverable.  
+
+If a quad is full on textures then we can delete the texture at the bottom of the list to see if it helps. 
+
+### Map marker:
+The map marker object from 'Static' world objects can set the fast travelling location on the map, and allows the player to fast travel to the location where they will teleport on the map marker during fast travel. The map marker also lists the location details. Double click to edit location details.  
+![[Pasted image 20240702153315.png]]  
+- **Name:** Is the name that appears when you get close to the marker in game as in '*You have found Bogwater Burrow*'
+- **Type:** Tells the game what sort of place this is so it gets the proper icon on the map  
+- **Visible:** When flagged will make the marker visible on the map even if you never found that place before. (Unchecked and it will be invisible until the player "finds" the location)  
+- **Can Travel To:** When flagged you will be able to fast travel to this location even if you didn't find it first.
+
+Note this makes a reference for the object, and hence we won't change other objects of the same type by editing this marker. Double clicking always opens up the reference window, it's when we alter base IDs that we have to be careful.  
+
+### Doors:  
+Door objects (under World objects) have a built in Teleport property under their reference window. This allows us to set to the destination cell when the door is activated. There's also a Lock tab that lets us lock doors with a lock level.  
+
+However, door linking will only link to other door world objects of the same type. In the test example I put another farm type door for the interior house so we can only link to that.  
+![[Pasted image 20240702154605.png]]  
+We can also select the reference manually by double clicking it in the render window after pressing 'Select Reference in Render Window'. We can also click 'View Linked Door' to see the door it is linked to, and also click 'View Teleport Door' when in the interior to see the door that teleports to that interior.  
+
+The door marker, 
+![[Pasted image 20240702154903.png]]  
+which appears when a door is successfully linked, will show the direction of the player when they 'exit' the door. The pink arrow indicates the direction the player is facing when exiting the door. The door marker essentially indicates where the player would be placed at when exiting the door.  
+
+
+
+
+
+
+### Grass:  
+Grass isn't rendered in the render window, but will appear on textures in game. This makes it difficult to pinpoint which textures are causing grass to clip through our objects in the exterior cell. 
+
+To find grass we might have to take a screenshot of the object in game to determine where it is. Then we can use a texture with no grass, and layer it over areas we don't want any grass in. Usually every texture has two versions, one with grass and one without, and usually the non-grass version has 'NoGrass' in the texture ID.
+![[Pasted image 20240702210918.png]]
+There are also specific unique textures that have no grass.  
+
+Set the max opacity to 100% when layering a non-grass texture, as this prevents the existing grass from clipping through.  
+
+Using ctrl+right click will give the terrain type that we are clicking, so it can be useful to find what texture is currently on the terrain so we can use the no grass version.
+
+### Grid snapping:  
+Ideally we would turn on grid snapping at the start of making a new cell to ensure all objects are set on the grid properly. Also set the first piece in an interior cell to 0 in all dimensions (x, y, z, rotations).  
+
+Holding a dimension key (i.e. x, y, z) while dragging an object will only move the object along that axis. So it can be useful when using the snap grid and duplicating objects.  
+
+### Lighting:  
+The ambient lighting will set an overall 'hue' to the interior cell. We can adjust it to get a different feel using the lighting.  
+
+
+## How to 'install' mod:
 To use our custom stuff it is treated as an .esp file with our mods. To use the mod:  
 1. Make sure .esp file is in Data folder of Oblivion folder
 2. Open Oblivion through the launcher instead of exe. The launcher exe should be in the Oblivion folder.
 3. Go to Data Files, and tick the .esp file of the mod
+
+Also, when you want to edit the same mod, tick the .esp plugin file with the mod when opening a file in TES construction set so the construction set doesn't make a new mod. Then click "Set as Active File" to ensure (note the .esm file must also be selected).  
+
+
 
 
 
