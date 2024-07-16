@@ -18,6 +18,8 @@ Cell View Window: Contains a list of cells (i.e. Environments) for interior and 
 Render Window: Dragging objects to the render window will display them. Also loads cells and displays them.
 ![[Pasted image 20240626180222.png]]  
 
+
+
 ### Main menu:  
 Main Window: Has the menu and toolbar  
 ![[Pasted image 20240626180318.png]]  
@@ -84,6 +86,8 @@ In the object list we can search by clicking in the object list and pressing a l
 4. The three tabs on the right are Common Data, Lighting, Interior Data. Lighting sets the lighting colors, Interior Data sets the name of the cell and the owner of the cell (select Player to own it, select Player Faction to allow companions)
 5. The cell should show up in the Cell View window list
 6. Select an interior object from the object window and drag to the render window to display it. Something should pop up.  
+
+Basically, the worldspaces are divided into their own cells, exterior cells are designated as part of the land grid, however all interior cells are grouped as part of the 'Interior' worldspace. Hence we need to edit the 'Interior' worldspace first, then add a new interior cell.
 
 Double clicking an object in the render window will bring up the reference window.  
 ![[Pasted image 20240627000730.png]]  
@@ -231,6 +235,68 @@ Holding a dimension key (i.e. x, y, z) while dragging an object will only move t
 
 ### Lighting:  
 The ambient lighting will set an overall 'hue' to the interior cell. We can adjust it to get a different feel using the lighting.  
+
+
+### NPCs:  
+NPC actors are found in the 'Actors' section of the object window.  
+
+To make a new NPC, right click in the NPC actors list and select New.  
+![[Pasted image 20240704011507.png]]  
+For the NPC ID it can anything, but cannot start with numbers. Note that Name is the NPC's game name, not ID.  
+
+The Class is for the NPC type, for NPCs we don't want Charactergen as this is for the player. Instead pick something else, the class will dictate the NPCs role and their stats and attributes (like a player's class). It is also possible to make a custom class.
+
+The 'Auto calc stats' tickbox will auto-generate the NPC stats based on its class and level.  
+
+For factions we can add them by dragging from the faction window, which is found in the Character tab in the main menu:  
+![[Pasted image 20240704012747.png]]  
+Player faction is the faction that is allied with the player, use this for allowing friendly NPCs.  
+
+The Stats tab allows us to edit the stats and attributes of the NPC. 
+The Factions tab allows us to put the NPC into a factions.
+The Inventory tab allows us to drag item objects to place them in the NPCs inventory. In particular, the first given clothing and armor objects are automatically equipped.
+The SpellList tab allows us to give the NPC spells.
+The Animation tab sets the animations of the NPC (complicated).
+The Face and Face Advanced tabs let us change the appearance of the NPC's head.
+
+To add items to the NPCs default inventory simply drag and drop objects like containers. The same applies with spells (which are also found in the object window). For spells, standard spells are safe to use (under the 'Spell' --> 'Spell' sub category).  
+
+Placing an NPC is the same process as placing a world object.  
+
+### NPC packages:  
+An NPC package acts as its basic AI script and lets the NPC do stuff. Packages are found in the character menu,  
+![[Pasted image 20240705140619.png]]  
+The package window gives a set of actions and conditions we can use and customize.  
+![[Pasted image 20240705161113.png]]  
+Right click to either select New or Edit to make a new package or edit an existing package.  
+![[Pasted image 20240705161140.png]]  
+Here we have a bunch of NPC actions and package type. 
+The Package Type determines the action of the NPC if a condition is met. 
+The Schedule sets the time and duration of the NPC action in hours (i.e. The possible times the NPC will do the action). Note that time indicates the hour of the clock, duration is how long the action is performed for in hours. Setting the time as Any will cause the package to run if no other package is running.
+
+![[Pasted image 20240715114415.png]]  
+The Location tab indicates the possible locations for the NPC action if ticked. The location can be set as either a nearby given reference object (using reference ID), within an interior cell (Cell), Any Object in the game world, or near the location of either itself or the editor location (it's original spawning location). With the near location setting we can set a radius that determines the trigger, which is in the same unit as the editor coordinates.  
+
+![[Pasted image 20240715114524.png]]  
+To apply packages to an NPC we can just double click the NPC in the Object window list and go to the AI tab.
+![[Pasted image 20240715114552.png]]  
+Aggression affects how likely an NPC will start a fight, higher values means they can start random fights.  
+Confidence is how likely the NPC will flee from combat. Higher values means NPC is braver and won't run.  
+Energy level is how often the NPC will move around when under the Wander action from a package.  
+Responsibility is how likely the NPC will commit a crime or report a crime. Less than 30 means the NPC will steal things.
+
+To add AI packages simply open up the package window for NPCs and drag/drop packages into the AI package list in the NPC window. Note that the order of packages is important, as the game will select the first available package to run.  
+
+Conditions for the AI package are also available, given as standard IF statements.
+
+
+
+
+
+
+
+
+
 
 
 ## How to 'install' mod:

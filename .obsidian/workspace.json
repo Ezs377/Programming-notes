@@ -42,21 +42,9 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "6ed8f601141a9153",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Python.md",
-                "mode": "source",
-                "source": false
-              }
-            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -122,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Oblivion modding.md",
+                "file": "Machine learning and AI.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Oblivion modding.md",
+                "file": "Machine learning and AI.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -162,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Oblivion modding.md"
+                "file": "Machine learning and AI.md"
               }
             }
           }
@@ -183,28 +171,29 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "ac5c846ec8a8b701",
+  "active": "e5652117876a2d6d",
   "lastOpenFiles": [
-    "Pasted image 20240702210918.png",
-    "Pasted image 20240702155252.png",
-    "Pasted image 20240702154903.png",
-    "Pasted image 20240702154605.png",
-    "Pasted image 20240702153315.png",
-    "Pasted image 20240702144359.png",
-    "Pasted image 20240702144311.png",
-    "Pasted image 20240702133213.png",
-    "Pasted image 20240702121319.png",
-    "Pasted image 20240702010840.png",
-    "Pasted image 20240702000920.png",
+    "Pasted image 20240716120552.png",
+    "Reminders.md",
     "Machine learning and AI.md",
     "Oblivion modding.md",
-    "Reminders.md",
+    "Pasted image 20240715114552.png",
+    "Pasted image 20240715114524.png",
+    "Pasted image 20240715114415.png",
+    "Pasted image 20240715091746.png",
+    "Pasted image 20240705162937.png",
+    "Images/Pasted image 20240705161140.png",
+    "Python.md",
+    "Images/Pasted image 20240705161113.png",
+    "Images/Pasted image 20240705140619.png",
+    "Untitled.md",
+    "Images/Pasted image 20240704012747.png",
+    "Images/Pasted image 20240704011507.png",
     "Programming knowledge.md",
     "Markdown language.md",
     "Linux Bash.md",
     "Git.md",
     "README.md",
-    "Windows Command prompt.md",
-    "Python.md"
+    "Windows Command prompt.md"
   ]
 }
