@@ -24,7 +24,7 @@ Generally speaking the more samples we use for analysis the lower the standard e
 
 Also standard deviation is a descriptive statistic and we can calculate it using our data samples, while standard error is a inferential statistic and only estimates. 
 
-### Statistical learning (from The Elements of Statistical Learning Second Edition):  
+### Statistical learning (from The Elements of Statistical Learning Second Edition) (unfinished notes):  
 #### Introduction:  
 Supervised learning: Outcome variables are used to guide the learning process.
 Unsupervised learning: Observe features of data only and no outcome, instead finding how the data is organized or clustered.
@@ -102,6 +102,8 @@ For example, using the same training data in the least squares example,
 ![[Pasted image 20240722145215.png]]
 Using 15-nearest-neighbour averaging of the binary coded response, we fit a boundary on the plot. Hence Ŷ is the proportion of ORANGE in the neighborhood, and so if we assign ORANGE to Ĝ if Ŷ > 0.5 
 
+(I give up)
+
 ### Terms:    
 - Predictors/features: Essentially inputs, or independent variables
 - Responses: Essentially outputs, or dependent variables
@@ -120,3 +122,44 @@ Using 15-nearest-neighbour averaging of the binary coded response, we fit a boun
 
 
  
+
+### 306 notes:
+306 notes are derived from 306 slides which I lost track of during lectures hence they're placed here.
+
+#### Intro:  
+Pattern recognition is a scientific discipline that focuses on classifying objects into a number of categories/classes. The objects are typically referred to by a generic term "patterns", and classified by using the object's features to fit a category/class. 
+
+An example of pattern recognition is using a machine learning to identify people recorded on camera, the people are objects and the people faces are features. Other features could be person height, race, gender, etc.  
+
+The first step to pattern recognition is to identify measurable qualities (features) that distinguish object samples from each other. 
+
+For example, with this set of images,  
+![[Pasted image 20240730121339.png]]  
+Some features could be standard deviation and mean of the images. A vector is used to represent the features, which becomes a vector of two coefficients, one for mean μ z and one for standard deviation σ. For N images we have matrix M of dimension 2xN
+
+For reminder, a vector of coefficients is a vector that represents the coefficients of a linear equation, e.g.  
+![[Pasted image 20240730121717.png]]  
+In our case the matrix M represents the a terms in a linear equation.  
+
+When we plot standard deviation against mean (i.e. Plot features against each other) and plot the values of these features for each image we get:  
+![[Pasted image 20240730121917.png]]
+We see that there are two distinct groups of images, which happen to be grouped based on their class. Hence there is a clear difference between the images of each category, and we can develop a straight line model to distinguish between the two classes of images. 
+
+We can use the straight line model to predict which class a new image would be. If we measure the values of mean and standard deviation of the image we can plot it on the graph, where it will be under or above the straight line. Since below the line is region for class B and above the line is region for class A then we can effectively predict which class a new image will be. This is the basic process of pattern recognition. 
+
+The mean and standard deviation are used as features in the example. In general though the features will be collected in a feature vector, where:  
+![[Pasted image 20240730123150.png]]  
+Features and feature vectors are normally treated as random variables as they can pop up anytime and are suscept to noise.  
+
+The straight line model in the previous example is known as the decision line, which classifies objects based on their features. This is done by using the line to divide the feature space into two regions, where each region represents a class/category. So if the feature values of an object falls into a region then we can say it belongs to that class. 
+
+However this may not always be true, and if the prediction is wrong it is a misclassification. With the example we provided labels for each class and we used a set of objects where we knew what their classes were, and use that data to form the decision line. The initial feature vectors (or patterns) used to develop the decision line is referred to as training patterns (training feature vectors).
+
+The number of features, i, depends on the object, and also the type of features to use. The decision line is also often not straight, and is optimized with a optimality criterion. Also the grouped objects on the feature space is often not so tidily grouped, and often we get some points that cross over regions, forming non linear decision lines. Designing a classifier (decision line) is part of the classification design stage, and finding the classification error rate is part of systems evaluation stage.  
+
+The stages of designing a classification system:  
+![[Pasted image 20240730130232.png]]  
+Each stage is not independent and can rely on other stages to develop the stage, and even go back to previous stages to improve performance.  
+
+Supervised learning is utilizing prior known information to develop the classifier. The previous example used supervised learning because we had a set of images which we knew the class of and developed the decision line using that data.  
+
