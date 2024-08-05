@@ -127,11 +127,11 @@ Using 15-nearest-neighbour averaging of the binary coded response, we fit a boun
 306 notes are derived from 306 slides which I lost track of during lectures hence they're placed here.
 
 #### Intro:  
-Pattern recognition is a scientific discipline that focuses on classifying objects into a number of categories/classes. The objects are typically referred to by a generic term "patterns", and classified by using the object's features to fit a category/class. 
+*Pattern recognition* is a scientific discipline that focuses on classifying *objects* into a number of *categories/classes*. The objects are typically referred to by a generic term "patterns", and classified by using the object's features to fit a *category/class*. 
 
 An example of pattern recognition is using a machine learning to identify people recorded on camera, the people are objects and the people faces are features. Other features could be person height, race, gender, etc.  
 
-The first step to pattern recognition is to identify measurable qualities (features) that distinguish object samples from each other. 
+The first step to pattern recognition is to identify measurable *qualities (features)** that distinguish object samples from each other. 
 
 For example, with this set of images,  
 ![[Pasted image 20240730121339.png]]  
@@ -151,15 +151,114 @@ The mean and standard deviation are used as features in the example. In general 
 ![[Pasted image 20240730123150.png]]  
 Features and feature vectors are normally treated as random variables as they can pop up anytime and are suscept to noise.  
 
-The straight line model in the previous example is known as the decision line, which classifies objects based on their features. This is done by using the line to divide the feature space into two regions, where each region represents a class/category. So if the feature values of an object falls into a region then we can say it belongs to that class. 
+The straight line model in the previous example is known as the *decision line*, which classifies objects based on their features. This is done by using the line to divide the feature space into two regions, where each region represents a class/category. So if the feature values of an object falls into a region then we can say it belongs to that class. 
 
-However this may not always be true, and if the prediction is wrong it is a misclassification. With the example we provided labels for each class and we used a set of objects where we knew what their classes were, and use that data to form the decision line. The initial feature vectors (or patterns) used to develop the decision line is referred to as training patterns (training feature vectors).
+However this may not always be true, and if the prediction is wrong it is a misclassification. With the example we provided labels for each class and we used a set of objects where we knew what their classes were, and use that data to form the decision line. The initial feature vectors (or patterns) used to develop the decision line is referred to as *training patterns (training feature vectors)*.
 
-The number of features, i, depends on the object, and also the type of features to use. The decision line is also often not straight, and is optimized with a optimality criterion. Also the grouped objects on the feature space is often not so tidily grouped, and often we get some points that cross over regions, forming non linear decision lines. Designing a classifier (decision line) is part of the classification design stage, and finding the classification error rate is part of systems evaluation stage.  
+The number of features, i, depends on the object, and also the type of features to use. The decision line is also often not straight, and is optimized with a optimality criterion. Also the grouped objects on the feature space is often not so tidily grouped, and often we get some points that cross over regions, forming non linear decision lines. Designing a *classifier (decision line)** is part of the classification design stage, and finding the classification error rate is part of systems evaluation stage.  
 
 The stages of designing a classification system:  
-![[Pasted image 20240730130232.png]]  
+![](Pasted%20image%2020240804111556.png)
 Each stage is not independent and can rely on other stages to develop the stage, and even go back to previous stages to improve performance.  
 
-Supervised learning is utilizing prior known information to develop the classifier. The previous example used supervised learning because we had a set of images which we knew the class of and developed the decision line using that data.  
+*Supervised learning* is utilizing prior known information to develop the classifier. The previous example used supervised learning because we had a set of images which we knew the class of and developed the decision line using that data.  
+
+In *unsupervised learning*, instead we are given a set of feature vectors **x** and the goal is to cluster/group 'similar' vectors together. 
+![](Pasted%20image%2020240804131111.png)  
+
+For example, using a satellite to scan EM energy from the Earth's surface that where certain wavelength bands correspond to a type of terrain. One surface vector x for each 'cell' (Region) from the sensed Earth surface is made, and the elements x<sub>i</sub> where i = 1, 2... l of the vector x are the corresponding image pixel intensities in representing the spectrum of wavelengths, which varies across the entire wavelength spectrum.  
+
+A clustering algorithm can be used to reveal the groups where features are clustered in l-dimensional space (where l = elements of x representing pixel intensities). Once clustered we can apply labels to different groups, such as water terrain, mountain terrain, etc using available references (e.g. Existing maps). 
+![](Pasted%20image%2020240804152318.png)  
+Unsupervised learning requires a good metric to calculate 'similarity' or 'distance' between two feature vectors, as well as choosing a suitable algorithm to cluster the vectors. 
+
+*Semi supervised learning* is similar to unsupervised learning, we have unknown classes (unlabeled data) but we also have true classes (labelled data). The labelled data is sued to improve the classification performance of unlabeled data.
+
+### What is AI:
+Artificial intelligence, as a term, was conceptualized in 1950 to describe the effort the automate intellectual tasks usually performed by humans. As a general field AI covers machine learning and deep learning, and other things. Symbolic AI was an older form of misinterpreted AI where instead a computer was programmed with enough rules that it could emulate intelligence (e.g. Chess AI). 
+
+*Machine learning* is the science of programming computers so they can learn from data. It allows a computer to learn without being explicitly programmed. More specifically, a computer program can learn from experience E with respect to task T and some performance measure P, if the performance of task T, measured with P, improves with each experience E. Basically P is used to measure the performance of a task T, and if T improves every experience E then the computer program can 'learn'.
+
+For example, an algorithm to detect spam emails. A bunch of normal emails and spam emails, which were explicitly labelled as normal or spam by the users, can be used as the training set. Each training example is called a training instance, i.e. A sample. 
+
+In this case the task T is to identify spam emails, experience E is the training data, and we need to define the performance measure P. An example of P would be the ratio of correctly classified emails to misclassified emails - This type of measure is called accuracy and is often used for classification tasks.  
+![](Pasted%20image%2020240804161647.png)  
+![](Pasted%20image%2020240804161654.png)  
+
+Machine learning algorithms can derive features from given data without programmer interference, and develops its own rules for automating the task. To do machine learning we need three things:  
+- Input data points: The type of data used to train the model. This varies depending on the application, e.g. For speech recognition it could be sound files
+- Examples of the expected output: The expected output from the machine. This determines how the output is produced and received, e.g. For image processing, an output could be "cat" or "dog" when identifying the image  
+- A suitable metric to indicate whether the algorithm is doing a good job: Is used as feedback to adjust how the algorithm works to improve accuracy. This adjustment step is what we refer to as learning  
+
+We can say that the main problem in machine learning is to meaningfully transform data: I.e. To learn good representations of the given input data; Representations that gets us closer to the expected output. 
+
+### Deep learning:  
+The 'deep' in deep learning refers to the layering method to allow a model to 'learn'; Multiple 'layers' are applied to the model where each layer improves the model further.
+
+The amount of layers is called the depth of the model. Modern deep learning can have tens or hundreds of layers, exposed to large amounts of data.  
+
+Other methods of machine learning usually only take one or two layers of representations of data (e.g. Analyze a pixel histogram then apply classification rule); This is called shallow learning.  
+
+**Deep learning example:**  
+We want to develop a model to interpret handwritten numbers based on images of a certain size
+![](Pasted%20image%2020240805141358.png)
+Each layer successively process the input until reaching the final output which is a vector that can be used as data.
+![](Pasted%20image%2020240805141900.png)  
+
+The AI hierarchy is often represented as:  
+![](Pasted%20image%2020240805141936.png)  
+
+### How machine learning works:  
+Machine learning is about mapping inputs (such as images) to targets (such as labels, e.g. "cat") and this is done by observing many examples (samples) of the input and targets. Each layer can 'memorize' the attributes of the presented data, and this 'memory' is attributed as the strength, or weight, of the connections between layers.  
+
+*Weights* are also called the parameter of the layer. In this context, learning means finding a set of values for the weight of all layers in a network such that the network will correctly map inputs to their associated targets. The *neural network* can contain thousands or millions of parameters, which we cannot find manually. 
+
+Instead we use a successive learning procedure that iterates over several layers. We set an initial weight for the first layer, and we need to find a way to measure how far the targeted output is from what can be found using the initial weights, which is set at small random values. 
+
+The difference between the calculated outputs and the targeted outputs is the job of the *loss function*, or the *objective function*. The loss function computes a *distance score* to determine how good the network has done on this specific example using the initially proposed weights. Then the distance score is sent back and used as feedback to adjust the value of weights in a direction that will lower the loss score for the current example. This adjustment is the *optimizer*'s job, which implements the *backpropagation* algorithm which is an important algorithm in the learning process (learnt later).
+![](Pasted%20image%2020240805144953.png)  
+With each example processed, the weights are adjusted with the optimizer, that uses the loss score from the loss function. By *training* the model we reduce the loss with each successive example. A network with minimal loss is one where the outputs are as close as possible to the targets, forming a trained network.  
+
+Machine learning can be applied to a variety of scenarios, such as:
+- Simplifying tasks that would otherwise require a lot of work to program a traditional computer, e.g. Identify dogs and cats from an image (would only need images of dogs/cats to train the model, instead of coding specific rules to cover all cases)
+- Solving complex problems that don't have a specific solution or rules
+- Fluctuating problems, since models can adapt to new data
+- Processing large amounts of data
+Machine learning is about developing rules using inputs and outputs, instead of finding an output based on a rule
+
+In particular, the ability to extract features from data allows machine learning to perform predictive tasks, such as weather forecasting, fixing corrupted data, and error detection.  
+
+### Classical pattern recognition:  
+Pattern recognition is closely related to machine learning, and can be said to be an application of machine learning. Pattern recognition is the process of recognizing patterns by using machine learning algorithms, and both terms fall under the artificial intelligence topic.
+![](Pasted%20image%2020240805151346.png)
+
+**Fish example:**  
+A fish factory wants to be able to automatically sort fish based on species on a conveyor belt, using a camera. We want to separate bass fish from salmon fish.
+
+Some physical differences between the fish types include length, width, number and shape of fins, shininess of scales, position of mouth, etc. These are possible attributes, or features, for the classifier which will use them to identify the fish type. Things that can get in the way of such identification include the orientation of fish, light level, visibility, multiple fish visible, etc. These things are called *noise* and we want to eliminate noise before providing the images as an input to the model.  
+
+A prototype model process:
+1. The camera captures image of fish
+2. Images are pre processed to simplify the next operations without losing data
+	- In particular, we could use a *segmentation* operation, where images of different fish are somehow isolated from one another and the background
+3. The pre processed data is sent to a *feature extractor*, which reduces the data by measuring certain features or properties 
+4. Measured features/properties (which are processed as values) are passed to a *classifier* that evaluates the data and produces an output
+
+The preprocessor might edit the image taken from the camera to remove as much noise as possible. All preprocessing takes place outside the model. This could be  either cropping the image to remove the background, or adjusting the light levels, or etc. 
+
+Let's say for example, that we know that a sea bass is typically longer than a salmon. Thus we could use length as a feature for the classifier, by using length l and whether the length exceeds a critical length \*l which acts as the threshold between bass and salmon lengths. To choose the threshold \*l we could analyze some samples of the fishes and inspect the results. 
+![](Pasted%20image%2020240805170218.png)  
+For example, we could get the following histograms for fish lengths:  
+![](Pasted%20image%2020240805170905.png)  
+This is very inaccurate because while sea bass are typically longer, it is not always guaranteed and fish will typically vary in size regardless of species. 
+
+So another metric we could try to use is scale shininess. We'll take the average shininess of a fish from the image, remove environmental light, and assign x as our shininess level, with \*x as our critical value for shininess. Using shininess as a feature provides this histogram:  
+![](Pasted%20image%2020240805171155.png)
+While it is better than using length it is still generally quite inaccurate, as we have some misclassifications. 
+
+However, one of our assumptions is that the cost of deciding a bass is equal to deciding a salmon. But in business, the factory owners have determined they want to favor salmon more often than bass, because customers complain if they find bass in salmon cans, but like to get occasional salmon pieces in bass cans (since salmon is more valuable in this case). Hence we need to adjust our *decision boundary* (which is our critical value \*x) to favor lesser shininess, and possible adjust it further depending on customer feedback on products.  
+
+This means that we have an overall cost attributed to our decisions chosen by the model. By cost, we mean that one output is more favorable than the other. So no we need to design a *decision rule* that sets the decision boundary (critical values of \*x) 
+
+
 

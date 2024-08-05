@@ -20,18 +20,6 @@
             }
           },
           {
-            "id": "e5652117876a2d6d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Machine learning and AI.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "ac5c846ec8a8b701",
             "type": "leaf",
             "state": {
@@ -42,9 +30,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "9f3065011263ad08",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Machine learning and AI.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -171,22 +171,27 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "e5652117876a2d6d",
+  "active": "9f3065011263ad08",
   "lastOpenFiles": [
-    "Oblivion modding.md",
-    "Some C notes regarding microchips.md",
+    "Images/Pasted image 20240804111556.png",
     "Machine learning and AI.md",
+    "Images/Pasted image 20240805171155.png",
+    "Images/Pasted image 20240805170905.png",
+    "Images/Pasted image 20240805170218.png",
+    "Images/Pasted image 20240805151346.png",
+    "Images/Pasted image 20240805144953.png",
+    "Images/Pasted image 20240805141936.png",
+    "Images/Pasted image 20240805141900.png",
+    "Images/Pasted image 20240805141358.png",
+    "Images/Pasted image 20240804161654.png",
+    "Images/Pasted image 20240804161647.png",
+    "Reminders.md",
+    "Pasted image 20240730162617.png.md",
+    "Untitled.md",
+    "Oblivion modding.md",
+    "README.md",
+    "Some C notes regarding microchips.md",
     "MATLAB and C.md",
-    "Images/Pasted image 20230720151643.png",
-    "Images/Pasted image 20230720150738.png",
-    "Images/Pasted image 20230719123809.png",
-    "Images/Pasted image 20230719112735.png",
-    "Images/Pasted image 20230719112507.png",
-    "Images/Pasted image 20230719112142.png",
-    "Images/Pasted image 20230717120724.png",
-    "Images/Pasted image 20230717120700.png",
-    "Images/Pasted image 20240729175902.png",
-    "Images/Pasted image 20240729112142.png",
     "Java stuff.md",
     "Pasted image 20230911114706.png.md",
     "Python.md",
@@ -194,8 +199,6 @@
     "Linux Bash.md",
     "Markdown language.md",
     "Programming knowledge.md",
-    "Windows Command prompt.md",
-    "Reminders.md",
-    "README.md"
+    "Windows Command prompt.md"
   ]
 }
