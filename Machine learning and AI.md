@@ -105,20 +105,21 @@ Using 15-nearest-neighbour averaging of the binary coded response, we fit a boun
 (I give up)
 
 ### Terms:    
-- Predictors/features: Essentially inputs, or independent variables
-- Responses: Essentially outputs, or dependent variables
-- Qualitative variables: Discrete or categorical variables, not defined by numerical values
-- Quantitative variables: Numerical values, able to be counted
-- Ordered categorical variables: Ordered categories without usage of numerical values (e.g. Small, medium, large)
-- Regression: Predicting quantitative outputs
-- Classification: Predicting qualitative outputs
-- Target: A numeric code used to encode a class/category
-- Bias: The Y intercept of the linear model
-
-
-
-
-
+- **Predictors/features**: Essentially inputs, or independent variables
+- **Responses**: Essentially outputs, or dependent variables
+- **Qualitative variables**: Discrete or categorical variables, not defined by numerical values
+- **Quantitative variables**: Numerical values, able to be counted
+- **Ordered categorical variables:** Ordered categories without usage of numerical values (e.g. Small, medium, large)
+- **Regression**: Predicting quantitative outputs
+- **Classification**: Predicting qualitative outputs
+- **Target**: A numeric code used to encode a class/category
+- **Bias**: The Y intercept of the linear model
+- **Hyperplane**: A subplane that is n-1 dimensions in n dimensional space, e.g. In 3D space a hyperplane is a 2D plane inside 3D space. A hyperplane is typically used to 'divide' the dimensional space into two half spaces, e.g. A 1D line (hyperplane) separates 2D space into two 2D regions
+- **Hyperparameter:** A parameter that specifies details about the learning process of a model, whereas standard parameters define the model itself. 
+- **Linear model:** A type of AI model that forms a polynomial curve, but has the same vector coefficient for all unknown parameters, in the form of y(x, **w) = w<sub>0</sub> + w<sub>1</sub>x + w<sub>2</sub>x<sup>2</sup>+...+w<sub>M</sub>x<sup>M</sup>
+- **Error function**/J(θ): Minimizes the difference between the output of a polynomial function/AI model and the training dataset points for each given input
+- θ/w/**w**: Known as parameters, or weights, which are the coefficients to a polynomial model
+- 
 
 
  
@@ -232,7 +233,7 @@ In particular, the ability to extract features from data allows machine learning
 Pattern recognition is closely related to machine learning, and can be said to be an application of machine learning. Pattern recognition is the process of recognizing patterns by using machine learning algorithms, and both terms fall under the artificial intelligence topic.
 ![](Pasted%20image%2020240805151346.png)
 
-**Fish example:**  
+###### Fish example: 
 A fish factory wants to be able to automatically sort fish based on species on a conveyor belt, using a camera. We want to separate bass fish from salmon fish.
 
 Some physical differences between the fish types include length, width, number and shape of fins, shininess of scales, position of mouth, etc. These are possible attributes, or features, for the classifier which will use them to identify the fish type. Things that can get in the way of such identification include the orientation of fish, light level, visibility, multiple fish visible, etc. These things are called *noise* and we want to eliminate noise before providing the images as an input to the model.  
@@ -258,7 +259,179 @@ While it is better than using length it is still generally quite inaccurate, as 
 
 However, one of our assumptions is that the cost of deciding a bass is equal to deciding a salmon. But in business, the factory owners have determined they want to favor salmon more often than bass, because customers complain if they find bass in salmon cans, but like to get occasional salmon pieces in bass cans (since salmon is more valuable in this case). Hence we need to adjust our *decision boundary* (which is our critical value \*x) to favor lesser shininess, and possible adjust it further depending on customer feedback on products.  
 
-This means that we have an overall cost attributed to our decisions chosen by the model. By cost, we mean that one output is more favorable than the other. So no we need to design a *decision rule* that sets the decision boundary (critical values of \*x) 
+This means that we have an overall cost attributed to our decisions chosen by the model. By cost, we mean that one output is more favorable than the other. So no we need to design a *decision rule* that sets the decision boundary (critical values of \*x) that minimizes the cost effects of favoring one outcome over another. *Risk analysis* is the analysis of such decisions, for example we could base our decision boundary at lightness = 2 which guarantees no bass will be leaked out, but the majority of identifications would also be salmon so the company takes a loss.
+
+Assuming that no single feature is good enough for us to develop a good model performance, we can start using multiple features to develop our model. Another feature we could try is the fact that sea bass are typically wider than salmon. Now we will use two features: Shininess and width. Ignoring the practical means of measured, eventually we can develop a 2D feature vector **x** that holds a feature value for each element, i.e. **x** = \[x<sub>1</sub>, x<sub>2</sub>] where x<sub>1</sub> represents the feature value shininess level of a fish, and x<sub>2</sub> represents another feature value which is width of fish. This vector can be plotted as a point in 2D feature space, where the features are applied as the axes of the graph (e.g. Shininess on X axis, width on Y axis).  
+
+When we plot our vectors in 2D feature space we expect to see feature vectors representing bass grouped together in one region, and feature vectors representing salmon grouped in another region. Thus we'll need to divide our feature space into two regions to indicate which region belongs to what fish. We get the following graph:
+![](Pasted%20image%2020240806121759.png)  
+We can see that the feature vectors of bass and salmon are roughly grouped in their own regions. Then we develop a straight line model for the decision boundary, and classify points below the boundary as salmon, and points above the boundary as bass. Hence we've developed a model using two features. It's not 100% accurate but better than the previous models. We could use even more features to better the model but using more features requires more resources, and some features could be redundant - E.g. All fish have the same eye color regardless of species.
+
+For this model we used a straight line model for the decision boundary, which we see is good but still misclassifies some points. We could use a complicated model for the decision boundary so that is 100% accurate based on training data,  
+![](Pasted%20image%2020240806123355.png)  
+However since this is based on training data, if given real data the model will not accurately predict points since the decision boundary was formed on training data only. This is the issue of *generalization*, where our model needs to be generalized enough so that a similar performance is recorded for any given data. Also complicated models are harder to work with in general.  
+
+Getting more samples could solve this issue since we would get a better overall pattern for the model, but often data is limited. Instead we accept the fact that our model will not be 100% accurate in favor of simplifying the model and adaptability of model. 
+
+### Pattern representations:
+This is one of the main problems of *statistical pattern recognition* where we need to decide the balance between complexity and accuracy, as well as ensuring our model performs well on new data and is generalized well enough without making the model too complicated.
+![](Pasted%20image%2020240806130239.png)
+We might also need to change the model function for the same data, e.g. If we want to separate fish by gender instead of species. Different decision tasks may require different features and give different decision boundaries. This means that our decisions are based on our objective task, or cost oriented. Creating a single general purpose artificial pattern recognition device that can do everything is difficult, compared to humans who can switch tasks easily. 
+
+In order to determine how 'complex' our model should be to give the best result between accuracy and efficiency we need a good *representation* which allows good pattern classification. Every pattern recognition problem needs a good representation. Patterns could be represented as vectors of number values, an ordered list of attributes, etc.
+
+When we don't have enough training data one common technique is to use knowledge of the data itself. With less data, more knowledge becomes more important. One method is using *analysis by synthesis*, where we have a model of how each pattern is generated in the data. 
+
+For example, in speech recognition, when a person pronounces the sound 'dee' people commonly pronounce it by opening the mount and putting their tongue on the roof of their mouth. And we can assume that the differences in pitch may be due to the talker being male, female, old, young, etc. If we can determine how a particular pattern is produced, then the classification itself can be based on this fact, e.g. Determine the person's gender using the 'dee' sound received, using the fact that females produce a higher pitch while males produce a lower pitch.  
+
+Another example is recognizing a chair - There are many types of chairs such as beanbags, office chairs, stools, etc. Instead of trying to find a chair based on their features (which is hard since all chairs can have varying features) we can instead look for their functionality - that is, a stable object that can support a person sitting down.  
+
+Basically speaking, real-world pattern recognition utilizes some knowledge regarding how the patterns were made in reality, or consider the real world facts about the pattern. For example, if we have a model that looks at handwriting and tries to interpret the letters, we can give it the information that each letter was done in strokes rather than a stamp, so it can help the pattern recognition.  
+
+Some issues that could rise with pattern recognition are:
+- Feature extraction: A perfect feature extractor can practically identify objects barring the need for a classifier, and conversely a perfect classifier would be able to identify features without a feature extractor. Hence developing the feature extraction is more dependent on the problem and domain than the classifier, since we can recycle classifiers but not necessarily feature extractors. For example, a feature extractor for a camera based interface is useless for a audio based, but the classifier could be simply modified to take audio instead of pictures
+- Noise: The input to a model is typically rife with unnecessary information, which we need to filter out. More specifically, noise is a property of the sensed pattern that occurs due to randomness in nature or hardware/software. The challenge however is knowing which differences between objects are caused by noise and which are caused by the object features
+- Overfitting: We can develop complex models to further increase 'accuracy'. But too complex and the pattern is only suited on the test data, and cannot derive an accurate pattern from other sources of data. We have to consider what degree of complexity is suited to provide best accuracy without sacrificing performance  
+- Model selection: Sometimes using different model classes can provide better performance/accuracy, either due to the way these classes and features are captured (which may be easier) or to the model's method of pattern recognition. Hence how do we know we have a good model? Is there another model that could do a better job? This can take time to figure out, or use an automated process to figure out the best model  
+- Prior knowledge: Applying prior knowledge into the model can be harder than expected, such as analysis by synthesis or underlying categories or specific attributes of patterns (e.g. Knowing how a sound is produced)
+- Missing features: It is common for a feature to be missing or corrupted when taking in data, which needs to be accounted for and the model needs to be able to figure out what to do
+- Segmentation: When taking in data using an external device (e.g. Photos through a camera) often we have to segment the data into sections that can be interpreted with features. For example, identifying what part of an image is the background and which is the desired object. With speech recognition segmentation is particularly difficult, as we need to identify each noise made and correspond it with a letter or word. And difference sounds can be produced with the same letter depending on the word
+- Context: We can use the context the model is applied in to improve it, e.g. When analyzing fish, the fish usually comes in batches of the same fish, so if salmon comes out then the following fish is more likely to be salmon, which can be used if the next fish is ambiguous (i.e. Very close to the decision boundary) as it is likely to be salmon. But context can also differ in scenarios and often different things mean differently to other people, e.g. Saying "bleh" can mean bored or yuck when spoken by someone  
+- Invariances: We want a representation of data to be invariant to certain factors, e.g. For a fish image we don't care about its rotation and translation on the conveyor belt, as we just want the fish features. Similarly with speech recognition we want our representation to be invariant to accents and dialects. Rotation is an example of invariance to two dimensional rotation. Ideally we want an invariance to 3D rotation, which may prove difficult as objects appear differently from all angles. We may also want our recognizer to be invariant to the rate a pattern evolves, such as a hand waving quickly or slowly. This is particularly difficult with speech as some people talk faster or slower than others. So the question is how do we know when invariance is present? And how do we implement this in the recognizer?
+- Evidence pooling: We can use multiple features to improve recognition, and conversely we can also improve recognizer by using multiple component classifiers. If all categorizers agree on an object then all is fine, but with disagreements then we need a 'master' classifier that collects (pools) evidence from the multiple recognizers to make a decision. E.g. If 10 doctors analyze a person, one person says they're sick and 9 say they're healthy, what are the chances the single doctor knows something the others don't? This is a problem that needs to be implemented in the model
+- Costs and risks: A classifier rarely operates by itself - usually it is used to make judgements and recommend actions with the associated costs and risks. One of the common risks is classification error, the percentage of new patterns that are incorrectly labelled. Hence how does this knowledge affect the classification decisions?
+
+###### The machine learning approach:  
+1. Learning and adaptation: Any method that uses information from training samples to design a classifier uses the process of learning. The development of classifiers starts with designing a general model/structure and the utilizing training patterns to learn or estimate the unknow parameters of the model. Learning uses various logarithmic approaches that try to minimize the error on a given set of training data. Many gradient descent algorithms have been formulated over time to improve classifier parameters to reduce error measure. The process of learning usually appears in many general forms, each tailored to address a specific problem characteristics and data requirements. These forms utilize various learning paradigms and methodologies. So we have plenty of options to find a suitable algorithm to improve the accuracy and performance of classifiers
+2. Supervised learning: It is the approach that involves providing the model some category labels/costs for each pattern in the training set through a teacher, and the objective is to minimize the sum of these costs. We have to ensure that the learning algorithm 'power' which includes its capacity to capture complex relationships and handle intricate patterns in the data. We need to also assess the algorithm's stability against variations with the parameters while still producing consistent and reliable results. Convergence of the algorithm is important to assess if the algorithm can reach an optimal solution or satisfactory approximation, and we also need to consider the scalability of the algorithm that allows it to continue its operation when faced with varying factors, such as different training patterns, dimensions of input features, or the complexity of the problem. Understanding how the algorithm scales with these factors helps us manage computational resources effectively. Finally we want the learning algorithm to favor simpler solutions over complex ones, since complex solutions tend to badly reflect unseen data (overfitting)
+3. Unsupervised learning: Also known as clustering, we let the algorithm develop its own patterns based on the given input data by finding natural groupings or clusters within input patterns without relying on a teacher. Without any labelled data we need different ways to finding patterns. With unsupervised the two key challenges are finding the optimal number of clusters and avoiding inappropriate representations. Finding the right amount of clusters utilizes different algorithms and techniques. A good cost function helps guide the clustering process into generating meaningful clusters. 
+4. Reinforcement learning: Category labels aren't given, instead a learning system, aka the agent, interacts with data and receives rewards or punishments depending on the actions performed, which are determined by the supervisor or teacher. The agent adjusts its behaviour to maximize the amount of rewards over several iterations, which allows the agent to make decisions in different environments. The agent receives feedback from the environment and supervisor to learn. 
+
+### Modelling data:
+Modelling data involves the process of training and optimizing specific parameters in a predetermined process to capture the underlying behaviour of the data. The objective is to develop a model, typically a function, that best represents the patterns and characteristics of a given dataset. Basically we try to fit the available data to a chosen model which can accurately describe relationship/data distribution between variables. We want to minimize the differences between predicted values and actual observed values in the dataset by fine-tuning the parameters of the model. For example, a regression model can be used to find the relationship between variables by plotting a set of samples to a mathematical function, or use a classification model to assign data samples to predefined categories based on their features and previously labelled examples. 
+
+#### Polynomial curve fitting:
+Let's say we have a real valued input variable x, and we want to use this to predict the value of a real value target variable t. For example, if we take the generated data as results from the function sin(2πx) with some random noise. Then the input values {x<sub>n</sub>} are generated randomly in the range (0, 1) which will cause the resulting outputs to be between 0 and 2π. The corresponding target values {t<sub>n</sub>} are obtained by first calculating the values of the function sin(2πx) and then adding random noise with a Gaussian distribution having a standard deviation of 0.3. 
+
+Now if we get a training set with N observations of x, written as a vector set of x ≡ \[x<sub>1</sub>, x<sub>2</sub>, x<sub>3</sub>, ... x<sub>N</sub>]<sup>T</sup> and couple it with the corresponding observations of the values of t, written as another vector set of t ≡ \[t<sub>1</sub>, t<sub>2</sub>, t<sub>3</sub>, ... t<sub>N</sub>]<sup>T</sup> (note that these are transposed vectors, meaning that both are actually arranged as a single column instead of row). Plotting the points for N = 10 gives:  
+![](Pasted%20image%2020240913175238.png)
+The points were plotted by choosing values for x as x<sub>n</sub> where N = 1, 2, 3, ... 10 spaced uniformly in the range (0, 1). The target t was obtained by passing values of N into the sin function, then adding a small Gaussian distribution to obtain t<sub>n</sub> for each N value. Hence the final equation is  
+y = sin(2πx) + N(0, 0.3) where N = Gaussian function, and it indicates a mean around 0 with a standard deviation (σ) of 0.3. Variance of Gaussian noise is dictated as σ<sup>2</sup> so the variance of Gaussian noise is 0.09. 
+![](Pasted%20image%2020240915151522.png)
+We want to use the training set to make predictions of the value t^ (t with hat) using some input value x^ (x with hat). Basically if we can derive the equation sin(2πx) using the AI model and training set then we have success. 
+
+First attempt uses the following equation,  
+![](Pasted%20image%2020241005224553.png)  
+Where M is the polynomial order, and x<sup>j</sup> is x raised to power of j. The polynomial coefficients comes from the vector **w**. While y(x, **w**) is a nonlinear function of x, the equation itself is linear with coefficients of **w**. This type of function are linear in their unknown parameters and are known as **linear models.** The values of coefficients will be determined by fitting the polynomial to the training data.  
+
+This can be done by minimizing an error function that measures the difference between the output of y(x, **w**) for a given **w** value and the training set data points. A simple straightforward error function is the sum of squares of errors between predictions of y(x<sub>n</sub>, **w**) for each data point x<sub>n</sub> and the corresponding target t<sub>n</sub> from the training set such that:  
+![](Pasted%20image%2020241005231400.png)  
+The error function E(**w**) is always positive and hits zero if the prediction functions passes exactly through every single training data point.  
+![](Pasted%20image%2020241005232004.png)  
+We want to pick a value for **w** that reduces E(**w**) as much as possible. Since the error function is linear in elements of **w** then we can find a unique solution in terms of **w**. Then we just need to find a suitable M value (which denotes the order of the polynomial). With this example M = 3 provides the most accurate predictions.
+![](Pasted%20image%2020241006004148.png)
+With high numbers of M we can get a polynomial that goes through every point, but the actual function oscillates wildly, and example of overfitting. While we can guarantee perfect accuracy with the training set we cannot use to model for other data. 
+
+To achieve good generalization of the data we need to measure the dependence of the generalization performance of M by using a separate test set that is generated in the same manner as the training set, except with differing noise values. For each choice of M we re-evaluate the residual value of **w**** for the test data set. It may be easier to use the RMS error:  
+![](Pasted%20image%2020241006011310.png)  
+Where N allows comparison with different sizes of datasets equally, and the square root equalizes the scale and units for E<sub>RMS</sub> with the target variable t.  
+
+Once we get the error values for the test and training data sets against the model we can tune our model even more. We calculate the error value for each value of M used.
+![](Pasted%20image%2020241006012342.png)
+We see that for smaller values of M we get larger error. For M = 3 to 8 the error values are relatively low. At M = 9 the training set error becomes zero, but the test set error becomes super high, which means overfitting.  
+![](Pasted%20image%2020241006012714.png)  
+Theoretically a higher order polynomial should contain all lower order polynomials within so that it becomes more accurate, and hence the higher M value the more accurate predictions (which is also proven that we can estimate a sin wave by using a power series). When M is increased, the values of coefficients **w** get much larger to match the data points. So the reason we get high error with higher orders is because the polynomial is trying to fit to random noise as well as data points. 
+
+Another thing to note is that the more data points we have the mode accurate the model becomes with higher values of M, i.e. Higher order.  
+![](Pasted%20image%2020241006014142.png)  
+Essentially the more data we have the more 'flexible' (complex) the model can be. A rough rule of thumb is that the number of data points should not be less than a multiple (e.g. 5 or 10) of adaptive parameters of the model (i.e. The parameters that dictate the complexity of a model, such as the initial value, learning rate, etc). 
+![](Pasted%20image%2020241006014914.png)  
 
 
 
+
+
+
+
+
+
+#### Regularization:  
+To control overfitting we can do regularization, which is adding a penalty term to the error function to prevent coefficients from reaching large values (which result in overfitting). 
+
+The simplest penalty term is the sum of squares of all coefficients, i.e.  
+![](Pasted%20image%2020241006015256.png)  
+The coefficient λ determines the importance of the regularization term compared to the sum of squares error term. w<sub>0</sub> is typically ignored in the regularizer as it causes the results to depend on the choice of origin for the target variable, or it comes with its own regularization coefficient. 
+![](Pasted%20image%2020241006021227.png)
+![](Pasted%20image%2020241006022711.png)
+![](Pasted%20image%2020241006022720.png)
+With a value of λ = -18 we can reduce the overfitting even with M = 9. However if λ is too large we get a poor fit once more, as shown on the right graph.
+
+Plotting RMS error of both training and test datasets against ln(λ) gives the impact of the regularization term on generalization error. So λ controls the overall complexity of the model and the degree of overfitting.  
+
+The standard modelling procedure takes the available data and separates it into two sets, training and testing. The training data is sued to set **w** coefficients, and the testing data is used to optimize the model, setting M and λ values.  
+
+
+### Supervised learning: 
+![](Pasted%20image%2020241006040255.png)  
+Regression is used to predict continuous variables. When a predicted variable can only be assigned into a number of discrete values then it is a classification problem.  
+
+Input data can have more than one feature and each feature is represented as a vector of ith values. 
+![](Pasted%20image%2020241006040508.png)  
+E.g. **X<sub>1</sub>** and **X<sub>2</sub>** represent two features where the ith element corresponds to the same object the data was taken from.  
+
+The regression function is essentially the polynomial equation that forms the model.  
+![](Pasted%20image%2020241006040742.png)  
+![](Pasted%20image%2020241006040802.png)  
+The optimum coefficients (in the example θ) will minimize the error between the actual target values and the predicted output values. A cost function is used to optimize the coefficients, where m = number of samples. The above cost function is also known as the least squares model.  
+![](Pasted%20image%2020241006041018.png)  
+
+#### Model optimization:  
+Gradient descent is an optimization algorithm for finding the minimum of a function. For example:
+![](Pasted%20image%2020241006041056.png)  
+It works by starting at some point X<sub>0</sub>, then approaching the next point X<sub>1</sub> by using the gradient descent algorithm which depends on calculating the derivative f'(X<sub>0</sub>). The derivative is the slope of the tangent line (gradient) to the function at that point, i.e. X<sub>0</sub>. The direction taken to the next point is the negative of the gradient (since we want to hit a minimum, then gradient should converge to zero, since a positive gradient means we are past the minimum (sloping upwards) and negative gradient means we are behind the minimum (sloping downwards)). 
+![](Pasted%20image%2020241006041351.png)  
+n is also known as the learning rate, that controls the 'speed' of the descent. 
+
+We also have to consider if we are approaching a global minimum or a local minimum, since the local minimum would not be the optimal minimum.
+![](Pasted%20image%2020241006041551.png)
+
+The same approach applies for multidimensional functions.  
+![](Pasted%20image%2020241006041650.png)  
+![](Pasted%20image%2020241006041717.png)  
+
+Gradient descent is best used when we can't find the parameters can't be found analytically (e.g. Using calculus). When using it we start at some point on the function then iteratively move along the function until the algorithm calculates the minimum, then we take the parameters from the gradient descent algorithm equation.  
+![](Pasted%20image%2020241006041856.png)  
+a in this case is the learning rate. A high learning rate means we can accidentally skip over the actual minimum, while a smaller learning rate means it will take longer to find the minimum. Sometimes we can optimize the learning rate by setting it high initially then lowering it as it approaches the minimum.  
+
+Example:  
+![](Pasted%20image%2020241006042058.png)  
+The recursive formula, known as LMS algorithm, optimizes the coefficient θ by using the cost function J(θ). 
+
+
+Two approaches can be used to use a generalized one example training to include multiple examples:
+- Batch gradient descent: ![](Pasted%20image%2020241006042355.png)Basically while not at the minimum or not at the iteration limit, start at j = 1. Then we perform recursive formula (LMS algorithm) on the jth coefficient, then increment j, then loop.
+- Incremental gradient/stochastic gradient descent: ![](Pasted%20image%2020241006042557.png)Basically while not at the minimum or not at the iteration limit, for 1 to n (where n is number of parameters for θ), perform the LMS algorithm for j = 1 to n, then increment j. Once the j loop is done then increment i and repeat.
+
+Essentially the batch gradient descent we update parameters through every example every loop, while in stochastic gradient descent we converge the cost function for each example before moving onto the next example.  
+
+Convergence may also not perfectly hit the minimum, so we want to set a range that we can consider the minimum with a small threshold value to prevent the algorithm going on forever, like J(θ) < ε. We can also set the limit of iterations to prevent recursion from repeating forever.  
+
+###### Convex:  
+A real valued function on n dimension is considered convex if a straight line between two points is higher than the actual function line, i.e.  
+![](Pasted%20image%2020241006145038.png)  
+A double differentiable function of a single variable is convex only if the second derivative is non-negative across the whole domain. Common examples of a convex function is x<sup>2</sup> and e<sup>x</sup>. Essentially a convex function is a smiley face and a concave function is a hill shape. A useful property of convex functions is that there is only one minimum.  
+![](Pasted%20image%2020241006145257.png)  
+E.g. f(x) = x<sup>2</sup>, the second derivative is 2 which is a non negative constant, hence strongly convex. If the second derivative is not a constant but has other terms, e.g. f''(x) = 2x then it is strictly convex no strongly convex, as it is possible to get negative points.  
+![](Pasted%20image%2020241006145529.png)  
+
+
+
+
+#### Linear regression approach:  
+Another way to reduce the error function J(θ) is to take the derivatives of J(θ) with respect to θi and setting the derivative to zero. This is an analytical approach that is more efficient then the iterative approach, which might not be guaranteed to find a minimum. 
+
+Linear regression is a technique that can be used to solve regression problems. The object of linear regression is to develop a system that takes input vectors **x** and predicting the corresponding scalar value h(x) as the output. In linear regression, the output is a linear function of the input. The output prediction h(x) is denoted as:  
+![](Pasted%20image%2020241006150843.png)  
+**y**^ (y with hat) is the outputs, **w**<sup>T</sup> is the weights vector, **x** is the input features vector. We have to optimize the weights vector **w** (note that θ and **w** are used interchangeably for weights vector). 
+
+Parameters are values that control the behaviour of the system. 

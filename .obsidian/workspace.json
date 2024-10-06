@@ -37,6 +37,30 @@
             "state": {
               "type": "markdown",
               "state": {
+                "file": "Reminders.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "0fa241ed532e9f90",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Git.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "3878bc5ac85c1d5f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
                 "file": "Machine learning and AI.md",
                 "mode": "source",
                 "source": false
@@ -44,7 +68,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -171,31 +195,31 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "9f3065011263ad08",
+  "active": "3878bc5ac85c1d5f",
   "lastOpenFiles": [
-    "Images/Pasted image 20240804111556.png",
+    "Pasted image 20241006150843.png",
+    "Pasted image 20241006145529.png",
+    "Pasted image 20241006145257.png",
+    "Pasted image 20241006145038.png",
+    "Pasted image 20241006042557.png",
+    "Pasted image 20241006042355.png",
+    "Pasted image 20241006042058.png",
+    "Pasted image 20241006042046.png",
+    "Pasted image 20241006041856.png",
+    "Pasted image 20241006041717.png",
+    "Pasted image 20241006041650.png",
+    "Oblivion modding.md",
     "Machine learning and AI.md",
-    "Images/Pasted image 20240805171155.png",
-    "Images/Pasted image 20240805170905.png",
-    "Images/Pasted image 20240805170218.png",
-    "Images/Pasted image 20240805151346.png",
-    "Images/Pasted image 20240805144953.png",
-    "Images/Pasted image 20240805141936.png",
-    "Images/Pasted image 20240805141900.png",
-    "Images/Pasted image 20240805141358.png",
-    "Images/Pasted image 20240804161654.png",
-    "Images/Pasted image 20240804161647.png",
+    "Git.md",
     "Reminders.md",
     "Pasted image 20240730162617.png.md",
     "Untitled.md",
-    "Oblivion modding.md",
     "README.md",
     "Some C notes regarding microchips.md",
     "MATLAB and C.md",
     "Java stuff.md",
     "Pasted image 20230911114706.png.md",
     "Python.md",
-    "Git.md",
     "Linux Bash.md",
     "Markdown language.md",
     "Programming knowledge.md",
