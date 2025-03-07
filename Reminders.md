@@ -1,10 +1,19 @@
+
 Java is installed on my current laptop in D drive and has an environmental variable implemented (JAVA-HOME).
 
-gcc, gdb, and g++ are installed in D drive under MSYS2 folder for C and C++ compiling. 
+(NOT DONE) gcc, gdb, and g++ are installed in D drive under MSYS2 folder for C and C++ compiling. 
 
 "Java stuff" folder in "School stuff" folder has some random useful mini-code for referencing
 
-Adobe Illustrator:  
+### Git personal access token instructions:
+1. Go to Settings on Github
+2. Go to Developer options on the side
+3. Go to personal access tokens
+4. Generate a new classic access token (use fine token for companies and stuff) 
+5. Copy access token to Bitwarden
+6. Repeat every month or so
+
+### Adobe Illustrator:  
 - The pen tool can draw straight lines by clicking two points or make a curving line by holding and dragging on the second point. It can also make new anchor points by clicking on a path
 - The selector mouse cursor can move anchor points which is useful for making small edits, as well as round corners by zooming in and dragging the small dot that shows up in a corner
 - The scissor tool can section lines which is useful for removing excesses or line drawings

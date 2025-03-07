@@ -1,52 +1,20 @@
 {
   "main": {
-    "id": "26cf198650d67281",
+    "id": "7c54fe954f068f6d",
     "type": "split",
     "children": [
       {
-        "id": "6536cdd474855778",
+        "id": "90cc59ae3db3db38",
         "type": "tabs",
         "children": [
           {
-            "id": "a3d477c430a39a22",
+            "id": "d3fa701d7f767514",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Reminders.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Reminders"
-            }
-          },
-          {
-            "id": "0fa241ed532e9f90",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Git.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Git"
-            }
-          },
-          {
-            "id": "3878bc5ac85c1d5f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Machine learning and AI.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Machine learning and AI"
+              "title": "New tab"
             }
           }
         ]
@@ -55,28 +23,27 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "9e7be6084b7ab2ec",
+    "id": "5cd6aabcdfd0eeaf",
     "type": "split",
     "children": [
       {
-        "id": "ead59b291ba45920",
+        "id": "92299bfca8b63e30",
         "type": "tabs",
         "children": [
           {
-            "id": "e276b98f0f806806",
+            "id": "301a790666e0c527",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical",
-                "autoReveal": false
+                "sortOrder": "alphabetical"
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
             }
           },
           {
-            "id": "4f0bb53ad112cb7a",
+            "id": "3bc04660d1b0d48e",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -93,7 +60,7 @@
             }
           },
           {
-            "id": "f045dc5b3bc8bbb5",
+            "id": "0e68115d7b072b65",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -109,20 +76,19 @@
     "width": 300
   },
   "right": {
-    "id": "e6bb35777c5594e8",
+    "id": "9fee70433a7ff84b",
     "type": "split",
     "children": [
       {
-        "id": "c2f3bba4a3f6a6e3",
+        "id": "9ba639a126a95318",
         "type": "tabs",
         "children": [
           {
-            "id": "b25bb86be5281cce",
+            "id": "10deabc916889b97",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Reminders.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -132,25 +98,24 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Reminders"
+              "title": "Backlinks"
             }
           },
           {
-            "id": "3c29217f3681f861",
+            "id": "2915c9dbc2b7a8a5",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Reminders.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Reminders"
+              "title": "Outgoing links"
             }
           },
           {
-            "id": "5c998d85d117874f",
+            "id": "3150567af0d71b08",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -163,15 +128,13 @@
             }
           },
           {
-            "id": "b8ee8d47506a17ba",
+            "id": "a54ed148303077fd",
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Reminders.md"
-              },
+              "state": {},
               "icon": "lucide-list",
-              "title": "Outline of Reminders"
+              "title": "Outline"
             }
           }
         ]
@@ -191,33 +154,6 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "a3d477c430a39a22",
-  "lastOpenFiles": [
-    "Machine learning and AI.md",
-    "Reminders.md",
-    "Git.md",
-    "Oblivion modding.md",
-    "Images/Pasted image 20240806121759.png",
-    "Images/Pasted image 20241006150843.png",
-    "Images/Pasted image 20241006145529.png",
-    "Images/Pasted image 20241006145257.png",
-    "Images/Pasted image 20241006145038.png",
-    "Images/Pasted image 20241006042557.png",
-    "Images/Pasted image 20241006042355.png",
-    "Images/Pasted image 20241006042058.png",
-    "Images/Pasted image 20241006042046.png",
-    "Images/Pasted image 20241006041856.png",
-    "Pasted image 20240730162617.png.md",
-    "Untitled.md",
-    "README.md",
-    "Some C notes regarding microchips.md",
-    "MATLAB and C.md",
-    "Java stuff.md",
-    "Pasted image 20230911114706.png.md",
-    "Python.md",
-    "Linux Bash.md",
-    "Markdown language.md",
-    "Programming knowledge.md",
-    "Windows Command prompt.md"
-  ]
+  "active": "d3fa701d7f767514",
+  "lastOpenFiles": []
 }
