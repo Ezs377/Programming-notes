@@ -1,25 +1,79 @@
+TODO:
+Make folder for software/ work/school stuff only, and move programs there
 
-Java is installed on my current laptop in D drive and has an environmental variable implemented (JAVA-HOME).
 
-(NOT DONE) gcc, gdb, and g++ are installed in D drive under MSYS2 folder for C and C++ compiling. 
+Java JDK ver 23 is installed on my current laptop in C drive (Program Files) and has an environmental variable implemented (JAVA-HOME). Java (JRE) is included in JDK.
+
+Eclipse is installed in C drive
+
+GNU make is installed in C drive -> Program Files x86
 
 "Java stuff" folder in "School stuff" folder has some random useful mini-code for referencing
 
-### Git personal access token instructions:
+Msys2 and ARM gnu are installed in C drive
+
+Python 3.13.3 is the "global" version where pip installs everything.
+
+
+## Git stuff:
+##### Git personal access token instructions:
 1. Go to Settings on Github
 2. Go to Developer options on the side
 3. Go to personal access tokens
-4. Generate a new classic access token (use fine token for companies and stuff) 
+4. Generate a new classic access token (fine token is for companies and stuff) 
 5. Copy access token to Bitwarden
 6. Repeat every month or so
 
-### Adobe Illustrator:  
+
+##### Git 'resetting' a remote repo:
+1. Copy commit hash of desired commit
+2. Do `git reset --hard <commithash>`
+3. Force push by doing `git push --force origin <branchname>`
+This will delete previous commit history too so watch out
+
+## Java stuff:
+##### Java installation:
+The common 'Java' is known as the Java Runtime Environment (JRE) which can only run Java applications. 
+
+The Java Development Kit (JDK) is what we need to start coding in Java, as it allows us to compile and run Java.
+
+Both are similar in installation, simply use the installer, then set the environment variable to the folder path of the installed files.
+- For JRE, use JRE_HOME environment variable and set to the 'bin' folder
+- For JDK, use JAVA_HOME environment variable and set to the 'jdk-xx' folder
+
+
+
+
+
+## Eclipse stuff:
+##### Installing Eclipse:
+Just download from the website, 'Install your favorite IDE packages'
+##### Workspaces:
+Workspaces can be deleted by going to Window -> Preferences -> General -> Startup and shutdown -> Workspaces
+
+##### Terminals:
+Ctrl+Alt+T to open local terminal (cmd prompt). To attach a new terminal go to Preferences -> Terminal -> Local terminal and add file path of new terminal (e.g. Git Bash).
+
+Then to open other terminals go to Open Terminal beside the Redo button, or do Ctrl+Shift+Alt+T
+
+##### Importing folders:
+For folders with existing Java files and libraries, go to empty workspace, do Create New Java Project, name it with the same name as directory, uncheck Use Default Location and navigate to the desired folder. Then click Next to confirm libraries and files, then Finish.
+
+
+## Software stuff:
+##### GNU Make:
+1. Download online or with 'winget' command in command prompt
+	- With winget look up GNU make winget. If it asks for source during installation just append `--source (whatever option is available)` to the end of the installation line
+2. Add Make to path variables by going to the GNUwin32 installation folder(usually in program files x86), then add the bin folder address to system variables (environment variables -> system variables -> path then edit
+
+To use make simply run `make <filename>` in command prompt or whatever
+##### Adobe Illustrator:  
 - The pen tool can draw straight lines by clicking two points or make a curving line by holding and dragging on the second point. It can also make new anchor points by clicking on a path
 - The selector mouse cursor can move anchor points which is useful for making small edits, as well as round corners by zooming in and dragging the small dot that shows up in a corner
 - The scissor tool can section lines which is useful for removing excesses or line drawings
 - For laser cutting (specifically at UoA) use black for engraving, with darker black being deeper engraving. Red (pure R, i.e. 255, 0, 0 RGB) lines for cutting, needs to be in smallest stroke size, i.e. 0.0001 mm. The For engraving it will cover anything that is black.
 
-### Slow internet guide:
+## Slow internet guide:
 I was experiencing a similar thing after 4 days of rapidly downloading around 670 files (most just a few kilobytes, but a few were a couple hundred megabytes). Internet speed test showed normal, but webpages and especially images in webpages loaded much slower than normal. Resetting the modem didn't seem to make any difference, but flushing the DNS cache makes everything as fast as lightning now! These are the steps I followed:
 
 **1.** Right-click the Windows Start button (or hit Windows + X on the keyboard).

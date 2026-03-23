@@ -2,7 +2,7 @@
 ### Git:  
 To install just look up Git downloads. For installation, it’s best to leave everything to default. For the text editor, you can use Notepad, but it’s recommended to have Notepad++ installed as it is the easiest way to edit text with Git. For the Git init branch name, Git defaults to `master`, but you can change the default to something else if preferable (this provides the name of the git repository). For everything else leave it as it is.
 
-## Teamworking:  
+### Teamworking:  
 The basic steps are:  
 1. Clone online repository
 2. Create new branch to create new code

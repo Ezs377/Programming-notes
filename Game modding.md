@@ -1,7 +1,10 @@
+# Oblivion
 Terms:  
 CS - Construction Set
 TES - The Elder Scrolls
-.esp - A common file extension for mod files or Elder Scrolls plugins
+.esp -
+
+A common file extension for mod files or Elder Scrolls plugins
 .esm - A common file extension for Elder Scrolls master files
 OBSE - Script extender for Oblivion
 
@@ -306,6 +309,111 @@ To use our custom stuff it is treated as an .esp file with our mods. To use the 
 3. Go to Data Files, and tick the .esp file of the mod
 
 Also, when you want to edit the same mod, tick the .esp plugin file with the mod when opening a file in TES construction set so the construction set doesn't make a new mod. Then click "Set as Active File" to ensure (note the .esm file must also be selected).  
+
+
+# Dying Light 1
+
+**TLDR:** Use a file extractor (7-Zip recommended) to extract the data0.pak file located in the DW folder of the game provider's folder (e.g. For Epic Games it could be in D:\Epic Games\Dying Light\DW) and you will find most of the game data files within. Edit .scr and .xml files with Notepad or any text editor.
+
+This guide contains my experience of amateur modding and information about useful things to mod. This guide doesn't delve into creating new objects or worlds and doesn't touch the devtools (from Steam) at all, focusing only on script and text editing. Do note that this is based on my experience and it might not fit the standard way of modding considering I couldn't find a lot of information online about modding Dying Light, and I never used Nexus Mods personally.
+## File extraction:
+Most of the game mechanics can be modded by editing the various data files in the game files. To access these, a file extractor is needed (recommended is 7-Zip). 
+
+The data folder is located in the DW folder, which is typically located in the game provider's game data folders (e.g. For Epic Games, it is in Epic Games -> Dying Light -> DW). This is generally located on the D drive, where the game is installed. C drive only contains user data which doesn't affect much.
+
+To extract files, 7-Zip can treat the extraction the same way as opening folders, so it's easy with 7-Zip. Otherwise, you'll need to manually extract the .pak files and store them as folders, then zip them back up as .pak files once finished, and replaced the corresponding .pak file in the DW folder. With 7-Zip you can also drag-drop files between the file manager and 7-Zip window, and it will automatically being them over without requiring you to manually extract them, and you can also drag-drop files from file manager to 7-Zip window.
+
+The main data file is called Data0.pak which contains all the data (mostly). Definitely back up all the files before modding as some changes can crash the game. Data3.pak is also generally empty, but is often used by other modders to install their mods.
+
+Within Data0.pak, there are several key files you can change which are listed below with their effects. Editing these requires Notepad (recommended) or a text editor equivalent. With 7-Zip right click and use the Edit option which automatically brings up Notepad provided it is on PATH. Recommended workflow is to copy all the files you want to edit into a folder and make copies of them for backup before editing. Then edit files manually with Notepad, then drag-drop it back to the 7-Zip window that is currently open with the folder the file is located in. Then overwrite the file to bring changes over. Don't rename files with this method. This also means you can revert changes using the backups if anything goes wrong.
+
+If there is no backup and something goes wrong easiest fix is to use the "Verify files" option from the game provider, which should automatically reinstall the edited files to their defaults (this doesn't affect saves, just world data). Note this will remove all existing mods most likely.
+
+## Performance:
+The biggest boost to performance lies in the "scripts" folder, then the "*varlist_performance.scr*" file. Then edit the line `VarInt("i_shadows_sun_on", 1)` and make it 0 instead. It makes the game look bad though (everything is either super sunny or dark, minimal shadows) but improves performance a lot. You could also manually go through the other *"varlist"* files to set the settings up the way you want without having to set them in game (helpful if they keep getting resetted)
+
+## Skills:
+You can modify some attributes of skills by going to the "skills" folder. 
+- "*common_skills.xml*" contains parameters of all the upgradable skills. In particular, you can add `<effect id="NageWazaFront" change="1"/>` to the "NageWaza" skill to let you push zombies forward alongside sideways and backwards. The other common parameter is XP gained during skill actions which can help level up much faster
+- *"legend_skills.xml"* contains parameters for Legend skills, which takes a while to level up in the base game. Here you can edit the values for Legend skills such as the stat increases. For example, `<level_req type="Legend" value="20" active_at_skill_level="5"/>` means at skill level 5 you get a 20% increase in the given stat (although this may be just cosmetic text and not the actual stat). Stats come with unique parameters as well that affect the actual stat increase, for example `<effect id="LegendSkillArrowDamageMul" change="800.0"/>` increases the bow damage by 800% per level.
+- *default_levels.xml* contains all the player stat data. This is the file to edit if you want to really affect the player character, such as speed increases, bow draw speed, running speed, ziplining speed, health, etc. You can also change the XP requirements for level ups which are all listed at the bottom. Other changeable effects include max ammo count (unverified), maximum fall height before damage, jump height, weapon handling modifiers (critical chance, accuracy, stamina cost), and throwing weapon range, speed, damage, lock on time, max targets (this is really nice for having automatic lock on by reducing the lock delay to 0).
+- *buffs.xml* contains data of game buffs that can be applied to the character. Most notably the "IncreaseMoveSpeedInc" stat affects the speed boost, duration, and max stacks of the Kuai dagger effect. You can also alter the effects of potions and even put all effects into one potion instead. 
+
+Final note, in the *default_levels.xml* file you can also change the inventory size. You can also change the quick slot size, but this doesn't affect the quick slot wheel, so you won't be able to find the items placed on quick slot except for the first four, otherwise you'll have to manually tap tab to cycle through the quick slotted items. These items are effectively "hidden" from the inventory menu as well, and resetting the quick slot amount will cause these items to be lost forever.
+
+## Weapons and objects:
+All weapons can be edited by going into "scripts" -> "inventory". Here all the files detail weapon data. There's a lot of data here which can take a while to go through. There are 3 versions of each file type here, namely the base, DLC, and gaas versions. Base files refer to content in the main game, DLC refers to DLC items (sometimes data from non-installed DLC appears, but can't use them) and gaas refers to special unique items, either from the base game or DLC (e.g. The Kuai dagger, Fenrir, etc). The following files below refer to the types of files, which can also have base, DLC, or gaas versions.
+
+### Collectables:
+The *collectables.scr* files appears to contain the craft plans for throwable items such as grenades and throwing stars, and some data on general collectables. Not sure if it does affect them, notably you can alter the recipe and the amount crafted per recipe. 
+
+### Inventory
+The *inventory.scr* file contains stat parameters for craftables, including grenades, ammo, weapon mods, etc. Notably, `throwable_explosive_grenade` refers to the DIY grenade item which can be used as a baseline for testing the stats of other throwables. You can change the damage, area damage range, max stacks, explosion delay, etc. You can also change the throwing range/speed of the throwable with the `ThrowImpulseLook()` stat, where higher = further. `ThrowImpulseUp()` also does something but idk.
+
+### Inventory gen
+The *inventory_gen.scr* file contains all data parameters for all the weapons in the base game, with *inventory_gen_dlcXX.scr* corresponding to a DLC (XX is a number which may be different across versions) and *inventory_gaas.scr* for gaas versions. This contains ALL weapons, including their variants. So good luck finding which weapons are which, since they're all named generically. Parameters are listed in subsections for both melee and firearms, but with different effects:
+- For melee, the parameters for a weapon object are given as base, damaged, broken. This refers to the stats of the weapon when it is in good condition, in bad condition, and fully broken. The important parameters are only in base, the damaged and broken stats don't affect much except the HUD and appearance of the item, however you can add other parameters for these sections to give weapons a new feel.
+- For firearms, the parameters of the weapon object are given as base and recoil. The base affects the usual stats, and recoil affects the recoil pattern? Not too sure but the recoil section might actually affect the recoil when the weapon is aimed.
+
+Notable weapon objects to use:
+- Bekir's machete: The weapon appears in the Following DLC in the second(?) mission (the water pump level), but is easy to use as a reference since it is also called Bekir's machete in the files so you can easily navigate to it. Other unique weapons include Tahir's machete, Arena machete, and Rai's gun.
+- `Firearm_PistolAGen` and `Firearm_PistolBGen` refers to the base American and German pistol respectively. Note this is for the base weapons, so variants like the composite pistols aren't affected. Likewise `Firearm_RifleAGen` and `Firearm_RifleBGen` refers to the base Police rifle and Military rifle respectively. I dunno about shotguns and SMGs since I didn't do much with them.
+
+For weapon stats, the easy stats to change across all weapons is the damage. 
+- **For melee weapons, the following stats are helpful:**
+	- `condition` = Amount of hits before needing to be repaired
+	- `damage`= Self explanatory (note this is multiplied by legend stats as well)
+	- `force` = Seems to affect the impact force of the weapon (i.e. How far zombies go when you smack them)
+	- `criticalprob` and `criticaldamage` = Probably affects critical hit chance and damage, expressed as percentage (i.e. 1.00 = 100%)
+	- `damagetophysicsobjects` = Could be the damage done to the environment, e.g. Detonating gas tanks
+	- `staminausage` = self explanatory
+	- `headcutprob` and the others (arms and legs) = Affects chance of cutting these limbs when damage is high enough. Note that head has 2 parameters: `smash` and `cut` which cannot happen at the same time. Stats are expressed as percentages (1.00 = 100%)
+	- `damagetype` = Determines the damage effect used when hit. This can be changed so that "axe" attacks can be applied to swords, which makes it much easier to slice zombies, or give sword attacks to baseball bats. Reference other weapons to see the available options (e.g. Axes tend to use the `CutTypesGroup_SharpHeavy` attribute)
+	- `flags` = Refers to the weapon object subsections mentioned before. Don't change unless you wanna add more or remove some but be careful.
+	- `inventorymeshhq` and `inventorymesh` and `mesh` = Affects the weapon skin. You can change it up to get other weapons looking like other weapons, from what I got you should keep the mesh the same for both parameters. Use .msh options for the mesh, you can refer to other weapons for their meshes.
+	- `skin` and `skintag` = Affects the variant of the skin, e.g. Flamboyant versions of the knife mesh. Dunno what options are available, you'll need to go through other weapons and experiment. Not all meshes have skins either.
+	- `animprefix` = Affects the swing animation of the weapon. You can basically make a knife swing like an axe and etc. Refer to other weapons for their animations, but remember that this only affects the animation not the appearance (e.g. Machete with axe animation makes the player grab the machete blade with two hands like the axe). Note: This might  also affect the skills attributed to the weapon, e.g. Axe animation makes the weapon have the ability to ground pound (but sometimes it doesn't work so idk).
+	- `twohanded` = Seems to affect whether a weapon is two handed or not, dunno what it does really but change it to match the animation just in case.
+	- `reparable`, `repairpart`, and `allowedrepairs` = Affects the ability to repair the weapon, `reparable` determines if the weapon can be repaired, `repairpart` determines the parts used to repair, `allowedrepairs` determines the amount of repairs possible
+	- `achtype` = NOTE: Regarding weapon animations, this might also affect it so if you switch to a different weapon animation match this too. I forgot if it does affect it but it might.
+	
+	Aside from these you can also change the sound effect played when hitting stuff (again, refer to other weapons for their sounds) and change the parts given when dismantling and the weapon prices. Also, you'll notice that damaged weapons have their own meshes which might help for more customization.
+
+- **For firearms, the following stats are helpful:**
+	- `headsmashprob`, `headcutprob` and etc = Same as melee, along with the other same named parameters. Notably though, changing the mesh and animations seems to crash the game but maybe that was another issue.
+	- `shottime` = Affects the delay between shots. Don't make it too short otherwise you can literally dump the entire magazine in 0.1 seconds, around 0.02 is a good delay for rifles.
+	- `shotsound` = Affects the sound effect for shots, not fully tested
+	- `ammocount` = Amount of ammo before reloading
+	- `reloadtime` = Actually useless, it makes the animation faster but not the overall reload time so you just get static animations while waiting for the full reload delay
+	-  `shootstatsaccuracy`, `shootminangle`, `shootmaxangle` and etc = Affects the recoil pattern of hipfire shooting(?) not fully tested.
+	- `shootmode` = Affects shooting type, comes in single, automatic, burst modes (use other guns to get exact attributes)
+	- `bulletspershot` = Amount of bullets shot out per shot, usually used for shotguns but you can alter it in other guns too. Doesn't affect the amount of ammo used, just the amount of bullets that come out.
+
+### Inventory gaas:
+Special mention, the *inventory_gaas.scr* is similar to *inventory_gen.scr* but lists unique weapons. Notably, since the weapons are unique it's pretty easy to find the parameters for those weapons, however they're still named with generic names. This also means you can use them to play around with meshes and etc.
+- `firearm_gaas revolver` = The last wish revolver, which is the one that shoots an explosive round on the last bullet (I actually never got this one but I assume it to be the same)
+- `gaas_shortknife` = The Kuai dagger, which gives you a speed boost when you perform parkour actions with the knife out. 
+- `gaas_axe` = Fenrir axe which does more damage for cutting limbs(?)
+- There's also the Zaghnal which I didn't realize until I found out it was referred to as the lost invention so I never got around to using it oops 
+
+### Inventory special:
+The *inventory_special.scr* file contains data for unique items such as developer items (e.g. Korek machete) and event items. Some of them are have different stats and parameters to the usual items, but mostly are the same. Some developer items are not named which can make it harder to locate them ingame. Unlike other items both the stats and craft plans of items are both included in this file, typically in format of stats, craftplan, so don't confuse items with craftplans when editing. They also combined a lot of other stuff for items so there's quite a few unknown effects and parameters. For example, the Airstrike developer item (in the game it's a flare you throw which spawns a small missile that blows up the area) has the parameters for the flare effect AND the explosion generated, as well as the stats of a throwable (impulse, delay, etc). So yeah some experimentation needed.
+
+### Tricky weapons:
+The *tricky_weapons.scr* file has some details on certain DLC weapon effects (mostly Hellraid DLC) idk if it affects anything since I never got any DLCs
+
+## Other notes:
+I couldn't find a way to directly change stats of weapons you own in-game, mostly because that requires the save data which is NOT stored in the data0.pak file, and the only save file data I could find couldn't be extracted, or comes out as gibberish.
+
+This also means you can't give yourself items, so for the special unique weapons (Kuai, Fenrir, Last Wish, Zaghnal) you can't give them yourself without doing the actual bounty, but you can always make things easier by editing other stats (e.g. Change the move speed parameter for the Kuai bounty). I might as well list their requirements here and how I got them:
+- Kuai dagger: Complete the bounty challenge, which consists of the usual timed parkour challenge. However, it's notoriously difficult, especially since grappling hook is not allowed, yet there's a part where you have to get onto an apartment roof. Also the bounty is started on top of the antenna of the antenna safe house, and you have to climb back up there if you fail (because it's not considered a challenge your position doesn't get reset during failure/success). It's possible normally, just need maxed out skill tree, memorize the path, and hope nothing goes wrong. Otherwise you could just edit the move speed of the player which I found helpful.
+- Fenrir: Complete the bounty challenge, which is to slice 3 heads off in one swing, and do this 30 times. Get a machete and give it the axe cut type + damage, then slash away at zombie crowds aiming for their heads. The Following DLC helps with this in the open fields.
+- Last Wish: Complete the bounty challenge, which is to land 2 headshots in one shot, and do it 30 times. I never got this cause it was too hard and there's really nothing to help except maybe editing the damage of weapons for additional penetration. But hitting headshots was hard enough, trying to line up two heads is near impossible.
+- Zaghnal: In the Prison DLC (which is free I believe) get to the end without using ranged weapons. I don't know exactly, but to be safe I went without guns and throwables in my inventory. The prison consists a building you need to navigate through, and at the end it is an arena of zombies where you face 2 waves of zombies. It is brutal normally, since you will need to face volatiles in the middle section, and a jacked-up demolisher at the end. You could also just modify weapon damage and kill everything in one shot lol.
+
+
+
+
 
 
 
