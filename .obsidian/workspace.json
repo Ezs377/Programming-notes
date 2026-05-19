@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Reminders.md",
+                "file": "Game modding.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Reminders"
+              "title": "Game modding"
             }
           }
         ]
@@ -164,17 +164,17 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "e276b98f0f806806",
+  "active": "0fa241ed532e9f90",
   "lastOpenFiles": [
+    "Machine learning and AI.md",
+    "Programming knowledge.md",
+    "Reminders.md",
     "Git.md",
     "Game modding.md",
-    "Machine learning and AI.md",
     "Java stuff.md",
-    "Reminders.md",
     "Python.md",
     "README.md",
     "Linux Bash.md",
-    "Programming knowledge.md",
     "Images/Pasted image 20240806121759.png",
     "Images/Pasted image 20241006150843.png",
     "Images/Pasted image 20241006145529.png",

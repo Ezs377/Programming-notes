@@ -348,7 +348,7 @@ All weapons can be edited by going into "scripts" -> "inventory". Here all the f
 The *collectables.scr* files appears to contain the craft plans for throwable items such as grenades and throwing stars, and some data on general collectables. Not sure if it does affect them, notably you can alter the recipe and the amount crafted per recipe. 
 
 ### Inventory
-The *inventory.scr* file contains stat parameters for craftables, including grenades, ammo, weapon mods, etc. Notably, `throwable_explosive_grenade` refers to the DIY grenade item which can be used as a baseline for testing the stats of other throwables. You can change the damage, area damage range, max stacks, explosion delay, etc. You can also change the throwing range/speed of the throwable with the `ThrowImpulseLook()` stat, where higher = further. `ThrowImpulseUp()` also does something but idk.
+The *inventory.scr* file contains stat parameters for craftables, including grenades, ammo, weapon mods, etc. Notably, `throwable_explosive_grenade` refers to the DIY grenade item which can be used as a baseline for testing the stats of other throwables. You can change the damage, area damage range, max stacks, explosion delay, etc. You can also change the throwing range/speed of the throwable with the `ThrowImpulseLook()` stat, where higher = further. `ThrowImpulseUp()` also seems to affect the throwable's "gravity" where higher values seem to make the throwable drop quickly after being thrown (not fully tested).
 
 ### Inventory gen
 The *inventory_gen.scr* file contains all data parameters for all the weapons in the base game, with *inventory_gen_dlcXX.scr* corresponding to a DLC (XX is a number which may be different across versions) and *inventory_gaas.scr* for gaas versions. This contains ALL weapons, including their variants. So good luck finding which weapons are which, since they're all named generically. Parameters are listed in subsections for both melee and firearms, but with different effects:
@@ -394,7 +394,7 @@ Special mention, the *inventory_gaas.scr* is similar to *inventory_gen.scr* but 
 - `firearm_gaas revolver` = The last wish revolver, which is the one that shoots an explosive round on the last bullet (I actually never got this one but I assume it to be the same)
 - `gaas_shortknife` = The Kuai dagger, which gives you a speed boost when you perform parkour actions with the knife out. 
 - `gaas_axe` = Fenrir axe which does more damage for cutting limbs(?)
-- There's also the Zaghnal which I didn't realize until I found out it was referred to as the lost invention so I never got around to using it oops 
+- There's also the Zaghnal which I didn't realize until I found out it was referred to as the lost invention so I never got around to using it
 
 ### Inventory special:
 The *inventory_special.scr* file contains data for unique items such as developer items (e.g. Korek machete) and event items. Some of them are have different stats and parameters to the usual items, but mostly are the same. Some developer items are not named which can make it harder to locate them ingame. Unlike other items both the stats and craft plans of items are both included in this file, typically in format of stats, craftplan, so don't confuse items with craftplans when editing. They also combined a lot of other stuff for items so there's quite a few unknown effects and parameters. For example, the Airstrike developer item (in the game it's a flare you throw which spawns a small missile that blows up the area) has the parameters for the flare effect AND the explosion generated, as well as the stats of a throwable (impulse, delay, etc). So yeah some experimentation needed.
@@ -409,7 +409,7 @@ This also means you can't give yourself items, so for the special unique weapons
 - Kuai dagger: Complete the bounty challenge, which consists of the usual timed parkour challenge. However, it's notoriously difficult, especially since grappling hook is not allowed, yet there's a part where you have to get onto an apartment roof. Also the bounty is started on top of the antenna of the antenna safe house, and you have to climb back up there if you fail (because it's not considered a challenge your position doesn't get reset during failure/success). It's possible normally, just need maxed out skill tree, memorize the path, and hope nothing goes wrong. Otherwise you could just edit the move speed of the player which I found helpful.
 - Fenrir: Complete the bounty challenge, which is to slice 3 heads off in one swing, and do this 30 times. Get a machete and give it the axe cut type + damage, then slash away at zombie crowds aiming for their heads. The Following DLC helps with this in the open fields.
 - Last Wish: Complete the bounty challenge, which is to land 2 headshots in one shot, and do it 30 times. I never got this cause it was too hard and there's really nothing to help except maybe editing the damage of weapons for additional penetration. But hitting headshots was hard enough, trying to line up two heads is near impossible.
-- Zaghnal: In the Prison DLC (which is free I believe) get to the end without using ranged weapons. I don't know exactly, but to be safe I went without guns and throwables in my inventory. The prison consists a building you need to navigate through, and at the end it is an arena of zombies where you face 2 waves of zombies. It is brutal normally, since you will need to face volatiles in the middle section, and a jacked-up demolisher at the end. You could also just modify weapon damage and kill everything in one shot lol.
+- Zaghnal: In the Prison DLC (which is free I believe) get to the end without using ranged weapons. I don't know exactly, but to be safe I went without guns and throwables in my inventory. The prison consists a building you need to navigate through, and at the end it is an arena of zombies where you face 2 waves of zombies. It is brutal normally, since you will need to face volatiles in the middle section, and a jacked-up demolisher at the end. You could also just modify weapon damage and kill everything in one shot.
 
 
 
@@ -417,9 +417,50 @@ This also means you can't give yourself items, so for the special unique weapons
 
 
 
+# Fallout New Vegas:
+Most of the modding done is usually downloaded straight from Nexus mods, haven't tried to make my own mods just because there's already plenty of mods out there for Fallout NV.
 
+The Viva New Vegas guide is extensive and covers all the basic requirements for other mods such as the script extenders and etc, follow it up to the Utilities section for basic coverage. The Bug Fixes section is helpful too, and the LOD section is crucial for any graphical mods (such as New Vegas Reloaded). These all give the small improvement mods that don't do much by themselves but used by other mods. Expect to download around 50 mods or more. Do not use Wabbajack unless you just want extended Viva New Vegas content which adds more content to the game, Wabbajck downloads all the required mods for Viva New Vegas Extended for you but it also makes it difficult to actually understand the mod order and etc if you want to change things or add more mods. Use the basic guide to fully understand how modding works.
 
+### Mod manager 2:
+Recommended due to its simplicity and is the standard mod manager used. Make sure Mod Manager 2 (MO2) is connected to your Nexus mods account by going to settings and setting up the API by clicking "connect to Nexus", this brings up the login page for Nexus mods in your browser, just login as usual and it should be setup. Note this needs repeated if you log out of Nexus.
 
+The basic process of getting a mod is:
+1. Look it up on Nexus mods
+2. Use the Mod Manager download button for the files, noting the requirements and possible conflicts (download the required mod files first if it's shown)
+3. Wait for download (don't need to wait if you have premium)
+4. In MO2, on the right hand panel, go to "downloads". If connected properly you should see the mod being downloaded.
+5. In the downloads panel, double click the mod that was downloaded to install it. It should appear in the left hand panel as an available mod.
 
+#### Mod order:
+Load order of mods matter. Some mods will overwrite other mod content if they load later. The Priority of a mod (shown on the left hand panel) determines its load order. The higher the number, the later it is loaded, which means later mods overwrite earlier mods (i.e. Higher priority mods overwrite lower priority mods). In general, you want mod patches to go after the actual mod, so the patch overwrites the correct content in the mod. Likewise this also means all patch mods (e.g. YUP) should go last. 
 
+However note there is a difference in mod order and load order. Mod order refers to the right hand panel and dictates the content of the mods, which content gets overridden by other mods. The left hand panel on the "plugins" tab shows the load order which dictates the order the actual mods are loaded, including scripts and etc. Load order and mod order should generally be the same order to prevent issues. 
+
+A general load order looks like (from top to bottom, where top is first loaded, and bottom is last loaded which overwrites everything else):
+1. Base game + DLC: Plugins like "FalloutNV.esm" and "DeadMoney.esm" which represent the base game files. 
+2. Patches and fixes: Plugins that fix bugs ad patch the game, including script extenders. Ideally patches first then bug fixes, followed by graphic fixes.
+3. Overhaul mods and gameplay change mods, which alter the content in the game, such as changing the perk system and etc.
+4. Environment and world mods, which adjust game lighting and the base game world content.
+5. NPC and companion mods which alter NPCs and potentially player character models.
+6. Item and weapon mods which add/change weapons and items to the game.
+7. Quest mods and Landscape addition mods, which add quests and adds actual content to the game world instead of altering it (e.g. New interiors and dungeons)
+8. Compatibility patches and tweaks that are supposed to remove conflicts in added mods.
+9. Weather and LOD mods such as adding new weather cycles and distant terrain generation, done last to ensure that the mods are applied to every other mod.
+
+### LOD generation:
+LOD (level of distance) is how much the game compresses certain resources in the game the further you get away from it ingame (e.g. Making mountains blurrier as you move away). When installing any mod that alters terrain or the environment (or just the graphics in general) LOD generation is required to apply all these mods correctly in the game. This is mainly because in Fallout NV the game world is pre-generated and static, so it doesn't change unless you force-reset it with LOD generation. Some potential problems that could occur without LOD generation include random pop-in, wrong textures, etc.
+
+LOD generation guide is available in Viva New Vegas guide but I will list the simplified steps here to make it easier to rerun the generation process, since LOD generation is required for every new graphics mod installed. This is mainly done using the xLODGen tool which can be run directly from MO2.
+
+Generation is basically:
+1. Run xLODGen from MO2 by selecting it from the dropdown run menu (where "New Vegas" usually is) then click run
+2. Generate terrain LOD first. Untick the Object and Trees LOD options and check the Terrain LOD option. Use the options provided in Viva New Vegas LOD guide (the settings should stay the same on the same computer but not sure). Once settings are done click Generate and wait for it to say LOD finished, then exit by clicking the x in the window.
+3. In the Output folder (path determined with the arguments when adding xLODGen) cut (not copy) the "mesh" and "texture" folders.
+4. Create an empty mod in the right hand pane of MO2 (name it anything related to LOD generated output, such as FNVLODgen - terrain for terrain gen), then paste the mesh and texture folders into the mod directory (can be found by right clicking mod then selecting open in Explorer). Make sure the mesh and texture folders are gone in the Output folder for xLODGen.
+5. Refresh mod pane in MO2 (press f5) then activate the mod for LOD generation.
+6. Repeat for the Objects and Trees options in xLODgen.
+7. Disable the High Priority Core mods (including the tree mod for it) in MO2, these are only used to generate LODs, not for the actual game. 
+
+Also make sure to name the generated LOD mods with their respective generation, e.g. FNVLODgen - Terrain for generated terrain. LOD generation should also be the very last mods in the mod order (i.e. Highest priority).
 
