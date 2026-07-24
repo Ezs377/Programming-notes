@@ -464,3 +464,19 @@ Generation is basically:
 
 Also make sure to name the generated LOD mods with their respective generation, e.g. FNVLODgen - Terrain for generated terrain. LOD generation should also be the very last mods in the mod order (i.e. Highest priority).
 
+### FNVEdit:
+FNVEdit is a program that allows you to access all the game data and edit records of game objects for each plugin. Only plugin data can be altered, i.e. .esp files that show up on the right pane of MO2. Typically each mod has several categories such as Quest, Weapon, etc. Global category is for global variables.
+
+###### Installation:
+1. FNVEdit can be downloaded from Nexus as a zip file.
+2. Extract zip file as any folder.
+3. Locate the FNVEdit.exe file and copy path
+4. In MO2, open the runnable files (the dropdown beside the Run button) and click <Edit..>
+5. Add the FNVEdit.exe filepath to this and add a new runnable executable called FNVEdit
+
+This allows MO2 to run FNDEdit which will give it access to the virtual environment with all the mods. Running FNVEdit by itself will only let it view the vanilla game files.
+
+###### Backups:
+Backups can be generated automatically with each save. With MO2, all backups are located in the "overwrite" folder in the MO2 directory. The date for each backup is in the name of the back, NOT the actual date and time listed on the file. 
+
+To recover a backup, copy/paste the backup into the mod folder of the edited mod (in the MO2 mods folder) which should be an .esp file, and the mod folder should also have a similarly named .esp file. Delete the original .esp file, then rename the backup file exactly the same as the original .esp file. Typically FNVEdit backup files end with ".esp.backup" followed by the date and time in the filename.
